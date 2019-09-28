@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="springboot,kotlin,web,gradle,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
+<meta name="keywords" content="springboot,kotlin,web,gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot处理集合类型校验">
+<meta property="og:url" content="http://www.ice-maple.com/2019/09/25/springboot处理集合类型校验/index.html">
+<meta property="og:site_name" content="Maples Blog">
+<meta property="og:description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25288/0B38C31B1A9947C09965BD24EF4C7434">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25302/A5F5346F67FF4014A60F56E7DC461B2E">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25349/25BB0B32BAD9406E8B887A7EE7A6BED0">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25353/82607FE1754147AAB10309782FF6EA84">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25448/22893EA3904A495A87A4B4C272200E97">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25491/55253F50668841D4B51B6357C7800C8A">
+<meta property="og:image" content="https://note.youdao.com/yws/res/25261/3EE4FD1A5A284A8B9BB7EE5924EDBE62">
+<meta property="og:updated_time" content="2019-09-27T09:48:39.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="springboot处理集合类型校验">
+<meta name="twitter:description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
+<meta name="twitter:image" content="https://note.youdao.com/yws/res/25288/0B38C31B1A9947C09965BD24EF4C7434">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.ice-maple.com/2019/09/25/springboot处理集合类型校验/">
+
+
+
+
+
+  <title>springboot处理集合类型校验 | Maples Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maples Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">时光静好，与君语；细水流年，与君同。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2019/09/25/springboot处理集合类型校验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="maple">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maples Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">springboot处理集合类型校验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-25T14:54:32+08:00">
+                2019-09-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-27T17:48:39+08:00">
+                2019-09-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kotlin-web/" itemprop="url" rel="index">
+                    <span itemprop="name">kotlin web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/25/springboot处理集合类型校验/" class="leancloud_visitors" data-flag-title="springboot处理集合类型校验">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="springboot处理集合类型校验"><a href="#springboot处理集合类型校验" class="headerlink" title="springboot处理集合类型校验"></a>springboot处理集合类型校验</h3><hr>
+<blockquote>
+<p>本文所用相关版本:<br>springboot版本2.1.6.RELEASE<br>kotlin版本1.2.71<br>gradle版本5.2.1<br>idea版本2019.1.2 ultimate edition</p>
+</blockquote>
+<hr>
+<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><ul>
+<li><p>点击file -&gt; new project -&gt;选择spring initializrd点击下一步</p>
+</li>
+<li><p>选择语言,选择项目管理工具<br>  <img src="https://note.youdao.com/yws/res/25288/0B38C31B1A9947C09965BD24EF4C7434" alt="image"></p>
+</li>
+<li><p>此篇我们讨论只涉及校验,只引入springWebStarter即可</p>
+</li>
+<li><p>选择gradle路径(或者使用默认的),这里我选择本地路径<br>  <img src="https://note.youdao.com/yws/res/25302/A5F5346F67FF4014A60F56E7DC461B2E" alt="image"></p>
+</li>
+<li><p>输入项目路径,点击finish,查看项目结构,我们可以看到生成的gradle依赖文件变成了kts后缀的文件,和之前比起来,配置会略有不同</p>
+</li>
+<li><p>增加国内镜像地址<br>  追加根节点</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven (url = &quot;http://maven.aliyun.com/nexus/content/groups/public/&quot;)</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新导入等待编译完成</p>
+</li>
+</ul>
+<h4 id="重现无法校验场景"><a href="#重现无法校验场景" class="headerlink" title="重现无法校验场景"></a>重现无法校验场景</h4><ul>
+<li><p>增加测试控制器和测试类,这里我直接加在了启动类上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/demo"</span>)</span><br><span class="line">    <span class="function">fun <span class="title">demo</span><span class="params">(@RequestBody @Validated user: User)</span>: User </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> user</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/demoList"</span>)</span><br><span class="line">    <span class="function">fun <span class="title">demoList</span><span class="params">(@RequestBody @Validated user: List&lt;User&gt;)</span>: List&lt;User&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> user</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotBlank</span>(message = <span class="string">"用户名不能为空"</span>)</span><br><span class="line">    val username: String? = <span class="keyword">null</span></span><br><span class="line">    val password: String? = <span class="keyword">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">fun <span class="title">main</span><span class="params">(args: Array&lt;String&gt;)</span> </span>&#123;</span><br><span class="line">    runApplication&lt;DemoApplication&gt;(*args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>增加测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">@WebMvcTest(DemoApplication::class)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebMvcTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    lateinit <span class="keyword">var</span> mockMvc: MockMvc</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function">fun <span class="title">testDemo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        val example = <span class="string">"&#123;\"username\":\"\", \"password\":\"111\"&#125;"</span></span><br><span class="line">        mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demo"</span>)</span><br><span class="line">                .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">                .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function">fun <span class="title">testDemoList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        val example = <span class="string">"[&#123;\"username\":\"\", \"password\":\"111\"&#125;]"</span></span><br><span class="line">        mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demoList"</span>)</span><br><span class="line">                .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">                .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们先执行能够正常执行校验的测试方法testDemo,执行后发现控制台报错,说明参数被校验了<br>  <img src="https://note.youdao.com/yws/res/25349/25BB0B32BAD9406E8B887A7EE7A6BED0" alt="image"></p>
+</li>
+<li><p>但执行List时参数却未被校验<br>  <img src="https://note.youdao.com/yws/res/25353/82607FE1754147AAB10309782FF6EA84" alt="image"></p>
+</li>
+</ul>
+<h4 id="处理方案"><a href="#处理方案" class="headerlink" title="处理方案"></a>处理方案</h4><h5 id="方案1"><a href="#方案1" class="headerlink" title="方案1:"></a>方案1:</h5><ul>
+<li><p>新建类包装List,在list上加上@Valid(javax包中)(由于@Validated不支持放在字段上,所以无法使用)注解  </p>
+<ul>
+<li><p>控制器方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/demoValidList"</span>)</span><br><span class="line"><span class="function">fun <span class="title">demoValidList</span><span class="params">(@RequestBody @Validated user: ValidList&lt;User&gt;)</span>: List&lt;User&gt;? </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> user.list</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>包装类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValidList</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Valid</span></span><br><span class="line">    val list: List&lt;T&gt;? = <span class="keyword">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function">fun <span class="title">testDemoValidList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    val example = <span class="string">"&#123;\"list\":[&#123;\"username\":\"\", \"password\":\"111\"&#125;]&#125;"</span></span><br><span class="line">    mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demoValidList"</span>)</span><br><span class="line">            .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">            .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  <strong>可以看到此方案需要我们将传输的参数变为对象,多了一层无用的嵌套,并且由于@Valid注解的缺陷,无法使用分组</strong></p>
+<h5 id="方案2"><a href="#方案2" class="headerlink" title="方案2:"></a>方案2:</h5></li>
+<li><p>我们可以采用实现list接口并转接方法的方式,去掉这层无用的嵌套</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">class ValidList1&lt;T&gt; : MutableList&lt;T&gt; &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">iterator</span><span class="params">()</span>: MutableIterator&lt;T&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.iterator()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">listIterator</span><span class="params">()</span>: MutableListIterator&lt;T&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.listIterator()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">listIterator</span><span class="params">(index: Int)</span>: MutableListIterator&lt;T&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.listIterator(index)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">subList</span><span class="params">(fromIndex: Int, toIndex:Int)</span>: MutableList&lt;T&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.subList(fromIndex, toIndex)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">add</span><span class="params">(element: T)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.add(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">add</span><span class="params">(index: Int, element: T)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.add(index, element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">addAll</span><span class="params">(index: Int, elements: Collection&lt;T&gt;)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.addAll(index, elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">addAll</span><span class="params">(elements: Collection&lt;T&gt;)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.addAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        list.clear()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">remove</span><span class="params">(element: T)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.remove(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">removeAll</span><span class="params">(elements: Collection&lt;T&gt;)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.removeAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">removeAt</span><span class="params">(index: Int)</span>: T </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.removeAt(index)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">retainAll</span><span class="params">(elements: Collection&lt;T&gt;)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.retainAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">set</span><span class="params">(index: Int, element: T)</span>: T </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.set(index, element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    override val size: Int</span><br><span class="line">        get() = list.size</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">contains</span><span class="params">(element: T)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.contains(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">containsAll</span><span class="params">(elements: Collection&lt;T&gt;)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.containsAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">get</span><span class="params">(index: Int)</span>: T </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list[index]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">indexOf</span><span class="params">(element: T)</span>: Int </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.indexOf(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">isEmpty</span><span class="params">()</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.isEmpty()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">lastIndexOf</span><span class="params">(element: T)</span>: Int </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> list.lastIndexOf(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Valid</span></span><br><span class="line">    val list: MutableList&lt;T&gt; = mutableListOf()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>测试控制器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/demoValidList1"</span>)</span><br><span class="line"><span class="function">fun <span class="title">demoValidList</span><span class="params">(@RequestBody @Validated user: ValidList1&lt;User&gt;)</span>: List&lt;User&gt;? </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> user.list</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function">fun <span class="title">testDemoValidList1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    val example = <span class="string">"[&#123;\"username\":\"\", \"password\":\"111\"&#125;]"</span></span><br><span class="line">    mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demoValidList1"</span>)</span><br><span class="line">            .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">            .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>使用kotlin委托我们可以节省部分代码(注意直接在list上增加@Valid是无效的)</p>
+<ul>
+<li><p>委托器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class ValidList2&lt;T&gt;(val list: MutableList&lt;T&gt;) : MutableList&lt;T&gt; by list &#123;</span><br><span class="line">    <span class="meta">@Valid</span></span><br><span class="line">    <span class="keyword">var</span> mlist: MutableList&lt;T&gt; = list</span><br><span class="line">    constructor() : <span class="keyword">this</span>(mutableListOf())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/demoValidList2"</span>)</span><br><span class="line"><span class="function">fun <span class="title">demoValidList2</span><span class="params">(@RequestBody @Validated user: ValidList2&lt;User&gt;)</span>: List&lt;User&gt;? </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> user.list</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function">fun <span class="title">testDemoValidList2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    val example = <span class="string">"[&#123;\"username\":\"\", \"password\":\"111\"&#125;]"</span></span><br><span class="line">    mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demoValidList2"</span>)</span><br><span class="line">            .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">            .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>如果使用的是java我们也可以利用lombok替我们节省部分代码</strong></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidList</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="meta">@Delegate</span></span><br><span class="line">    List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>由于未做异常拦截,以上方案 正常校验,验证器将抛出异常</strong><br><img src="https://note.youdao.com/yws/res/25448/22893EA3904A495A87A4B4C272200E97" alt="image"><br><strong>方案1和方案2本质上是一致的,缺点在于对于控制器代码的侵入性较大(意味着所有需要校验list的控制器方法都需要修改类为新的包装类)</strong></p>
+<h5 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h5><ul>
+<li><p>我们可以自定义验证器并配置@ControllerAdvice统一为集合增加验证器</p>
+<ul>
+<li><p>自定义验证器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class CollectionValidator(private val validatorFactory: LocalValidatorFactoryBean) : Validator &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">supports</span><span class="params">(clazz: Class&lt;*&gt;)</span>: Boolean </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Collection::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>.<span class="title">isAssignableFrom</span>(<span class="title">clazz</span>)</span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    /**</span></span><br><span class="line"><span class="class">     * 校验集合 遇到失败即退出</span></span><br><span class="line"><span class="class">     *</span></span><br><span class="line"><span class="class">     * @<span class="title">param</span> <span class="title">target</span> 受校验对象</span></span><br><span class="line"><span class="class">     * @<span class="title">param</span> <span class="title">errors</span> 错误结果</span></span><br><span class="line"><span class="class">     */</span></span><br><span class="line">    override fun validate(target: Any, errors: Errors) &#123;</span><br><span class="line">        val collection = target as Collection&lt;*&gt;</span><br><span class="line">        <span class="keyword">for</span> (`object` in collection) &#123;</span><br><span class="line">            `object`?.let &#123; ValidationUtils.invokeValidator(validatorFactory, `object`, errors) &#125;</span><br><span class="line">            <span class="comment">// 存在错误即退出校验</span></span><br><span class="line">            <span class="keyword">if</span> (errors.hasErrors()) &#123;</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制器拦截</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line">class CollectionValidatorAdvice(private val collectionValidator: CollectionValidator) &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在initBinder阶段修改集合类型的校验器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@InitBinder</span></span><br><span class="line">    <span class="function">fun <span class="title">initBinder</span><span class="params">(binder: WebDataBinder)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这里必须判断 否则会影响非集合类型校验</span></span><br><span class="line">        <span class="keyword">if</span> (binder.target !is Collection&lt;*&gt;) &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        binder.addValidators(collectionValidator)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CollectionValidatorConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    lateinit <span class="keyword">var</span> localValidatorFactoryBean: LocalValidatorFactoryBean</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">fun <span class="title">collectionValidator</span><span class="params">()</span>: CollectionValidator </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> CollectionValidator(localValidatorFactoryBean)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改测试类,导入配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">@WebMvcTest(DemoApplication::class)</span><br><span class="line"><span class="meta">@Import</span>(CollectionValidatorConfig::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">WebMvcTest</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再次运行testDemoList此时此方法将受校验  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>同样由于未做异常拦截,以上方案,验证器将抛出异常</strong><br>    <img src="https://note.youdao.com/yws/res/25491/55253F50668841D4B51B6357C7800C8A" alt="image"><br><strong>方案3允许使用分组,对参数不需要做变更,而其缺陷在于如果想要知道是集合的哪条数据出现问题相对而言不太容易</strong></p>
+<h4 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a>代码链接</h4><ul>
+<li>以上即是本文全部内容<br>  !<img src="https://note.youdao.com/yws/res/25261/3EE4FD1A5A284A8B9BB7EE5924EDBE62" alt="image"></li>
+<li><a href="https://github.com/gonghs/kotlin-web/tree/master/kotlin-springboot-collection-validation" target="_blank" rel="noopener">本文代码链接</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/springboot/" rel="tag"># springboot</a>
+          
+            <a href="/tags/kotlin/" rel="tag"># kotlin</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/gradle/" rel="tag"># gradle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/27/springboot用户上下文注入/" rel="prev" title="springboot用户上下文注入">
+                springboot用户上下文注入 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">maple</p>
+              <p class="site-description motion-element" itemprop="description">但见泪痕湿,不知心恨谁</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/gonghs" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="iceinsist.maple@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/gonghs-maple/posts" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-h-square"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#springboot处理集合类型校验"><span class="nav-number">1.</span> <span class="nav-text">springboot处理集合类型校验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重现无法校验场景"><span class="nav-number">1.2.</span> <span class="nav-text">重现无法校验场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理方案"><span class="nav-number">1.3.</span> <span class="nav-text">处理方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方案1"><span class="nav-number">1.3.1.</span> <span class="nav-text">方案1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方案2"><span class="nav-number">1.3.2.</span> <span class="nav-text">方案2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方案3"><span class="nav-number">1.3.3.</span> <span class="nav-text">方案3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码链接"><span class="nav-number">1.4.</span> <span class="nav-text">代码链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">maple</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S2GzrQhCSkAMrzyRSelaF7Dg-gzGzoHsz", "MvuLM5jy3uL4pUoWVsBhIDdL");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
