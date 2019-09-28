@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="springboot,kotlin,web,gradle,">
+  <meta name="keywords" content="springboot,gradle,kotlin,web,">
 
 
 
@@ -80,25 +80,25 @@
 
 
 <meta name="description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
-<meta name="keywords" content="springboot,kotlin,web,gradle">
+<meta name="keywords" content="springboot,gradle,kotlin,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot处理集合类型校验">
 <meta property="og:url" content="http://www.ice-maple.com/2019/09/25/springboot处理集合类型校验/index.html">
 <meta property="og:site_name" content="Maples Blog">
 <meta property="og:description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25288/0B38C31B1A9947C09965BD24EF4C7434">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25302/A5F5346F67FF4014A60F56E7DC461B2E">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25349/25BB0B32BAD9406E8B887A7EE7A6BED0">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25353/82607FE1754147AAB10309782FF6EA84">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25448/22893EA3904A495A87A4B4C272200E97">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25491/55253F50668841D4B51B6357C7800C8A">
-<meta property="og:image" content="https://note.youdao.com/yws/res/25261/3EE4FD1A5A284A8B9BB7EE5924EDBE62">
-<meta property="og:updated_time" content="2019-09-27T09:48:39.058Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/dufNkUJ6axel3O9.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/1dLSl6iOIhGC74W.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/sUyxuClac4gPQIV.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/KDjE8gNXFTesdLv.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/5ScyJOqR3BCmnVD.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/gI4nPkjoG5Ja9wW.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/28/5PW9uEteNBd26Ar.png">
+<meta property="og:updated_time" content="2019-09-28T08:06:48.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot处理集合类型校验">
 <meta name="twitter:description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
-<meta name="twitter:image" content="https://note.youdao.com/yws/res/25288/0B38C31B1A9947C09965BD24EF4C7434">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/28/dufNkUJ6axel3O9.png">
 
 
 
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-27T17:48:39+08:00">
-                2019-09-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-28T16:06:48+08:00">
+                2019-09-28
               </time>
             
           </span>
@@ -405,11 +405,11 @@
 <h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><ul>
 <li><p>点击file -&gt; new project -&gt;选择spring initializrd点击下一步</p>
 </li>
-<li><p>选择语言,选择项目管理工具<br>  <img src="https://note.youdao.com/yws/res/25288/0B38C31B1A9947C09965BD24EF4C7434" alt="image"></p>
+<li><p>选择语言,选择项目管理工具<br>  <img src="https://i.loli.net/2019/09/28/dufNkUJ6axel3O9.png" alt="image.png"></p>
 </li>
 <li><p>此篇我们讨论只涉及校验,只引入springWebStarter即可</p>
 </li>
-<li><p>选择gradle路径(或者使用默认的),这里我选择本地路径<br>  <img src="https://note.youdao.com/yws/res/25302/A5F5346F67FF4014A60F56E7DC461B2E" alt="image"></p>
+<li><p>选择gradle路径(或者使用默认的),这里我选择本地路径<br>  <img src="https://i.loli.net/2019/09/28/1dLSl6iOIhGC74W.png" alt="image.png"></p>
 </li>
 <li><p>输入项目路径,点击finish,查看项目结构,我们可以看到生成的gradle依赖文件变成了kts后缀的文件,和之前比起来,配置会略有不同</p>
 </li>
@@ -426,9 +426,9 @@
 <li><p>增加测试类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">@WebMvcTest(DemoApplication::class)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebMvcTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    lateinit <span class="keyword">var</span> mockMvc: MockMvc</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function">fun <span class="title">testDemo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        val example = <span class="string">"&#123;\"username\":\"\", \"password\":\"111\"&#125;"</span></span><br><span class="line">        mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demo"</span>)</span><br><span class="line">                .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">                .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function">fun <span class="title">testDemoList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        val example = <span class="string">"[&#123;\"username\":\"\", \"password\":\"111\"&#125;]"</span></span><br><span class="line">        mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">"/demoList"</span>)</span><br><span class="line">                .contentType(MediaType.APPLICATION_JSON_VALUE).content(example))</span><br><span class="line">                .andExpect(status().isOk).andDo &#123; println(it.response.contentAsString) &#125;.andReturn()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>我们先执行能够正常执行校验的测试方法testDemo,执行后发现控制台报错,说明参数被校验了<br>  <img src="https://note.youdao.com/yws/res/25349/25BB0B32BAD9406E8B887A7EE7A6BED0" alt="image"></p>
+<li><p>我们先执行能够正常执行校验的测试方法testDemo,执行后发现控制台报错,说明参数被校验了<br>  <img src="https://i.loli.net/2019/09/28/sUyxuClac4gPQIV.png" alt="image.png"></p>
 </li>
-<li><p>但执行List时参数却未被校验<br>  <img src="https://note.youdao.com/yws/res/25353/82607FE1754147AAB10309782FF6EA84" alt="image"></p>
+<li><p>但执行List时参数却未被校验<br>  <img src="https://i.loli.net/2019/09/28/KDjE8gNXFTesdLv.png" alt="image.png"></p>
 </li>
 </ul>
 <h4 id="处理方案"><a href="#处理方案" class="headerlink" title="处理方案"></a>处理方案</h4><h5 id="方案1"><a href="#方案1" class="headerlink" title="方案1:"></a>方案1:</h5><ul>
@@ -476,7 +476,7 @@
 
 </li>
 </ul>
-<p><strong>由于未做异常拦截,以上方案 正常校验,验证器将抛出异常</strong><br><img src="https://note.youdao.com/yws/res/25448/22893EA3904A495A87A4B4C272200E97" alt="image"><br><strong>方案1和方案2本质上是一致的,缺点在于对于控制器代码的侵入性较大(意味着所有需要校验list的控制器方法都需要修改类为新的包装类)</strong></p>
+<p><strong>由于未做异常拦截,以上方案 正常校验,验证器将抛出异常</strong><br><img src="https://i.loli.net/2019/09/28/5ScyJOqR3BCmnVD.png" alt="image.png"><br><strong>方案1和方案2本质上是一致的,缺点在于对于控制器代码的侵入性较大(意味着所有需要校验list的控制器方法都需要修改类为新的包装类)</strong></p>
 <h5 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h5><ul>
 <li><p>我们可以自定义验证器并配置@ControllerAdvice统一为集合增加验证器</p>
 <ul>
@@ -497,9 +497,9 @@
 </ul>
 </li>
 </ul>
-<p><strong>同样由于未做异常拦截,以上方案,验证器将抛出异常</strong><br>    <img src="https://note.youdao.com/yws/res/25491/55253F50668841D4B51B6357C7800C8A" alt="image"><br><strong>方案3允许使用分组,对参数不需要做变更,而其缺陷在于如果想要知道是集合的哪条数据出现问题相对而言不太容易</strong></p>
+<p><strong>同样由于未做异常拦截,以上方案,验证器将抛出异常</strong><br>    <img src="https://i.loli.net/2019/09/28/gI4nPkjoG5Ja9wW.png" alt="image.png"><br><strong>方案3允许使用分组,对参数不需要做变更,而其缺陷在于如果想要知道是集合的哪条数据出现问题相对而言不太容易</strong></p>
 <h4 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a>代码链接</h4><ul>
-<li>以上即是本文全部内容<br>  !<img src="https://note.youdao.com/yws/res/25261/3EE4FD1A5A284A8B9BB7EE5924EDBE62" alt="image"></li>
+<li>以上即是本文全部内容<br>  <img src="https://i.loli.net/2019/09/28/5PW9uEteNBd26Ar.png" alt="image.png"></li>
 <li><a href="https://github.com/gonghs/kotlin-web/tree/master/kotlin-springboot-collection-validation" target="_blank" rel="noopener">本文代码链接</a></li>
 </ul>
 
@@ -521,11 +521,11 @@
           
             <a href="/tags/springboot/" rel="tag"># springboot</a>
           
+            <a href="/tags/gradle/" rel="tag"># gradle</a>
+          
             <a href="/tags/kotlin/" rel="tag"># kotlin</a>
           
             <a href="/tags/web/" rel="tag"># web</a>
-          
-            <a href="/tags/gradle/" rel="tag"># gradle</a>
           
         </div>
       
