@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="springboot,kotlin,web,">
+  <meta name="keywords" content="springboot,web,java,jsp,">
 
 
 
@@ -79,29 +79,23 @@
 
 
 
-<meta name="description" content="此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作">
-<meta name="keywords" content="springboot,kotlin,web">
+<meta name="description" content="近期对公司远古jsp mvc项目进行了springboot的改造,期间进行了一些springboot jsp-config的探究,故有此篇">
+<meta name="keywords" content="springboot,web,java,jsp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用gradle构建springboot项目">
-<meta property="og:url" content="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/index.html">
+<meta property="og:title" content="springboot配置jsp-config的探究">
+<meta property="og:url" content="http://www.ice-maple.com/2019/12/06/springboot配置jsp-config的探究/index.html">
 <meta property="og:site_name" content="Maples Blog">
-<meta property="og:description" content="此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作">
+<meta property="og:description" content="近期对公司远古jsp mvc项目进行了springboot的改造,期间进行了一些springboot jsp-config的探究,故有此篇">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/Gi1Rs6D9ILOaTon.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/LETbvJpMadqXxOe.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/zZRoTUX36k4GOtV.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/CjK4qsF6AI93bdW.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/ihwdZ64DHVLtAO1.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/ZceH7LAsOfXpiNj.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/IKtVEFskcBrZLou.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/yWQzl7G5ikmPTfF.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/fTC3hg4ajxNXQqr.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/28/FLZB4ayjwv2t8cE.png">
-<meta property="og:updated_time" content="2019-12-05T09:19:22.981Z">
+<meta property="og:image" content="https://i.loli.net/2019/12/05/9NjezIZxn783urs.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/05/od1sm6wkyTZEvKY.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/05/HYBniuxyljbJTGd.png">
+<meta property="og:image" content="https://i.loli.net/2019/12/06/1zefpF4giRJoskQ.png">
+<meta property="og:updated_time" content="2019-12-06T08:31:25.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用gradle构建springboot项目">
-<meta name="twitter:description" content="此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作">
-<meta name="twitter:image" content="https://i.loli.net/2019/09/28/Gi1Rs6D9ILOaTon.png">
+<meta name="twitter:title" content="springboot配置jsp-config的探究">
+<meta name="twitter:description" content="近期对公司远古jsp mvc项目进行了springboot的改造,期间进行了一些springboot jsp-config的探究,故有此篇">
+<meta name="twitter:image" content="https://i.loli.net/2019/12/05/9NjezIZxn783urs.png">
 
 
 
@@ -131,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/">
+  <link rel="canonical" href="http://www.ice-maple.com/2019/12/06/springboot配置jsp-config的探究/">
 
 
 
 
 
-  <title>使用gradle构建springboot项目 | Maples Blog</title>
+  <title>springboot配置jsp-config的探究 | Maples Blog</title>
   
 
 
@@ -326,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2019/12/06/springboot配置jsp-config的探究/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maple">
@@ -343,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用gradle构建springboot项目</h1>
+          <h1 class="post-title" itemprop="name headline">springboot配置jsp-config的探究</h1>
         
 
         <div class="post-meta">
@@ -355,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T16:17:47+08:00">
-                2019-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-06T16:17:47+08:00">
+                2019-12-06
               </time>
             
 
@@ -371,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-05T17:19:22+08:00">
-                2019-12-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-06T16:31:25+08:00">
+                2019-12-06
               </time>
             
           </span>
@@ -390,8 +384,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin-web/" itemprop="url" rel="index">
-                    <span itemprop="name">kotlin web</span>
+                  <a href="/categories/java-web/" itemprop="url" rel="index">
+                    <span itemprop="name">java web</span>
                   </a>
                 </span>
 
@@ -407,7 +401,7 @@
 
           
           
-             <span id="/2019/03/03/使用gradle构建springboot项目/" class="leancloud_visitors" data-flag-title="使用gradle构建springboot项目">
+             <span id="/2019/12/06/springboot配置jsp-config的探究/" class="leancloud_visitors" data-flag-title="springboot配置jsp-config的探究">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,7 +426,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  496
+                  1.3k
                 </span>
               
 
@@ -444,7 +438,7 @@
 
           
               <div class="post-description">
-                  此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作
+                  近期对公司远古jsp mvc项目进行了springboot的改造,期间进行了一些springboot jsp-config的探究,故有此篇
               </div>
           
 
@@ -463,92 +457,82 @@
       
         <h1 id="版本概要"><a href="#版本概要" class="headerlink" title="版本概要"></a>版本概要</h1><hr>
 <blockquote>
-<p>springboot版本2.1.3.RELEASE<br>kotlin版本1.3.21<br>gradle版本5.2.1<br>idea版本2018.2.6 ultimate edition</p>
+<p>springboot 版本 2.2.2.RELEASE<br>jdk 版本 1.8<br>maven 版本 3.6.0<br>idea 版本 2019.1.2 ultimate edition</p>
 </blockquote>
 <hr>
-<h1 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h1><ul>
-<li>点击file -&gt; new project -&gt; 选择新建gradle项目<br>  <img src="https://i.loli.net/2019/09/28/Gi1Rs6D9ILOaTon.png" alt="image.png"></li>
-<li>输入groupId和artifactId 进入下一步</li>
-<li>勾选使用本地gradle路径,选择gradle所在根路径(即bin的上层路径) 进入下一步<br>  <img src="https://i.loli.net/2019/09/28/LETbvJpMadqXxOe.png" alt="image.png"></li>
-<li>选择项目路径 点击finish等待项目构建完成</li>
-</ul>
-<h1 id="引入springboot"><a href="#引入springboot" class="headerlink" title="引入springboot"></a>引入springboot</h1><ul>
-<li><p>修改maven依赖访问地址,使用国内镜像</p>
+<h1 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h1><ul>
+<li><p>新建 spring Initializr 项目选择一些基本的依赖即可<br><img src="https://i.loli.net/2019/12/05/9NjezIZxn783urs.png" alt="image.png"></p>
+</li>
+<li><p>在 pom 中追加 jsp 需要的依赖和资源文件扫描</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp/<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--注意此次必须要放在此目录下才能被访问到 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>META-INF/resources<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建文件夹 webapp 与 resources 文件夹平级,并新建 index.jsp</p>
 <ul>
-<li>在build.gradle中加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven&#123;</span><br><span class="line">        url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── resources</span><br><span class="line">├── webapp</span><br><span class="line">│   └── WEB-INF</span><br><span class="line">│       ├── index.jsp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>index<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$&#123;bool&#125;"</span>&gt;</span>测试c if<span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span><br><span class="line">    hello world 哈哈哈哈哈哈</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>引入springboot</p>
-<ul>
-<li><p>在plugins节点中加入</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id &apos;org.springframework.boot&apos; version &apos;2.1.3.RELEASE&apos;</span><br></pre></td></tr></table></figure>
+<li><p>在 yml 文件中配置访问文件夹</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">mvc:</span></span><br><span class="line"><span class="attr">  view:</span></span><br><span class="line"><span class="attr">    prefix:</span> <span class="string">/WEB-INF/jsp/</span></span><br><span class="line"><span class="attr">    suffix:</span> <span class="string">.jsp</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>加入根节点 使用spingboot插件(即最顶层)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;io.spring.dependency-management&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引入springboot web和test依赖 在dependencies节点加入</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.springframework.boot:spring-boot-starter-web&apos;</span><br><span class="line">testImplementation &apos;org.springframework.boot:spring-boot-starter-test&apos;</span><br></pre></td></tr></table></figure>
+<li><p>新建访问控制器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        model.addAttribute(<span class="string">"bool"</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
-</li>
-<li><p>新建启动类并测试</p>
-<ul>
-<li><p>在java文件夹或kotlin文件夹下创建springboot启动类</p>
-  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runApplication&lt;SpringbootRun&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击右侧bootRun尝试启动(注意这里bootRun会自动扫描main方法,如果存在多个main方法只会选择其中一个),或者使用传统方式启动<br>  <img src="https://i.loli.net/2019/09/28/zZRoTUX36k4GOtV.png" alt="image.png"></p>
-</li>
-<li><p>访问localhost:8080查看结果<br>  <img src="https://i.loli.net/2019/09/28/CjK4qsF6AI93bdW.png" alt="image.png"></p>
-</li>
-</ul>
-</li>
-<li><p>打成jar包并运行</p>
-<ul>
-<li>点击右侧build下bootJar<br>  <img src="https://i.loli.net/2019/09/28/ihwdZ64DHVLtAO1.png" alt="image.png"></li>
-<li>项目下build/libs/将会生成一个jar包<br>  <img src="https://i.loli.net/2019/09/28/ZceH7LAsOfXpiNj.png" alt="image.png"></li>
-<li>使用命令行运行,并访问<br>  <img src="https://i.loli.net/2019/09/28/IKtVEFskcBrZLou.png" alt="image.png"></li>
-</ul>
-</li>
-<li><p>打成war包并运行</p>
-<ul>
-<li><p>修改build.gradle 加入根节点</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;war&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改启动类使其继承SpringBootServletInitializer</p>
-  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span> : <span class="type">SpringBootServletInitializer</span></span>()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击右侧bootWar</p>
-</li>
-<li><p>拷贝war包至tomcat安装路径webapps下</p>
-</li>
-<li><p>运行bin/startup.bat 启动tomcat并尝试访问</p>
-</li>
-<li><p>访问结果<br>  <img src="https://i.loli.net/2019/09/28/yWQzl7G5ikmPTfF.png" alt="image.png"></p>
+<h1 id="jsp-config"><a href="#jsp-config" class="headerlink" title="jsp-config"></a>jsp-config</h1><p>准备工作完成后,项目事实上已经可以成功访问 jsp 页面了,但我们访问时会发现 jsp 页面的中文乱码了,并且c标签也并未生效<br><img src="https://i.loli.net/2019/12/05/od1sm6wkyTZEvKY.png" alt="image.png"><br>在老项目中我们发现 jsp 在 web.xml 文件中存在这么个配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jsp-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jsp-property-group</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-ignored</span>&gt;</span>false<span class="tag">&lt;/<span class="name">el-ignored</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">page-encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">page-encoding</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">include-prelude</span>&gt;</span>/WEB-INF/tags/taglibs.jspf<span class="tag">&lt;<span class="name">include-prelude</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">jsp-property-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jsp-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>taglibs.jspf文件中包含了一些通用的标签引入</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@taglib</span> prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br><span class="line">&lt;%<span class="meta">@taglib</span> prefix=<span class="string">"fn"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/functions"</span> %&gt;</span><br><span class="line">&lt;%<span class="meta">@taglib</span> prefix=<span class="string">"fmt"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/fmt"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个配置的作用在于为所有的 jsp 页面增加统一的编码,和统一的头部信息,这些配置相当于在 jsp 页面头部加入:</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ include file=<span class="string">"/WEB-INF/tags/taglibs.jspf"</span> %&gt;</span><br><span class="line">&lt;%@ page pageEncoding=<span class="string">"UTF-8"</span> isELIgnored=<span class="string">"false"</span>  %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们在index.jsp头部中加入上面那段代码,可以看到乱码解决了标签也生效了<br><img src="https://i.loli.net/2019/12/05/HYBniuxyljbJTGd.png" alt="image.png"><br>在旧项目的改造中,如果我们需要在所有页面追加这个头部,那么工作量就太大了,我们需要找到一种方式使jsp-config的api在springboot中同样生效</p>
+<h1 id="springboot-jsp-config"><a href="#springboot-jsp-config" class="headerlink" title="springboot jsp-config"></a>springboot jsp-config</h1><ul>
+<li><p>springboot本身是支持web.xml的,因此可以先尝试在WEB-INF下直接放入web.xml其中仅配置jsp-config</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">version</span>=<span class="string">"4.0"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee</span></span></span><br><span class="line"><span class="tag"><span class="string">        	 http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jsp-config</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jsp-property-group</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">el-ignored</span>&gt;</span>false<span class="tag">&lt;/<span class="name">el-ignored</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">page-encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">page-encoding</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include-prelude</span>&gt;</span>/WEB-INF/tags/taglibs.jspf<span class="tag">&lt;/<span class="name">include-prelude</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">jsp-property-group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">jsp-config</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们发现当springboot使用嵌入式容器启动时是忽略web.xml的,因此我们需要配置使用外部tomcat启动</p>
 </li>
 </ul>
+<h2 id="配置外部tomcat启动"><a href="#配置外部tomcat启动" class="headerlink" title="配置外部tomcat启动"></a>配置外部tomcat启动</h2><ul>
+<li><p>修改pom 打包方式改为war包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>打成war包使用jetty运行</p>
-<ul>
-<li><p>修改build.gradle 加入根节点</p>
-  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    compile.exclude module: <span class="string">"spring-boot-starter-tomcat"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>修改启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BootJspApplication</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(BootJspApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> builder.sources(BootJspApplication.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>加入依赖</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.springframework.boot:spring-boot-starter-jetty&apos;</span><br></pre></td></tr></table></figure>
+<li><p>配置tomcat启动<br>  <img src="https://i.loli.net/2019/12/06/1zefpF4giRJoskQ.png" alt="image.png"></p>
 </li>
-<li><p>点击右侧bootWar</p>
-</li>
-<li><p>拷贝war包至jetty安装路径webapps下</p>
-</li>
-<li><p>运行,并访问</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar start.jar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问结果:<br>  <img src="https://i.loli.net/2019/09/28/fTC3hg4ajxNXQqr.png" alt="image.png"><br>  <img src="https://i.loli.net/2019/09/28/FLZB4ayjwv2t8cE.png" alt="image.png"></p>
+<li><p>使用tomcat启动web.xml中的内容便生效了</p>
 </li>
 </ul>
+<h2 id="配置java-config"><a href="#配置java-config" class="headerlink" title="配置java config"></a>配置java config</h2><ul>
+<li><p>定制嵌入式容器,在tomcat的容器上下文中我们可以找到Jsp相关的配置类并配置它</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ConfigurableServletWebServerFactory <span class="title">configurableServletWebServerFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TomcatServletWebServerFactory() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">postProcessContext</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.postProcessContext(context);</span><br><span class="line">            JspPropertyGroup jspPropertyGroup = <span class="keyword">new</span> JspPropertyGroup();</span><br><span class="line">            jspPropertyGroup.setElIgnored(<span class="string">"false"</span>);</span><br><span class="line">            jspPropertyGroup.addUrlPattern(<span class="string">"*.jsp"</span>);</span><br><span class="line">            jspPropertyGroup.setPageEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">            jspPropertyGroup.addIncludePrelude(<span class="string">"/WEB-INF/tags/taglibs.jspf"</span>);</span><br><span class="line">            JspPropertyGroupDescriptorImpl jspPropertyGroupDescriptor =</span><br><span class="line">                    <span class="keyword">new</span> JspPropertyGroupDescriptorImpl(jspPropertyGroup);</span><br><span class="line">            <span class="comment">// jsp-property-group列表和taglib列表</span></span><br><span class="line">            context.setJspConfigDescriptor(<span class="keyword">new</span> JspConfigDescriptorImpl(Collections.singletonList(jspPropertyGroupDescriptor),</span><br><span class="line">                    Collections.emptyList()));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入这个bean以后重启项目,可以看到这个配置生效了</p>
+</li>
+<li><p>除了以上方式外,目前还没有找到更好的方式使用java config使该配置生效</p>
 </li>
 </ul>
-<h1 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a><a href="https://github.com/gonghs/kotlin-web/tree/master/springboot-gradle" target="_blank" rel="noopener">代码链接</a></h1>
+<h2 id="可能的其他方式"><a href="#可能的其他方式" class="headerlink" title="可能的其他方式"></a>可能的其他方式</h2><ul>
+<li><p>在javax.servlet.ServletContext接口中有一个getJspConfigDescriptor方法,这给我们提供了一个修改jsp配置的可能,我们有几种可能的方式获取到ServletContext</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 实现ServletContextListener接口</span><br><span class="line">@Component</span><br><span class="line">public class JspConfig implements ServletContextListener &#123;</span><br><span class="line">  @Override</span><br><span class="line">  public void contextInitialized(ServletContextEvent sce) &#123;</span><br><span class="line">      sce.getServletContext();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 实现ServletContextInitializer接口</span><br><span class="line">@Component</span><br><span class="line">public class JspConfig implements ServletContextInitializer &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onStartup(ServletContext servletContext) throws ServletException &#123;</span><br><span class="line">        servletContext.getJspConfigDescriptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两种方式可以获取到servletContext,但在未读取web.xml的情况下,后者获取到的Jsp config描述器为null,而前者则在调用时直接抛出一个异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 实现ServletContainerInitializer接口</span><br><span class="line">@Component</span><br><span class="line">public class JspConfig implements ServletContainerInitializer &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onStartup(Set&lt;Class&lt;?&gt;&gt; set, ServletContext servletContext) throws ServletException &#123;</span><br><span class="line">        servletContext.getJspConfigDescriptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此方式与前面的第二种方式类似,不同的是此方式仅在程序使用外部tomcat容器启动时才会执行</p>
+</li>
+</ul>
+<h1 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a><a href="https://github.com/gonghs/java-web/tree/master/springboot-jsp" target="_blank" rel="noopener">代码链接</a></h1>
       
     </div>
     
@@ -574,9 +558,11 @@
           
             <a href="/tags/springboot/" rel="tag"><i class="fa fa-tag"></i> springboot</a>
           
-            <a href="/tags/kotlin/" rel="tag"><i class="fa fa-tag"></i> kotlin</a>
-          
             <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/jsp/" rel="tag"><i class="fa fa-tag"></i> jsp</a>
           
         </div>
       
@@ -589,8 +575,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/20/redis和redisson分布式锁集成/" rel="next" title="redis和redisson分布式锁集成">
-                <i class="fa fa-chevron-left"></i> redis和redisson分布式锁集成
+              <a href="/2019/08/20/springboot用户上下文注入/" rel="next" title="springboot用户上下文注入">
+                <i class="fa fa-chevron-left"></i> springboot用户上下文注入
               </a>
             
           </div>
@@ -598,10 +584,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/25/springboot处理集合类型校验/" rel="prev" title="springboot处理集合类型校验">
-                springboot处理集合类型校验 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -755,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#版本概要"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建项目"><span class="nav-number">2.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引入springboot"><span class="nav-number">3.</span> <span class="nav-text">引入springboot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码链接"><span class="nav-number">4.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#版本概要"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目准备"><span class="nav-number">2.</span> <span class="nav-text">项目准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp-config"><span class="nav-number">3.</span> <span class="nav-text">jsp-config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#springboot-jsp-config"><span class="nav-number">4.</span> <span class="nav-text">springboot jsp-config</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置外部tomcat启动"><span class="nav-number">4.1.</span> <span class="nav-text">配置外部tomcat启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置java-config"><span class="nav-number">4.2.</span> <span class="nav-text">配置java config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能的其他方式"><span class="nav-number">4.3.</span> <span class="nav-text">可能的其他方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码链接"><span class="nav-number">5.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
             
 
           </div>
