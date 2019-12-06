@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/09/28/KDjE8gNXFTesdLv.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/5ScyJOqR3BCmnVD.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/gI4nPkjoG5Ja9wW.png">
-<meta property="og:updated_time" content="2019-10-10T02:20:50.712Z">
+<meta property="og:updated_time" content="2019-12-05T09:21:16.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot处理集合类型校验">
 <meta name="twitter:description" content="使用springboot的默认校验框架时,我们发现spring对集合类型和集合类型对象是不作为的,此篇即针对这个问题做出的处理">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-10T10:20:50+08:00">
-                2019-10-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-05T17:21:16+08:00">
+                2019-12-05
               </time>
             
           </span>
@@ -457,12 +457,12 @@
       
 
       
-        <h3 id="springboot处理集合类型校验"><a href="#springboot处理集合类型校验" class="headerlink" title="springboot处理集合类型校验"></a>springboot处理集合类型校验</h3><hr>
+        <h1 id="版本概要"><a href="#版本概要" class="headerlink" title="版本概要"></a>版本概要</h1><hr>
 <blockquote>
-<p>本文所用相关版本:<br>springboot版本2.1.6.RELEASE<br>kotlin版本1.2.71<br>gradle版本5.2.1<br>idea版本2019.1.2 ultimate edition</p>
+<p>springboot版本2.1.6.RELEASE<br>kotlin版本1.2.71<br>gradle版本5.2.1<br>idea版本2019.1.2 ultimate edition</p>
 </blockquote>
 <hr>
-<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><ul>
+<h1 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h1><ul>
 <li><p>点击file -&gt; new project -&gt;选择spring initializrd点击下一步</p>
 </li>
 <li><p>选择语言,选择项目管理工具<br>  <img src="https://i.loli.net/2019/09/28/dufNkUJ6axel3O9.png" alt="image.png"></p>
@@ -479,7 +479,7 @@
 <li><p>重新导入等待编译完成</p>
 </li>
 </ul>
-<h4 id="重现无法校验场景"><a href="#重现无法校验场景" class="headerlink" title="重现无法校验场景"></a>重现无法校验场景</h4><ul>
+<h1 id="重现无法校验场景"><a href="#重现无法校验场景" class="headerlink" title="重现无法校验场景"></a>重现无法校验场景</h1><ul>
 <li><p>增加测试控制器和测试类,这里我直接加在了启动类上</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping(<span class="meta-string">"/demo"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">demo</span><span class="params">(<span class="meta">@RequestBody</span> <span class="meta">@Validated</span> user: <span class="type">User</span>)</span></span>: User &#123;</span><br><span class="line">        <span class="keyword">return</span> user</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(<span class="meta-string">"/demoList"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">demoList</span><span class="params">(<span class="meta">@RequestBody</span> <span class="meta">@Validated</span> user: <span class="type">List</span>&lt;<span class="type">User</span>&gt;)</span></span>: List&lt;User&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> user</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotBlank(message = <span class="meta-string">"用户名不能为空"</span>)</span></span><br><span class="line">    <span class="keyword">val</span> username: String? = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">val</span> password: String? = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    runApplication&lt;DemoApplication&gt;(*args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -491,7 +491,7 @@
 <li><p>但执行List时参数却未被校验<br>  <img src="https://i.loli.net/2019/09/28/KDjE8gNXFTesdLv.png" alt="image.png"></p>
 </li>
 </ul>
-<h4 id="处理方案"><a href="#处理方案" class="headerlink" title="处理方案"></a>处理方案</h4><h5 id="方案1"><a href="#方案1" class="headerlink" title="方案1:"></a>方案1:</h5><ul>
+<h1 id="处理方案"><a href="#处理方案" class="headerlink" title="处理方案"></a>处理方案</h1><h2 id="方案1"><a href="#方案1" class="headerlink" title="方案1:"></a>方案1:</h2><ul>
 <li><p>新建类包装List,在list上加上@Valid(javax包中)(由于@Validated不支持放在字段上,所以无法使用)注解  </p>
 <ul>
 <li><p>控制器方法</p>
@@ -505,7 +505,7 @@
 </li>
 </ul>
 <p>  <strong>可以看到此方案需要我们将传输的参数变为对象,多了一层无用的嵌套,并且由于@Valid注解的缺陷,无法使用分组</strong></p>
-<h5 id="方案2"><a href="#方案2" class="headerlink" title="方案2:"></a>方案2:</h5></li>
+<h2 id="方案2"><a href="#方案2" class="headerlink" title="方案2:"></a>方案2:</h2></li>
 <li><p>我们可以采用实现list接口并转接方法的方式,去掉这层无用的嵌套</p>
   <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValidList1</span>&lt;<span class="type">T</span>&gt; : <span class="type">MutableList</span>&lt;<span class="type">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: MutableIterator&lt;T&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> list.iterator()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">listIterator</span><span class="params">()</span></span>: MutableListIterator&lt;T&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> list.listIterator()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">listIterator</span><span class="params">(index: <span class="type">Int</span>)</span></span>: MutableListIterator&lt;T&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> list.listIterator(index)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">subList</span><span class="params">(fromIndex: <span class="type">Int</span>, toIndex:<span class="type">Int</span>)</span></span>: MutableList&lt;T&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> list.subList(fromIndex, toIndex)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">add</span><span class="params">(element: <span class="type">T</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.add(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">add</span><span class="params">(index: <span class="type">Int</span>, element: <span class="type">T</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.add(index, element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">addAll</span><span class="params">(index: <span class="type">Int</span>, elements: <span class="type">Collection</span>&lt;<span class="type">T</span>&gt;)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.addAll(index, elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">addAll</span><span class="params">(elements: <span class="type">Collection</span>&lt;<span class="type">T</span>&gt;)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.addAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">clear</span><span class="params">()</span></span> &#123;</span><br><span class="line">        list.clear()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">remove</span><span class="params">(element: <span class="type">T</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.remove(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">removeAll</span><span class="params">(elements: <span class="type">Collection</span>&lt;<span class="type">T</span>&gt;)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.removeAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">removeAt</span><span class="params">(index: <span class="type">Int</span>)</span></span>: T &#123;</span><br><span class="line">        <span class="keyword">return</span> list.removeAt(index)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">retainAll</span><span class="params">(elements: <span class="type">Collection</span>&lt;<span class="type">T</span>&gt;)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.retainAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">set</span><span class="params">(index: <span class="type">Int</span>, element: <span class="type">T</span>)</span></span>: T &#123;</span><br><span class="line">        <span class="keyword">return</span> list.<span class="keyword">set</span>(index, element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">val</span> size: <span class="built_in">Int</span></span><br><span class="line">        <span class="keyword">get</span>() = list.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contains</span><span class="params">(element: <span class="type">T</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.contains(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">containsAll</span><span class="params">(elements: <span class="type">Collection</span>&lt;<span class="type">T</span>&gt;)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.containsAll(elements)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">(index: <span class="type">Int</span>)</span></span>: T &#123;</span><br><span class="line">        <span class="keyword">return</span> list[index]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">indexOf</span><span class="params">(element: <span class="type">T</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.indexOf(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">isEmpty</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.isEmpty()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">lastIndexOf</span><span class="params">(element: <span class="type">T</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.lastIndexOf(element)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Valid</span></span><br><span class="line">    <span class="keyword">val</span> list: MutableList&lt;T&gt; = mutableListOf()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -537,7 +537,7 @@
 </li>
 </ul>
 <p><strong>由于未做异常拦截,以上方案 正常校验,验证器将抛出异常</strong><br><img src="https://i.loli.net/2019/09/28/5ScyJOqR3BCmnVD.png" alt="image.png"><br><strong>方案1和方案2本质上是一致的,缺点在于对于控制器代码的侵入性较大(意味着所有需要校验list的控制器方法都需要修改类为新的包装类)</strong></p>
-<h5 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h5><ul>
+<h2 id="方案3"><a href="#方案3" class="headerlink" title="方案3"></a>方案3</h2><ul>
 <li><p>我们可以自定义验证器并配置@ControllerAdvice统一为集合增加验证器</p>
 <ul>
 <li><p>自定义验证器</p>
@@ -558,7 +558,7 @@
 </li>
 </ul>
 <p><strong>同样由于未做异常拦截,以上方案,验证器将抛出异常</strong><br>    <img src="https://i.loli.net/2019/09/28/gI4nPkjoG5Ja9wW.png" alt="image.png"><br><strong>方案3允许使用分组,对参数不需要做变更,而其缺陷在于如果想要知道是集合的哪条数据出现问题相对而言不太容易</strong></p>
-<h4 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a><a href="https://github.com/gonghs/kotlin-web/tree/master/kotlin-springboot-collection-validation" target="_blank" rel="noopener">代码链接</a></h4>
+<h1 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a><a href="https://github.com/gonghs/kotlin-web/tree/master/kotlin-springboot-collection-validation" target="_blank" rel="noopener">代码链接</a></h1>
       
     </div>
     
@@ -601,8 +601,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/03/使用gradle构建springboot项目/" rel="next" title="使用gradle构建springboot项目">
-                <i class="fa fa-chevron-left"></i> 使用gradle构建springboot项目
+              <a href="/2019/03/03/springboot配置jsp-config的探究/" rel="next" title="springboot配置jsp-config的探究">
+                <i class="fa fa-chevron-left"></i> springboot配置jsp-config的探究
               </a>
             
           </div>
@@ -690,7 +690,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -701,7 +701,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -712,7 +712,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -767,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#springboot处理集合类型校验"><span class="nav-number">1.</span> <span class="nav-text">springboot处理集合类型校验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重现无法校验场景"><span class="nav-number">1.2.</span> <span class="nav-text">重现无法校验场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理方案"><span class="nav-number">1.3.</span> <span class="nav-text">处理方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方案1"><span class="nav-number">1.3.1.</span> <span class="nav-text">方案1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方案2"><span class="nav-number">1.3.2.</span> <span class="nav-text">方案2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方案3"><span class="nav-number">1.3.3.</span> <span class="nav-text">方案3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码链接"><span class="nav-number">1.4.</span> <span class="nav-text">代码链接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#版本概要"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建项目"><span class="nav-number">2.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重现无法校验场景"><span class="nav-number">3.</span> <span class="nav-text">重现无法校验场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理方案"><span class="nav-number">4.</span> <span class="nav-text">处理方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案1"><span class="nav-number">4.1.</span> <span class="nav-text">方案1:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案2"><span class="nav-number">4.2.</span> <span class="nav-text">方案2:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案3"><span class="nav-number">4.3.</span> <span class="nav-text">方案3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码链接"><span class="nav-number">5.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
             
 
           </div>
