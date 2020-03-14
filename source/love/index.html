@@ -1,0 +1,93 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8;" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="robots" content="all" />
+    <meta name="robots" content="index,follow" />
+    <link rel="stylesheet" type="text/css" href="/css/love/default.css" />
+    <title>love-heart</title>
+    <style type="text/css">
+      @font-face {
+        font-family: digit;
+        src: url("digital-7_mono.ttf") format("truetype");
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <span class="comments">/**</span><br />
+                <span class="space"/><span class="comments">* 2017-01-26</span><br />
+                <span class="space"/><span class="comments">*/</span><br />
+                Boy name = <span class="keyword">Mr</span> GONG<br />
+                Girl name = <span class="keyword">Mrs</span> Q<br />
+                <!-- <span class="comments">// Fall in love river. </span><br /> -->
+                昔日的如花妖女，现在只剩下枯叶回乡;<br />
+                她苍白，混俗，臃肿，腹中的骨肉是别人的;<br />
+                但我爱她;<br />
+                她可以褪色，可以枯萎，可以凋谢，怎样都可以;<br />
+                但我只要看她一眼;<br />
+                便万般柔情，涌上心头;<br />
+                <br>
+                <br>
+                I want to say:<br />
+                Baby, I love you forever;<br />
+            </div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        得离你远一点，不然你一伸手，就可以把我推开。
+                        <div id="elapseClock"></div>
+                    </div>
+                    <div id="loveu">
+                        感恩再次的遇见。<br/>
+                        <div class="signature">- 偷偷惦记的人</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/lib/jquery/index.js"></script>
+    <script type="text/javascript" src="/js/src/love/garden.js"></script>
+    <script type="text/javascript" src="/js/src/love/functions.js"></script>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        var together = new Date();
+        together.setFullYear(2017, 1, 26);
+        together.setHours(20);
+        together.setMinutes(0);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+        
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                startHeartAnimation();
+            }, 5000);
+        
+            timeElapse(together);
+            setInterval(function () {
+                timeElapse(together);
+            }, 500);
+        
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+        </script>
+  </body>
+</html>
