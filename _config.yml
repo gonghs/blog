@@ -80,7 +80,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/gonghs/blog.git
-  branch: master
+  branch: deploy
 
 search:
   path: search.xml
