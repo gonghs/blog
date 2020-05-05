@@ -51,7 +51,7 @@ description: Typora是个人比较喜欢的Markdown编辑工具，它可以用�
 
 在Typora中点击文件->偏好设置 选择图片页签(优先使用相对路径的配置比较奇怪，如果粘贴进去的图片是以相对路径展示的并且查找不到，则勾选/取消勾选一下该配置试一试)
 
-![image-20200505220738573](D:/tools/Typora/upload/image-20200505220738573.png)
+![image-20200505220738573](https://gitee.com/gonghs/image/raw/master/img/20200505223808.png)
 
 点击验证图片上传选项如果成功则代表配置完成
 
