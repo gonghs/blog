@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="个人简历学历2013-07~2017-06 龙岩学院 电子信息工程工作经历2017-06~至今 厦门海西医药交易中心 java开发工程师项目经验">
+<meta name="description" content="但见泪痕湿,不知心恨谁">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="http://www.ice-maple.com/about/index.html">
 <meta property="og:site_name" content="Maples Blog">
-<meta property="og:description" content="个人简历学历2013-07~2017-06 龙岩学院 电子信息工程工作经历2017-06~至今 厦门海西医药交易中心 java开发工程师项目经验">
+<meta property="og:description" content="但见泪痕湿,不知心恨谁">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-26T07:37:40.384Z">
+<meta property="og:updated_time" content="2020-05-18T03:10:14.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
-<meta name="twitter:description" content="个人简历学历2013-07~2017-06 龙岩学院 电子信息工程工作经历2017-06~至今 厦门海西医药交易中心 java开发工程师项目经验">
+<meta name="twitter:description" content="但见泪痕湿,不知心恨谁">
 
 
 
@@ -186,7 +186,7 @@
       
 
       
-        <h3 id="个人简历"><a href="#个人简历" class="headerlink" title="个人简历"></a>个人简历</h3><h4 id="学历"><a href="#学历" class="headerlink" title="学历"></a>学历</h4><pre><code>2013-07~2017-06 龙岩学院 电子信息工程</code></pre><h4 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h4><pre><code>2017-06~至今 厦门海西医药交易中心 java开发工程师</code></pre><h4 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h4>
+        
       
     </div>
     
@@ -685,23 +685,19 @@
 
 
   
-
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("S2GzrQhCSkAMrzyRSelaF7Dg-gzGzoHsz", "MvuLM5jy3uL4pUoWVsBhIDdL");</script>
   <script>
+    
     function showTime(Counter) {
-      var query = new AV.Query(Counter);
       var entries = [];
-      var $visitors = $(".leancloud_visitors");
+      var $visitors = $('.leancloud_visitors');
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
+      $visitors.each(function() {
+        entries.push( $(this).attr('id').trim() );
       });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+        .done(function({ results }) {
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
@@ -711,85 +707,51 @@
 
           for (var i = 0; i < results.length; i++) {
             var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
+            var url = item.url;
+            var time = item.time;
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
           }
-          for(var i = 0; i < entries.length; i++) {
+          for (var i = 0; i < entries.length; i++) {
             var url = entries[i];
             var element = document.getElementById(url);
             var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
+            if (countSpan.text() == '') {
               countSpan.text(0);
             }
           }
         })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
         });
     }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
+    
 
     $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'S2GzrQhCSkAMrzyRSelaF7Dg-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'S2GzrQhCSkAMrzyRSelaF7Dg-gzGzoHsz',
+                'X-LC-Key': 'MvuLM5jy3uL4pUoWVsBhIDdL',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            if ($('.post-title-link').length >= 1) {
+              showTime(Counter);
+            }
+          
+        });
     });
   </script>
+
 
 
 
