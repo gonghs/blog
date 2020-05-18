@@ -15,7 +15,6 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
 
   {% set container_class = "container " %}
-
   <div class="{{ container_class }} {% block page_class %}{% endblock %}">
 
     <main id="main" class="main">
