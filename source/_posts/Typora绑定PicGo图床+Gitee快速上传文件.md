@@ -69,7 +69,7 @@ description: Typora是个人比较喜欢的Markdown编辑工具，它可以用�
 
 确认PicGo-Server开启且监听端口为36677
 
-PicGo设置中选择PicGo-Server(2.1.0版本以上才有)
+PicGo设置中选择PicGo-Server(2.2.0版本以上才有)
 
 ![image-20200505221851568](https://gitee.com/gonghs/image/raw/master/img/20200505221852.png)
 
