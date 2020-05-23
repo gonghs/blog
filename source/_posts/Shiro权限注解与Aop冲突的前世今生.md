@@ -8,7 +8,7 @@ tags:
 - springboot
 - aop
 - java
-description: Shiro权限注解与Aop冲突的前世今生
+description: DefaultAdvisorAutoProxyCreator代理构建器与Aop代理二次代理冲突缘起探究
 ---
 在做springboot和shiro集成时，在度娘的多篇博文上相关**DefaultAdvisorAutoProxyCreator**有下图的描述，但实际测试时将usePrefix和proxyTargetClass二者任意一值设为true都可以解决无法映射请求的问题，此文即是基于此的拓展，有兴趣的童鞋可以在[测试项目](https://gitee.com/gonghs/jianshu/tree/master/shiro-permissions-aop)中进行测试。
 
