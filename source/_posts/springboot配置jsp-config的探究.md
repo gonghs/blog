@@ -8,7 +8,7 @@ tags:
   - java
   - web
   - jsp
-description: 近期对公司远古jsp mvc项目进行了springboot的改造,期间进行了一些springboot jsp-config的探究,故有此篇
+description: 探究在springboot中寻找jsp-config的替代方案
 ---
 
 # 版本概要
