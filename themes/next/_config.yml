@@ -244,7 +244,7 @@ post_wordcount:
 wechat_subscriber:
   enabled: true
   qcode: /uploads/WechatIMG.jpg
-  description: 欢迎关注Maples Blog公众号，逗比程序员的私人宅基地。
+  description: 欢迎关注猿枫小店公众号，逗比程序员的私人宅基地。
 
 # Reward
 #reward_comment: Donate comment here
