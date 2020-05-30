@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>敏捷开发，代码重构。Idea不得不提的三大技巧</title>
+    <url>/2020/05/30/Idea%20Tips/</url>
+    <content><![CDATA[<h2 id="批量操作"><a href="#批量操作" class="headerlink" title="批量操作"></a>批量操作</h2><p>多光标操作，是一款优秀的编辑器的基本职能。</p>
+<p>在idea中利用<em>Alt</em>键可以轻松的一次性拉取多行进行多点编辑操作：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530000428.gif" alt="Alt多点编辑"></p>
+<p>如果需要按点选择，则可以按<em>Alt</em>+<em>Shift</em>选择编辑：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530001522.gif" alt="多点光标操作"></p>
+<p><em>Ctrl</em>+<em>Alt</em>+<em>Shift</em>则包揽了行选择和点选择的功能：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530011728.gif" alt="点选择和行选择"></p>
+<p>组合其他快捷键使用可以完成相对复杂的操作，例如将原有类变量的行注释，变更为段注释。</p>
+<p>这里用到了<em>Ctrl</em> + <em>Alt</em>  +<em>Shift</em> + <em>J</em> 和 <em>Ctrl</em>+<em>W</em>。</p>
+<p>前者可以选中当前文件中所有相同的内容，如果光标没有选择范围则默认为附近的一个词。</p>
+<p>而后者则可以选中当前光标附近的词。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530003612.gif" alt="行注释变更"></p>
+<p>利用<em>Ctrl</em>+<em>W</em>可以轻易找到多个编辑点内容开头结尾</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530005717.gif" alt="多光标不同长度末尾编辑"></p>
+<h2 id="正则替换"><a href="#正则替换" class="headerlink" title="正则替换"></a>正则替换</h2><p>idea文本替换功能支持所有的标准正则表达式，利用正则表达式可以完成很多复杂的功能。</p>
+<p>使用正向和反向预查正则可以仅替换满足指定条件的文本，这个表达式可以替换被</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;li class=&quot;nav-li&quot;&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+
+<p>包裹的中文：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(?&lt;=&lt;li class=&quot;nav-li&quot;&gt;)[\u4e00-\u9fa5]*(?=&lt;/li&gt;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530021213.gif" alt="预查替换"></p>
+<p>idea支持使用小括号对正则进行分组，然后进行取值替换，上面将行注释变更的功能使用分组替换也可以完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\/\/ ([\u4e00-\u9fa5]*)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530022122.gif" alt="行注释正则替换"></p>
+<p>利用复杂的正则表达式可以简便的完成数据库方言的替换。</p>
+<p>例如时间格式化字符串在Oracle中是<em>yyyymmddHH24miss*而在mysql中却是</em>%Y%m%d%H%i%s*。</p>
+<p>替换正则：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(yyyy)(-|/)*?(mm)(-|/)*?(dd)(\s)*?(HH24)(:*?)(mi)(:*?)(ss)</span><br></pre></td></tr></table></figure>
+
+<p>替换为:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%Y$2%m$4%d$6%H$8%i$10%s</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530024154.gif" alt="数据库方言替换"></p>
+<p>用好正则替换功能将会给代码重构带来极大的便利。</p>
+<p>除了标准的正则表达式外，idea还支持在替换时修改替换文本的大小写属性（该功能不支持全局替换）。</p>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\l</td>
+<td align="center">将替换文本的首字母置为小写</td>
+</tr>
+<tr>
+<td align="center">\u</td>
+<td align="center">将替换文本的首字母置为大写</td>
+</tr>
+<tr>
+<td align="center">\L</td>
+<td align="center">将替换文本置为小写，可以使用\E标记停止</td>
+</tr>
+<tr>
+<td align="center">\U</td>
+<td align="center">将替换文本置为大写，可以使用\E标记停止</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530025950.gif" alt="大小写转置"></p>
+<h2 id="后缀补全"><a href="#后缀补全" class="headerlink" title="后缀补全"></a>后缀补全</h2><p>对对象使用调用符<em>.</em>时idea除了会弹出调用方法的提示，还会弹出一些预定义的后缀模板，利用这些后缀模板可以大幅减少移动光标的次数：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530160430.gif" alt="后缀补全"></p>
+<p>官网预定义的模板可以满足大部分场景，但有些调用Api并不满足需要，在<em>2018.01</em>版本后的idea允许自定义后缀模板（旧版本可以使用插件<em>Custom Postfix Templates</em>）。</p>
+<p>按<em>Ctrl</em>+<em>Shift</em>+<em>A</em>搜索postfix completion或者Setting=&gt;General=&gt;PostFix Completion打开postfix completion编辑页面。</p>
+<p>这里允许自定义后缀模板：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530175952.png" alt="image-20200530175945024"></p>
+<p>定义的模板中可以配置关键词，语言版本，适用的变量类型等，这里为任意对象定义一个Optional.orElse的模板：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530180831.png" alt="image-20200530180831492"></p>
+<p><em>$EXPR$*模板生效后变量将处在的位置，</em>$END$*则标记了光标最后处在的位置：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530181308.gif" alt="自定义表达式"></p>
+<p>唯一遗憾的一点是官方文档中并未说明多任务光标要如何定义，期待官方后续版本能够开发这个设置。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200530181955.gif" alt="多任务光标"></p>
+]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我和杰瑞的恩怨情仇</title>
     <url>/2020/05/25/%E6%88%91%E5%92%8C%E6%9D%B0%E7%91%9E%E7%9A%84%E6%81%A9%E6%80%A8%E6%83%85%E4%BB%87/</url>
     <content><![CDATA[<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>两年前我和两个基友合租了两室一卫，我和一个基友睡在里间，另一个基友睡在外间。</p>
@@ -296,10 +381,10 @@
         <category>tool</category>
       </categories>
       <tags>
-        <tag>springboot</tag>
-        <tag>java</tag>
         <tag>shiro</tag>
+        <tag>springboot</tag>
         <tag>aop</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -420,8 +505,8 @@
       </categories>
       <tags>
         <tag>springboot</tag>
-        <tag>web</tag>
         <tag>java</tag>
+        <tag>web</tag>
         <tag>jsp</tag>
       </tags>
   </entry>
