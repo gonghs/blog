@@ -339,7 +339,7 @@
     
     {% if theme.wechat_subscriber.enabled and not is_index %}
       <div>
-        {% include 'wechat-subscriber.swig' %}
+        {% include 'wechat-subscriber.swig' with { post: post } %}
       </div>
     {% endif %}
 
