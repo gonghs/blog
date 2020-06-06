@@ -1,6 +1,383 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Idea Live Templates配置详解及演示</title>
+    <url>/2020/06/07/Idea%20Live%20Templates/</url>
+    <content><![CDATA[<h2 id="模板定义"><a href="#模板定义" class="headerlink" title="模板定义"></a>模板定义</h2><h3 id="活动模板"><a href="#活动模板" class="headerlink" title="活动模板"></a>活动模板</h3><p>活动模板不依托于某个代码块，直接输入即可以触发，或者使用快捷键<em>Ctrl+J</em>主动触发。</p>
+<p>在<em>Setting -&gt; Editor -&gt; Live Templates</em>中可以自定义活动模板。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605101236.png" alt="自定义模板"></p>
+<p>活动模板的自定义支持多任务光标，一个变量即是一个任务光标，可用$END$标记结束光标。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605101246.png" alt="配置图解"></p>
+<p>在底部可以修改适用范围，勾选Java -&gt; statement就可以适用于<em>Ctrl+J</em>或空白输入。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606213520.png" alt="修改适用范围"></p>
+<p>执行后效果如下：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606213032.gif" alt="活动模板演示"></p>
+<h3 id="环绕模板"><a href="#环绕模板" class="headerlink" title="环绕模板"></a>环绕模板</h3><p>活动模板依托于某个代码块，使用快捷键<em>Ctrl+Alt+J</em>触发。</p>
+<p>定义时使用$SELECTION$标记被环绕的代码块。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606214320.png" alt="环绕模板配置"></p>
+<p>使用时若光标无选中代码块，则以当前行为环绕对象，否则以选中代码块为环绕对象。</p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606214736.gif" alt="环绕模板演示"></p>
+<h2 id="模板变量表达式含义表"><a href="#模板变量表达式含义表" class="headerlink" title="模板变量表达式含义表"></a>模板变量表达式含义表</h2><p>以下是定义变量时支持的表达式基本含义（当匹配多个结果时结果将出现在待选列表中）：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">annotated(<annotation>)</annotation></td>
+<td align="center">返回具有指定注解的类，方法或字段名</td>
+</tr>
+<tr>
+<td align="left">arrayVariable()</td>
+<td align="center">返回当前范围内数组变量，最近的优先展示</td>
+</tr>
+<tr>
+<td align="left">lineCommentStart()</td>
+<td align="center">返回当前语言指示行注释开始的字符</td>
+</tr>
+<tr>
+<td align="left">blockCommentStart()</td>
+<td align="center">返回当前语言指示块注释开始的字符</td>
+</tr>
+<tr>
+<td align="left">blockCommentEnd()</td>
+<td align="center">返回当前语言指示块注释结束的字符</td>
+</tr>
+<tr>
+<td align="left">commentStart()</td>
+<td align="center">返回当前语言指示注释开始的字符，对有行注释的返回行注释开头</td>
+</tr>
+<tr>
+<td align="left">commentEnd()</td>
+<td align="center">返回当前语言指示注释结束的字符，对有行注释的返回空（行注释通常没有结束字符）</td>
+</tr>
+<tr>
+<td align="left">camelCase(<string>)</string></td>
+<td align="center">将字符串转换为驼峰形式</td>
+</tr>
+<tr>
+<td align="left">snakeCase(<string>)</string></td>
+<td align="center">将字符串转换为下划线分割形式</td>
+</tr>
+<tr>
+<td align="left">spaceSeparated(<string>)</string></td>
+<td align="center">将字符串转换为空格分开形式</td>
+</tr>
+<tr>
+<td align="left">spacesToUnderscores(<string>)</string></td>
+<td align="center">将字符串的空格替换为下划线</td>
+</tr>
+<tr>
+<td align="left">capitalize(<string>)</string></td>
+<td align="center">将字符串首字母设为大写</td>
+</tr>
+<tr>
+<td align="left">capitalizeAndUnderscore(<string>)</string></td>
+<td align="center">将字符串转换为大写并用下划线隔开</td>
+</tr>
+<tr>
+<td align="left">decapitalize(<string>)</string></td>
+<td align="center">将字符串首字母设为小写</td>
+</tr>
+<tr>
+<td align="left">underscoresToCamelCase(<string>)</string></td>
+<td align="center">将下划线形式字符串转换为驼峰形式</td>
+</tr>
+<tr>
+<td align="left">underscoresToSpaces(<string>)</string></td>
+<td align="center">将下划线形式字符串转换为空格隔开形式</td>
+</tr>
+<tr>
+<td align="left">lowercaseAndDash(<string>)</string></td>
+<td align="center">将字符串转为小写并使用中划线分割</td>
+</tr>
+<tr>
+<td align="left">escapeString(<string>)</string></td>
+<td align="center">将字符串中的特殊符号进行转义，便于在java字符串中使用</td>
+</tr>
+<tr>
+<td align="left">substringBefore(<string>, <delimeter>)</delimeter></string></td>
+<td align="center">截取字符串在<delimeter>之前的部分</delimeter></td>
+</tr>
+<tr>
+<td align="left">firstWord(<string>)</string></td>
+<td align="center">返回字符串中的首个单词</td>
+</tr>
+<tr>
+<td align="left">castToLeftSideType()</td>
+<td align="center">获取左侧变量的类型判断是否需要强转</td>
+</tr>
+<tr>
+<td align="left">rightSideType()</td>
+<td align="center">获取右侧表达式的变量类型</td>
+</tr>
+<tr>
+<td align="left">className()</td>
+<td align="center">返回当前所在类（在内部类则返回内部类）类名</td>
+</tr>
+<tr>
+<td align="left">currentPackage()</td>
+<td align="center">返回当前所在包名</td>
+</tr>
+<tr>
+<td align="left">qualifiedClassName()</td>
+<td align="center">返回当前所在类（在内部类则返回内部类）的全限定类名（包+类名）</td>
+</tr>
+<tr>
+<td align="left">classNameComplete()</td>
+<td align="center">触发类名相关的代码补全</td>
+</tr>
+<tr>
+<td align="left">clipboard()</td>
+<td align="center">返回系统剪贴板的内容</td>
+</tr>
+<tr>
+<td align="left">complete()</td>
+<td align="center">调用一次代码补全，相当于调用一次<em>Ctrl+Space</em></td>
+</tr>
+<tr>
+<td align="left">completeSmart()</td>
+<td align="center">调用一次智能代码补全，相当于调用一次<em>Ctrl+Alt+Space</em></td>
+</tr>
+<tr>
+<td align="left">componentTypeOf(<array>)</array></td>
+<td align="center">返回数组类型</td>
+</tr>
+<tr>
+<td align="left">concat(<string>, …)</string></td>
+<td align="center">拼接字符串</td>
+</tr>
+<tr>
+<td align="left">date([format])</td>
+<td align="center">指定格式化方式返回当前系统时间字符串（根据<em>SimpleDateFormat</em>格式）</td>
+</tr>
+<tr>
+<td align="left">time([format])</td>
+<td align="center">指定格式化方式返回当前系统时间字符串（无日期，根据<em>SimpleDateFormat</em>格式）</td>
+</tr>
+<tr>
+<td align="left">descendantClassesEnum(<string>)</string></td>
+<td align="center">返回指定类的子类</td>
+</tr>
+<tr>
+<td align="left">lineNumber()</td>
+<td align="center">返回当前行行号</td>
+</tr>
+<tr>
+<td align="left">enum(<string>, …)</string></td>
+<td align="center">返回建议的字符串列表</td>
+</tr>
+<tr>
+<td align="left">expectedType()</td>
+<td align="center">自动识别并返回期望的类型，一般用于赋值，方法参数，返回语句处。</td>
+</tr>
+<tr>
+<td align="left">fileName()</td>
+<td align="center">返回当前文件名（带拓展名）</td>
+</tr>
+<tr>
+<td align="left">fileNameWithoutExtension()</td>
+<td align="center">返回当前文件名（不带拓展名）</td>
+</tr>
+<tr>
+<td align="left">filePath()</td>
+<td align="center">返回当前文件路径（带拓展名）</td>
+</tr>
+<tr>
+<td align="left">fileRelativePath()</td>
+<td align="center">返回当前文件相对当前项目的路径（带拓展名）</td>
+</tr>
+<tr>
+<td align="left">groovyScript(<string>, [arg, …])</string></td>
+<td align="center">执行作为字符串形式传递的<em>groovy</em>脚本</td>
+</tr>
+<tr>
+<td align="left">guessElementType(<collection>)</collection></td>
+<td align="center">返回集合中元素的类型</td>
+</tr>
+<tr>
+<td align="left">iterableComponentType(<iterable>)</iterable></td>
+<td align="center">返回可迭代对象的类型</td>
+</tr>
+<tr>
+<td align="left">iterableVariable()</td>
+<td align="center">返回当前范围内可迭代类型对象，最近的优先展示</td>
+</tr>
+<tr>
+<td align="left">methodName()</td>
+<td align="center">返回当前所在方法名</td>
+</tr>
+<tr>
+<td align="left">methodParameters()</td>
+<td align="center">返回当前所在方法的所有参数名</td>
+</tr>
+<tr>
+<td align="left">methodReturnType()</td>
+<td align="center">返回当前所在方法的返回类型</td>
+</tr>
+<tr>
+<td align="left">regularExpression(<string>, <pattern>, <replacement>)</replacement></pattern></string></td>
+<td align="center">查找字符串中满足<pattern>的所有部分并替换为<replacement></replacement></pattern></td>
+</tr>
+<tr>
+<td align="left">typeOfVariable(<string>)</string></td>
+<td align="center">返回变量的类型</td>
+</tr>
+<tr>
+<td align="left">variableOfType(<string>)</string></td>
+<td align="center">返回当前范围内满足类型条件的变量，最近的优先展示</td>
+</tr>
+<tr>
+<td align="left">suggestFirstVariableName(<string>)</string></td>
+<td align="center">返回当前范围内满足类型条件的部分变量，最近的优先展示和<em>variableOfType</em>类似但不推荐true，false，this，和super</td>
+</tr>
+<tr>
+<td align="left">subtypes(<string>)</string></td>
+<td align="center">返回指定类型的子类型</td>
+</tr>
+<tr>
+<td align="left">suggestIndexName()</td>
+<td align="center">返回当前范围中未使用的第一个常用迭代下标变量名（i，j，k等）</td>
+</tr>
+<tr>
+<td align="left">suggestVariableName()</td>
+<td align="center">根据变量命名规则的代码风格设置返回建议的变量名</td>
+</tr>
+<tr>
+<td align="left">suggestShortVariableName()</td>
+<td align="center">建议的变量名精简版</td>
+</tr>
+<tr>
+<td align="left">user()</td>
+<td align="center">返回当前系统的用户名称</td>
+</tr>
+</tbody></table>
+<h2 id="变量表达式定义和演示"><a href="#变量表达式定义和演示" class="headerlink" title="变量表达式定义和演示"></a>变量表达式定义和演示</h2><h3 id="annotated"><a href="#annotated" class="headerlink" title="annotated()"></a>annotated(<annotation>)</annotation></h3><p>定义时在括号内传入注解的全限定类名：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605101311.png" alt="annotated模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605101320.gif" alt="annotated模板演示"></p>
+<h3 id="arrayVariable"><a href="#arrayVariable" class="headerlink" title="arrayVariable"></a>arrayVariable</h3><p>返回类字段，或方法变量中的数组类型变量名称。<strong>离得近的将被优先推荐</strong>。</p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605101331.gif" alt="arrayVariable模板配置"></p>
+<h3 id="lineCommentStart-commentEnd"><a href="#lineCommentStart-commentEnd" class="headerlink" title="lineCommentStart~commentEnd"></a>lineCommentStart~commentEnd</h3><p><em>lineCommentStart</em>，<em>blockCommentStart</em>，<em>blockCommentEnd</em>，<em>commentStart</em>和<em>commentEnd</em>在不同的语言环境中表现是不一致的。</p>
+<p><em>lineCommentStart</em>返回当前语言中指示行注释开始的字符。</p>
+<p><em>blockCommentStart</em>和<em>blockCommentEnd</em>则返回当前语言中指示块注释开始，结束的字符。</p>
+<p><em>commentStart</em>和<em>commentEnd</em>视情况而定，若当前语言有行注释则与lineComment表现一致（行注释通常没结束标记<em>commentEnd</em>为空），若没有行注释则与<em>blockComment</em>表现一致。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606010034.png" alt="comment模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606010605.gif" alt="comment模板演示"></p>
+<h3 id="camelCase-firstWord"><a href="#camelCase-firstWord" class="headerlink" title="camelCase()~firstWord()"></a>camelCase(<string>)~firstWord(<string>)</string></string></h3><h4 id="camelCase"><a href="#camelCase" class="headerlink" title="camelCase()"></a>camelCase(<string>)</string></h4><p>将<strong>参数内容</strong>转换为驼峰形式。可以转换空格，下划线，中划线分割的字符串（<em>之后的一些表达式也都是类似机制，因此不再单独录制演示</em>）。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606184836.png" alt="camelCase模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606185330.gif" alt="camelCase模板演示"></p>
+<h4 id="snakeCase"><a href="#snakeCase" class="headerlink" title="snakeCase()"></a>snakeCase(<string>)</string></h4><p>将参数内容字符串转换为下划线分割形式，例如将user name，userName，user-name转换为user_name</p>
+<h4 id="spaceSeparated"><a href="#spaceSeparated" class="headerlink" title="spaceSeparated()"></a>spaceSeparated(<string>)</string></h4><p>将字符串转换为空格分开形式（不会改变原来的大小写状态），例如将<em>userName<em>，</em>user Name<em>和</em>user-Name<em>转换为</em>user Name</em></p>
+<h4 id="spacesToUnderscores"><a href="#spacesToUnderscores" class="headerlink" title="spacesToUnderscores()"></a>spacesToUnderscores(<string>)</string></h4><p>将字符串的空格替换为下划线，例如将user name转换为user_name，将user  name（两个空格）替换为user__name</p>
+<h4 id="capitalize"><a href="#capitalize" class="headerlink" title="capitalize()"></a>capitalize(<string>)</string></h4><p>将字符串首字母设为大写，例如将username转换为Username</p>
+<h4 id="capitalizeAndUnderscore"><a href="#capitalizeAndUnderscore" class="headerlink" title="capitalizeAndUnderscore()"></a>capitalizeAndUnderscore(<string>)</string></h4><p>将字符串转换为大写并用下划线隔开 ，例如将<em>UserName<em>，</em>user name<em>和</em>user-name<em>转换为</em>USER_NAME</em></p>
+<h4 id="decapitalize"><a href="#decapitalize" class="headerlink" title="decapitalize()"></a>decapitalize(<string>)</string></h4><p>将字符串首字母设为小写，例如将Username转换为username</p>
+<h4 id="underscoresToCamelCase"><a href="#underscoresToCamelCase" class="headerlink" title="underscoresToCamelCase()"></a>underscoresToCamelCase(<string>)</string></h4><p>将字符串下划线形式转换为驼峰形式，例如将user_name转换为userName，将user_NAME转换为userName，将USERNAME转换为username。</p>
+<h4 id="underscoresToSpaces"><a href="#underscoresToSpaces" class="headerlink" title="underscoresToSpaces()"></a>underscoresToSpaces(<string>)</string></h4><p>将字符串下划线替换为空格，例如将user_name转换为user name。</p>
+<h4 id="lowercaseAndDash"><a href="#lowercaseAndDash" class="headerlink" title="lowercaseAndDash()"></a>lowercaseAndDash(<string>)</string></h4><p>将字符串转换为小写并用中划线隔开 ，例如将<em>UserName</em>，<em>user name</em>和<em>user_name</em>转换为<em>user-name</em>。</p>
+<h4 id="escapeString"><a href="#escapeString" class="headerlink" title="escapeString()"></a>escapeString(<string>)</string></h4><p>对字符串中的特殊字符进行转义，以便在java字符串中进行使用。例如将”转换为\“。</p>
+<h4 id="substringBefore"><a href="#substringBefore" class="headerlink" title="substringBefore(, )"></a>substringBefore(<string>, <delimeter>)</delimeter></string></h4><p>截取字符串在<delimeter>之前的部分 ，例如substringBefore(“fileName.zip”,”.”)返回fileName。</delimeter></p>
+<h4 id="firstWord"><a href="#firstWord" class="headerlink" title="firstWord()"></a>firstWord(<string>)</string></h4><p>返回字符串中的第一个单词。例如user name返回user</p>
+<h3 id="castToLeftSideType与rightSideType"><a href="#castToLeftSideType与rightSideType" class="headerlink" title="castToLeftSideType与rightSideType"></a>castToLeftSideType与rightSideType</h3><p>由于<em>castToLeftSideType</em>需要比对左右侧变量类型，左侧类型可以等待任务光标完成编辑，右侧却不行，因此任务光标到达<em>castToLeftSideType</em>变量处时，右侧变量需要是已知类型才行。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605233922.png" alt="castToLeftSideType模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605234456.gif" alt="castToLeftSideType模板演示"></p>
+<p><em>rightSideType</em>可以获取右侧类型作为默认值，因此任务光标到达时右侧变量也需要是已知类型。<strong>需要注意的是<em>rightSideType</em>似乎必须定义一个默认值，否则将获取不到任何提示</strong>。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605235759.png" alt="rightSideType模板配置">演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606001000.gif" alt="rightSideType模板演示"></p>
+<h3 id="className-qualifiedClassName"><a href="#className-qualifiedClassName" class="headerlink" title="className~qualifiedClassName"></a>className~qualifiedClassName</h3><p><em>className</em>返回当前类名，可用作构造函数预定义构造函数，日志对象之类的模板。</p>
+<p><em>currentPackage</em>返回当前包名。</p>
+<p><em>qualifiedClassName</em>则是二者的拼接(此定义比较魔幻，在2020.01版本包名总是丢失)。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606014551.png" alt="class模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606014825.gif" alt="class模板演示"></p>
+<h3 id="clipboard"><a href="#clipboard" class="headerlink" title="clipboard"></a>clipboard</h3><p>返回剪贴板内容。</p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606002415.gif" alt="clipboard模板演示"></p>
+<h3 id="componentTypeOf"><a href="#componentTypeOf" class="headerlink" title="componentTypeOf()"></a>componentTypeOf(<array>)</array></h3><p>返回参数的数组类型 。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606194718.png" alt="componentTypeOf模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606195139.gif" alt="componentTypeOf模板演示"></p>
+<h3 id="concat-…"><a href="#concat-…" class="headerlink" title="concat(, …)"></a>concat(<string>, …)</string></h3><p>拼接参数中的所有字符串。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606195705.png" alt="concat模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606195914.gif" alt="concat模板演示"></p>
+<h3 id="date-format"><a href="#date-format" class="headerlink" title="date([format])"></a>date([format])</h3><p>指定格式化方式返回当前系统时间字符串，格式化字符串遵循<em>SimpleDateFormat</em>格式。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606200727.png" alt="date模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606201051.gif" alt="date模板演示"></p>
+<h3 id="descendantClassesEnum"><a href="#descendantClassesEnum" class="headerlink" title="descendantClassesEnum()"></a>descendantClassesEnum(<string>)</string></h3><p>返回指定类的子类。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606202904.png" alt="descendantClassesEnum模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606203009.gif" alt="descendantClassesEnum模板演示"></p>
+<h3 id="enum-…"><a href="#enum-…" class="headerlink" title="enum(, …)"></a>enum(<string>, …)</string></h3><p>自行指定返回的字符串列表。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606203238.png" alt="enum模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606203340.gif" alt="enum模板演示"></p>
+<h3 id="expectedType"><a href="#expectedType" class="headerlink" title="expectedType"></a>expectedType</h3><p>自动识别并返回期望的类型，可以用于赋值，方法参数，返回语句处。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606204639.png" alt="expectedType模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606204911.gif" alt="expectedType模板演示"></p>
+<h3 id="fileName-fileRelativePath"><a href="#fileName-fileRelativePath" class="headerlink" title="fileName~fileRelativePath"></a>fileName~fileRelativePath</h3><p><em>fileName</em>返回当前文件名（带拓展名）。</p>
+<p><em>fileNameWithoutExtension</em>返回当前文件名（不带拓展名）。</p>
+<p><em>filePath</em>返回文件全路径（带拓展名）。</p>
+<p><em>fileRelativePath</em>返回文件相对当前项目的路径（带拓展名）。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606205424.png" alt="fileName模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606210337.gif" alt="fileName模板演示"></p>
+<h3 id="groovyScript-arg-…"><a href="#groovyScript-arg-…" class="headerlink" title="groovyScript(, [arg, …])"></a>groovyScript(<string>, [arg, …])</string></h3><p>执行作为字符串形式传递的<em>groovy</em>脚本，第一个参数为脚本内容或脚本文件路径 ，之后的参数都为可选参数。</p>
+<p>如果要在脚本中调用可选参数可以使用<em>_1，_2，_3</em>以此类推，要访问当前编辑器可以使用<em>_editor</em>变量。</p>
+<p>此段脚本为两个变量做一个简单的拼接：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">groovyScript(&quot;return \&quot;$&#123;_1&#125;\&quot; + \&quot;$&#123;_2&#125;\&quot;&quot;,var1,var2)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200607003349.png" alt="groovyScript模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200607003539.gif" alt="groovyScript模板演示"></p>
+<h3 id="guessElementType"><a href="#guessElementType" class="headerlink" title="guessElementType()"></a>guessElementType(<collection>)</collection></h3><p>返回集合中的泛型类型。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606215632.png" alt="guessElementType模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606220047.gif" alt="guessElementType模板演示"></p>
+<h3 id="iterableComponentType"><a href="#iterableComponentType" class="headerlink" title="iterableComponentType()"></a>iterableComponentType(<iterable>)</iterable></h3><p>返回可迭代对象中的泛型类型，使用于数组，对象及其他任意实现Iterable接口的对象。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606220543.png" alt="iterableComponentType模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606220732.gif" alt="iterableComponentType模板演示"></p>
+<h3 id="classNameComplete"><a href="#classNameComplete" class="headerlink" title="classNameComplete"></a>classNameComplete</h3><p>触发一次类名相关的补全提示。</p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606003545.gif" alt="classNameComplete模板演示"></p>
+<h3 id="methodParameters"><a href="#methodParameters" class="headerlink" title="methodParameters"></a>methodParameters</h3><p>获取所有的参数名，返回时在外面拼接[]。</p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606012053.gif" alt="methodParameters模板演示"></p>
+<h3 id="regularExpression"><a href="#regularExpression" class="headerlink" title="regularExpression(, , )"></a>regularExpression(<string>, <pattern>, <replacement>)</replacement></pattern></string></h3><p>查找字符串中满足<pattern>的所有部分并替换为<replacement>  ，支持所有标准正则表达式。</replacement></pattern></p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606221424.png" alt="regularExpression模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606222357.gif" alt="regularExpression模板演示"></p>
+<h3 id="typeOfVariable"><a href="#typeOfVariable" class="headerlink" title="typeOfVariable()"></a>typeOfVariable(<string>)</string></h3><p>返回变量的类型。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606230055.png" alt="typeOfVariable模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606230237.gif" alt="typeOfVariable模板演示"></p>
+<h3 id="variableOfType-subtypes"><a href="#variableOfType-subtypes" class="headerlink" title="variableOfType()~ subtypes()"></a>variableOfType(<string>)~ subtypes(<string>)</string></string></h3><p><em>variableOfType</em>返回所有满足类型条件的变量，如果传入””则会返回所有的可用变量，距离较近的变量优先展示。</p>
+<p><em>suggestFirstVariableName</em>和<em>variableOfType</em>类似，但不会推荐true，false，this，和super。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200607001701.png" alt="variableOfType和suggestFirstVariableName对比"></p>
+<p><em>subtypes</em>返回指定类型的子类型。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606232013.png" alt="variableOfType与subtypes模板配置"></p>
+<p>演示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606232351.gif" alt="variableOfType与subtypes模板演示"></p>
+]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>敏捷开发，代码重构。Idea不得不提的三大技巧</title>
     <url>/2020/05/30/Idea%20Tips/</url>
     <content><![CDATA[<h2 id="批量操作"><a href="#批量操作" class="headerlink" title="批量操作"></a>批量操作</h2><p>多光标操作，是一款优秀的编辑器的基本职能。</p>
@@ -381,10 +758,10 @@
         <category>tool</category>
       </categories>
       <tags>
-        <tag>shiro</tag>
         <tag>springboot</tag>
-        <tag>aop</tag>
         <tag>java</tag>
+        <tag>shiro</tag>
+        <tag>aop</tag>
       </tags>
   </entry>
   <entry>
@@ -505,8 +882,8 @@
       </categories>
       <tags>
         <tag>springboot</tag>
-        <tag>java</tag>
         <tag>web</tag>
+        <tag>java</tag>
         <tag>jsp</tag>
       </tags>
   </entry>
