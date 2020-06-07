@@ -29,9 +29,9 @@ description: Live Templates是一个便捷的定义代码模板的方式，其�
 
 ![活动模板演示](https://gitee.com/gonghs/image/raw/master/img/20200606213032.gif)
 
-### 环绕模板
+### 环绕模板Typora绑定PicGo图床+Gitee快速上传文件
 
-活动模板依托于某个代码块，使用快捷键*Ctrl+Alt+J*触发。
+环绕模板依托于某个代码块，使用快捷键*Ctrl+Alt+J*触发。
 
 定义时使用$SELECTION$标记被环绕的代码块。
 
@@ -209,7 +209,7 @@ description: Live Templates是一个便捷的定义代码模板的方式，其�
 
 ### castToLeftSideType与rightSideType
 
-由于*castToLeftSideType*需要比对左右侧变量类型，左侧类型可以等待任务光标完成编辑，右侧却不行，因此任务光标到达*castToLeftSideType*变量处时，右侧变量需要是已知类型才行。
+由于*castToLeftSideType*需要比对左右侧变量类型，左侧类型可以等待任务光标完成编辑，右侧却不行，因此任务光标到达*castToLeftSideType*变量处时，右侧变量需要是已知类型。
 
 ![castToLeftSideType模板配置](https://gitee.com/gonghs/image/raw/master/img/20200605233922.png)
 
@@ -229,13 +229,13 @@ description: Live Templates是一个便捷的定义代码模板的方式，其�
 
 *currentPackage*返回当前包名。
 
-*qualifiedClassName*则是二者的拼接(此定义比较魔幻，在2020.01版本包名总是丢失)。
+*qualifiedClassName*则是二者的拼接。
 
-![class模板配置](https://gitee.com/gonghs/image/raw/master/img/20200606014551.png)
+![class模板配置](https://gitee.com/gonghs/image/raw/master/img/20200607031712.png)
 
 演示：
 
-![class模板演示](https://gitee.com/gonghs/image/raw/master/img/20200606014825.gif)
+![class模板演示](https://gitee.com/gonghs/image/raw/master/img/20200607031858.gif)
 
 ### clipboard
 
