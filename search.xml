@@ -12,7 +12,7 @@
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606213520.png" alt="修改适用范围"></p>
 <p>执行后效果如下：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606213032.gif" alt="活动模板演示"></p>
-<h3 id="环绕模板Typora绑定PicGo图床-Gitee快速上传文件"><a href="#环绕模板Typora绑定PicGo图床-Gitee快速上传文件" class="headerlink" title="环绕模板Typora绑定PicGo图床+Gitee快速上传文件"></a>环绕模板Typora绑定PicGo图床+Gitee快速上传文件</h3><p>环绕模板依托于某个代码块，使用快捷键<em>Ctrl+Alt+J</em>触发。</p>
+<h3 id="环绕模板"><a href="#环绕模板" class="headerlink" title="环绕模板"></a>环绕模板</h3><p>环绕模板依托于某个代码块，使用快捷键<em>Ctrl+Alt+J</em>触发。</p>
 <p>定义时使用$SELECTION$标记被环绕的代码块。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606214320.png" alt="环绕模板配置"></p>
 <p>使用时若光标无选中代码块，则以当前行为环绕对象，否则以选中代码块为环绕对象。</p>
