@@ -12,7 +12,7 @@
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606213520.png" alt="修改适用范围"></p>
 <p>执行后效果如下：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606213032.gif" alt="活动模板演示"></p>
-<h3 id="环绕模板"><a href="#环绕模板" class="headerlink" title="环绕模板"></a>环绕模板</h3><p>活动模板依托于某个代码块，使用快捷键<em>Ctrl+Alt+J</em>触发。</p>
+<h3 id="环绕模板Typora绑定PicGo图床-Gitee快速上传文件"><a href="#环绕模板Typora绑定PicGo图床-Gitee快速上传文件" class="headerlink" title="环绕模板Typora绑定PicGo图床+Gitee快速上传文件"></a>环绕模板Typora绑定PicGo图床+Gitee快速上传文件</h3><p>环绕模板依托于某个代码块，使用快捷键<em>Ctrl+Alt+J</em>触发。</p>
 <p>定义时使用$SELECTION$标记被环绕的代码块。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606214320.png" alt="环绕模板配置"></p>
 <p>使用时若光标无选中代码块，则以当前行为环绕对象，否则以选中代码块为环绕对象。</p>
@@ -285,7 +285,7 @@
 <h4 id="escapeString"><a href="#escapeString" class="headerlink" title="escapeString()"></a>escapeString(<string>)</string></h4><p>对字符串中的特殊字符进行转义，以便在java字符串中进行使用。例如将”转换为\“。</p>
 <h4 id="substringBefore"><a href="#substringBefore" class="headerlink" title="substringBefore(, )"></a>substringBefore(<string>, <delimeter>)</delimeter></string></h4><p>截取字符串在<delimeter>之前的部分 ，例如substringBefore(“fileName.zip”,”.”)返回fileName。</delimeter></p>
 <h4 id="firstWord"><a href="#firstWord" class="headerlink" title="firstWord()"></a>firstWord(<string>)</string></h4><p>返回字符串中的第一个单词。例如user name返回user</p>
-<h3 id="castToLeftSideType与rightSideType"><a href="#castToLeftSideType与rightSideType" class="headerlink" title="castToLeftSideType与rightSideType"></a>castToLeftSideType与rightSideType</h3><p>由于<em>castToLeftSideType</em>需要比对左右侧变量类型，左侧类型可以等待任务光标完成编辑，右侧却不行，因此任务光标到达<em>castToLeftSideType</em>变量处时，右侧变量需要是已知类型才行。</p>
+<h3 id="castToLeftSideType与rightSideType"><a href="#castToLeftSideType与rightSideType" class="headerlink" title="castToLeftSideType与rightSideType"></a>castToLeftSideType与rightSideType</h3><p>由于<em>castToLeftSideType</em>需要比对左右侧变量类型，左侧类型可以等待任务光标完成编辑，右侧却不行，因此任务光标到达<em>castToLeftSideType</em>变量处时，右侧变量需要是已知类型。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605233922.png" alt="castToLeftSideType模板配置"></p>
 <p>演示：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605234456.gif" alt="castToLeftSideType模板演示"></p>
@@ -294,10 +294,10 @@
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606001000.gif" alt="rightSideType模板演示"></p>
 <h3 id="className-qualifiedClassName"><a href="#className-qualifiedClassName" class="headerlink" title="className~qualifiedClassName"></a>className~qualifiedClassName</h3><p><em>className</em>返回当前类名，可用作构造函数预定义构造函数，日志对象之类的模板。</p>
 <p><em>currentPackage</em>返回当前包名。</p>
-<p><em>qualifiedClassName</em>则是二者的拼接(此定义比较魔幻，在2020.01版本包名总是丢失)。</p>
-<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606014551.png" alt="class模板配置"></p>
+<p><em>qualifiedClassName</em>则是二者的拼接。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200607031712.png" alt="class模板配置"></p>
 <p>演示：</p>
-<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606014825.gif" alt="class模板演示"></p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200607031858.gif" alt="class模板演示"></p>
 <h3 id="clipboard"><a href="#clipboard" class="headerlink" title="clipboard"></a>clipboard</h3><p>返回剪贴板内容。</p>
 <p>演示：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200606002415.gif" alt="clipboard模板演示"></p>
