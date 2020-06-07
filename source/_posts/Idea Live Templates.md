@@ -29,7 +29,7 @@ description: Live Templates是一个便捷的定义代码模板的方式，其�
 
 ![活动模板演示](https://gitee.com/gonghs/image/raw/master/img/20200606213032.gif)
 
-### 环绕模板Typora绑定PicGo图床+Gitee快速上传文件
+### 环绕模板
 
 环绕模板依托于某个代码块，使用快捷键*Ctrl+Alt+J*触发。
 
