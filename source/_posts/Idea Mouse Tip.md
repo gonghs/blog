@@ -19,7 +19,7 @@ description: 远离鼠标不是我们的目的，我们只是希望能够物尽�
 
 如果需要呼出其他窗口可以通过*Alt* + 数字键。可以自行修改使用比较多的页面。
 
-![呼出窗口](https://i.loli.net/2020/06/08/XFdmzsfRGneVwSi.gif)
+![窗口呼出](https://gitee.com/gonghs/image/raw/master/img/20200609021334.gif)
 
 对Idea足够熟悉的话，在演出模式下完全满足日常开发需求，并且拥有更好的视觉体验。
 
@@ -29,11 +29,11 @@ description: 远离鼠标不是我们的目的，我们只是希望能够物尽�
 
 使用*Ctrl*+*Shift*+*A*可以较近距离的完成这个操作。
 
-![新建类](https://i.loli.net/2020/06/05/b6yKnJRzBZljkFV.gif)
+![新建类](https://gitee.com/gonghs/image/raw/master/img/20200609020216.gif)
 
 如果需要创建指定目录下的文件则需要多一步搜索操作。
 
-![指定目录创建](https://i.loli.net/2020/06/05/lP3Kpifqyuwr4HI.gif)
+![指定目录创建](https://gitee.com/gonghs/image/raw/master/img/20200609020918.gif)
 
 ## 搜索
 
@@ -52,11 +52,11 @@ description: 远离鼠标不是我们的目的，我们只是希望能够物尽�
 
 *Ctrl + Shift + A* 查找操作，这个快捷键可以搜索到几乎所有的Idea操作。如果有什么操作，*配置*（下文中介绍的配置都可以使用此快捷键搜索）不记得，都可以尝试在这里搜索。
 
-![功能查找](https://i.loli.net/2020/06/05/9Qrs2HqflDEJpwR.gif)
+![查找操作](https://gitee.com/gonghs/image/raw/master/img/20200609015436.gif)
 
 *Ctrl + Shift + Alt + J* 和*Alt + J*功能类似，用于搜索并选中相同的词。
 
-![选中词](C:/Users/maple/Pictures/博客/1.gif)
+![选中词](https://gitee.com/gonghs/image/raw/master/img/20200609015640.gif)
 
 ## 编辑
 
@@ -66,7 +66,7 @@ description: 远离鼠标不是我们的目的，我们只是希望能够物尽�
 
 *Ctrl + Shift + enter*代码补全，这几乎是Idea中最好用的快捷键了，它可以补全大部分的括号，大括号，引号，冒号，分号等，帮助我们做一个漂亮的收尾。
 
-![1](C:/Users/maple/Pictures/博客/1.gif)
+![代码补全](https://gitee.com/gonghs/image/raw/master/img/20200609014643.gif)
 
 ### 代码模板
 
@@ -132,7 +132,7 @@ description: 远离鼠标不是我们的目的，我们只是希望能够物尽�
 
 勾选前：
 
-![勾选前](C:/Users/maple/Pictures/博客/1.gif)
+![勾选前](https://gitee.com/gonghs/image/raw/master/img/20200609012915.gif)
 
 勾选后：
 
