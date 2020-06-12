@@ -73,6 +73,8 @@ nslookup [加速域名]
 
 ## 加速结果
 
-启用CDN后大部分地区的访问速度都有所提升（注意加速只针对配置的加速域名，例如加速了www.ice-maple.com，ice-maple.com由于未加速还是原来的速度）。
+启用CDN后大部分地区的访问速度都有所提升
+
+>  注意加速只针对配置的加速域名，例如加速了*www.ice-maple.com*，*ice-maple.com*由于未加速还是原来的速度。
 
 ![加速后访问速度](https://gitee.com/gonghs/image/raw/master/img/20200612182727.png)
