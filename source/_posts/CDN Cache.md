@@ -5,9 +5,9 @@ categories:
 - website
 tags:
 - cdn
-description: 近期由于博客访问速度过慢，[测速](http://tool.chinaz.com/speedtest)时发现国内各地的下载速度都极慢，因此决定为域名增加CDN缓存。
+description: 近期由于博客访问速度过慢，测速时发现国内各地的下载速度都极慢，因此决定为域名增加CDN缓存。
 ---
-增加CDN前测速：
+增加CDN前[测速](http://tool.chinaz.com/speedtest)：
 
 ![全国各地访问延时](https://gitee.com/gonghs/image/raw/master/img/20200612170256.png)
 
