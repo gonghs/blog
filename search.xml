@@ -32,7 +32,10 @@
 
 <p>如果出现了刚刚配置的CNAME则代表成功。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200612180232.png" alt="nslookup"></p>
-<h2 id="加速结果"><a href="#加速结果" class="headerlink" title="加速结果"></a>加速结果</h2><p>启用CDN后大部分地区的访问速度都有所提升（注意加速只针对配置的加速域名，例如加速了<a href="http://www.ice-maple.com，ice-maple.com由于未加速还是原来的速度）。" target="_blank" rel="noopener">www.ice-maple.com，ice-maple.com由于未加速还是原来的速度）。</a></p>
+<h2 id="加速结果"><a href="#加速结果" class="headerlink" title="加速结果"></a>加速结果</h2><p>启用CDN后大部分地区的访问速度都有所提升</p>
+<blockquote>
+<p> 注意加速只针对配置的加速域名，例如加速了<em><a href="http://www.ice-maple.com">www.ice-maple.com</a></em>，<em>ice-maple.com</em>由于未加速还是原来的速度。</p>
+</blockquote>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200612182727.png" alt="加速后访问速度"></p>
 ]]></content>
       <categories>
@@ -900,9 +903,9 @@
       </categories>
       <tags>
         <tag>springboot</tag>
+        <tag>java</tag>
         <tag>shiro</tag>
         <tag>aop</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
