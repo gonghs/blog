@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200621234015.gif">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200623113432.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200623145206.png">
-<meta property="og:updated_time" content="2020-06-23T13:14:34.857Z">
+<meta property="og:updated_time" content="2020-06-23T14:34:32.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在springboot优雅的使用枚举">
 <meta name="twitter:description" content="在开发过程总是不可避免的遇到字段值个数有限，且有指定含义的情况，此时为了做判断时不写死属性导致维护成本上升，不可避免的就要用上枚举类型。引入枚举之后，经常需要用码值获取枚举对象，不如直接用枚举直接代替字段本身。">
@@ -368,7 +368,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T21:14:34+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T22:34:32+08:00">
                 2020-06-23
               </time>
             
@@ -497,7 +497,7 @@
 <h3 id="MyBatis-Plus的实现"><a href="#MyBatis-Plus的实现" class="headerlink" title="MyBatis-Plus的实现"></a>MyBatis-Plus的实现</h3><p>从<strong><em>MyBatis-Plus</em></strong> <strong>com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean</strong>中可以找到它是如何实现的。</p>
 <p>在<em>buildSqlSessionFactory</em>方法中可以看到，在配置了type-enums-package的情况下，<strong><em>MyBatis-Plus</em></strong>将为该包下满足处理条件的枚举注册<strong>MybatisEnumTypeHandler</strong>类型转换处理器</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200621212145.png" alt="枚举处理器注册"></p>
-<p>在<strong>MybatisEnumTypeHandler</strong>中将取出实现<strong>IEnum</strong>接口的枚举的<em>getValue</em>方法或使用<strong>EnumValue</strong>标记的字段的<em>getter</em>方法进行数据库值处理。</p>
+<p>在<strong>MybatisEnumTypeHandler</strong>中将取出实现<strong>IEnum</strong>接口的枚举的<em>getValue</em>方法或使用<strong>@EnumValue</strong>标记的字段的<em>getter</em>方法进行数据库值处理。</p>
 <h3 id="使用Mybatis实现"><a href="#使用Mybatis实现" class="headerlink" title="使用Mybatis实现"></a>使用Mybatis实现</h3><p><strong><em>Mybatis</em></strong>提供了default-enum-type-handler配置用于改写默认的枚举处理器，这里简单粗暴的直接替换了默认处理器（<strong><em>MyBatis-Plus</em></strong>是满足条件的类才注册为该处理器处理，实际情况也应该如此）。</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">default-enum-type-handler:</span> <span class="string">com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler</span></span><br></pre></td></tr></table></figure>
 
@@ -555,7 +555,7 @@
 <p>反序列化器同样可以借助<strong>@JSONField</strong>注解使其仅在实体字段生效。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@JSONField(deserializeUsing = FastJsonEnumDeserializer.class)</span><br></pre></td></tr></table></figure>
 
-<p>通过修改<strong>ParserConfig</strong>配置可以修改指定类的反序列化器，但由于<strong><em>FastJson</em></strong>获取序列化器时是直接从<em>deserializers</em>链表中直接按类型读取，并未做根类型的特殊处理，这意味着我们无法通过<strong>Enum</strong>类的配置覆盖所有枚举类，需要自行扫描所有枚举并加入配置，示例中借助hutools扫描指定包下的类。</p>
+<p>通过修改<strong>ParserConfig</strong>配置可以修改指定类的反序列化器，但由于<strong><em>FastJson</em></strong>获取序列化器时是直接从<em>deserializers</em>链表中直接按类型读取，并未做根类型的特殊处理，这意味着我们无法通过<strong>Enum</strong>类的配置覆盖所有枚举类，需要自行扫描所有枚举并加入配置，示例中借助hutool扫描指定包下的类。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.hutool<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hutool-all<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String ENUM_BASE_PKG = <span class="string">"com.maple.enumeration.enums"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> HttpMessageConverter&lt;?&gt; httpMessageConverter() &#123;</span><br><span class="line">        FastJsonHttpMessageConverter fastConverter = <span class="keyword">new</span> FastJsonHttpMessageConverter();</span><br><span class="line">        ParserConfig parserConfig = fastConverter.getFastJsonConfig().getParserConfig();</span><br><span class="line">        <span class="comment">// 此方式不会生效</span></span><br><span class="line">        <span class="comment">// parserConfig.putDeserializer(Enum.class, new FastJsonEnumDeserializer());</span></span><br><span class="line">        ClassUtil.scanPackage(ENUM_BASE_PKG).stream().filter(Class::isEnum).forEach(item -&gt;</span><br><span class="line">                parserConfig.putDeserializer(item, <span class="keyword">new</span> FastJsonEnumDeserializer()));</span><br><span class="line">        <span class="keyword">return</span> fastConverter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
