@@ -69,7 +69,7 @@ mybatis-plus:
 
 在类的属性声明上直接将字段类型标记为枚举类型，读取时将自动转换数据库值为枚举对象。
 
-```
+```java
 @Data
 @Accessors(chain = true)
 @TableName("test")
