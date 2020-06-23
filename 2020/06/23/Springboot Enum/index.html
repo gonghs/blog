@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200621234015.gif">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200623113432.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200623145206.png">
-<meta property="og:updated_time" content="2020-06-23T14:34:32.276Z">
+<meta property="og:updated_time" content="2020-06-23T14:54:06.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在springboot优雅的使用枚举">
 <meta name="twitter:description" content="在开发过程总是不可避免的遇到字段值个数有限，且有指定含义的情况，此时为了做判断时不写死属性导致维护成本上升，不可避免的就要用上枚举类型。引入枚举之后，经常需要用码值获取枚举对象，不如直接用枚举直接代替字段本身。">
@@ -368,7 +368,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T22:34:32+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-23T22:54:06+08:00">
                 2020-06-23
               </time>
             
@@ -489,7 +489,7 @@
 </li>
 </ul>
 <p>在类的属性声明上直接将字段类型标记为枚举类型，读取时将自动转换数据库值为枚举对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Accessors(chain = true)</span><br><span class="line">@TableName(&quot;test&quot;)</span><br><span class="line">public class TestDO &#123;</span><br><span class="line"></span><br><span class="line">    private Integer id;</span><br><span class="line"></span><br><span class="line">    private String username;</span><br><span class="line"></span><br><span class="line">    private StatusEnum status;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Accessors</span>(chain = <span class="keyword">true</span>)</span><br><span class="line"><span class="meta">@TableName</span>(<span class="string">"test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDO</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> StatusEnum status;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>读取数据库中的两条数据进行测试，可以看到值被成功转换为了枚举。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200621210503.png" alt="库数据"></p>
