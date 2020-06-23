@@ -97,7 +97,7 @@ public class TestDO {
 
 ![枚举处理器注册](https://gitee.com/gonghs/image/raw/master/img/20200621212145.png)
 
-在**MybatisEnumTypeHandler**中将取出实现**IEnum**接口的枚举的*getValue*方法或使用**EnumValue**标记的字段的*getter*方法进行数据库值处理。
+在**MybatisEnumTypeHandler**中将取出实现**IEnum**接口的枚举的*getValue*方法或使用**@EnumValue**标记的字段的*getter*方法进行数据库值处理。
 
 ### 使用Mybatis实现
 
@@ -433,7 +433,7 @@ public class FastJsonEnumDeserializer implements ObjectDeserializer
 @JSONField(deserializeUsing = FastJsonEnumDeserializer.class)
 ```
 
-通过修改**ParserConfig**配置可以修改指定类的反序列化器，但由于***FastJson***获取序列化器时是直接从*deserializers*链表中直接按类型读取，并未做根类型的特殊处理，这意味着我们无法通过**Enum**类的配置覆盖所有枚举类，需要自行扫描所有枚举并加入配置，示例中借助hutools扫描指定包下的类。
+通过修改**ParserConfig**配置可以修改指定类的反序列化器，但由于***FastJson***获取序列化器时是直接从*deserializers*链表中直接按类型读取，并未做根类型的特殊处理，这意味着我们无法通过**Enum**类的配置覆盖所有枚举类，需要自行扫描所有枚举并加入配置，示例中借助hutool扫描指定包下的类。
 
 ```xml
 <dependency>
