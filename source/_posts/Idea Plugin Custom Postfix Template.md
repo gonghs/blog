@@ -42,7 +42,7 @@ Custom Postfix Templates的存在本身是由于旧版本Idea官方不支持自�
 
 ### 配置综述
 
-插件模板的自定义基本和Live Templates是一致的，并且支持所有Live Templates支持的变量表达式。
+插件模板的自定义基本和{% post_link 'Idea Live Templates' Live Templates %}是一致的，并且支持所有Live Templates支持的变量表达式。
 
 Live Templates定义：
 
