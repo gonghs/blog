@@ -5,10 +5,10 @@ categories:
 - tool
 tags:
 - idea
-description: 之前介绍过Idea后缀补全（Postfix Completion）和环绕模板（Live Templates），后缀补全相对而言调用比较顺手，只需要用.符号就可以触发，但由于官方目前并未告知如何定义多任务光标的补全模板，自带的有类似功能的模板也无法编辑模仿，因此功能上来说还是环绕模板更加全面，使用插件Custom Postfix Templates可以补全这个缺憾，功能上完全可以取代环绕模板，也增强了便利性。
+description: 之前介绍过Idea后缀补全（Postfix Completion）和环绕模板（Live Templates），后缀补全相对而言调用比较顺手，只需要用.符号就可以触发，但由于官方目前并未告知如配置多任务光标的补全模板，自带的有类似功能的模板也无法编辑模仿，因此功能上来说还是环绕模板更加全面，使用插件Custom Postfix Templates可以补全这个缺憾，功能上完全可以取代环绕模板，也增强了便利性。
 ---
 
-Custom Postfix Templates的存在本身是由于旧版本Idea官方不支持自定义后缀补全，而在官方支持自定义模板的今天，我们仍可以为了更大更全面的模板定义而使用它。
+Custom Postfix Templates的存在本身是由于旧版本Idea官方不支持自定义后缀补全，而在官方支持自定义模板的今天，我们仍可以为了更大更全面的模板配置而使用它。
 
 ## 安装
 
@@ -30,9 +30,9 @@ Custom Postfix Templates的存在本身是由于旧版本Idea官方不支持自�
 
 ![使用](https://gitee.com/gonghs/image/raw/master/img/20200706152538.gif)
 
-在选择时按Alt + Enter可以进入当前模板的定义文件。
+在选择时按Alt + Enter可以进入当前模板的配置文件。
 
-![进入定义文件](https://gitee.com/gonghs/image/raw/master/img/20200706154304.gif)
+![进入配置文件](https://gitee.com/gonghs/image/raw/master/img/20200706154304.gif)
 
 快捷键Alt + Shift + P可以编辑用户设置，或查看插件配置。
 
@@ -44,11 +44,11 @@ Custom Postfix Templates的存在本身是由于旧版本Idea官方不支持自�
 
 插件模板的自定义基本和{% post_link 'Idea Live Templates' Live Templates %}是一致的，并且支持所有Live Templates支持的变量表达式。
 
-Live Templates定义：
+Live Templates配置：
 
 ![配置图解](https://gitee.com/gonghs/image/raw/master/img/20200605101246.png)
 
-插件模板定义：
+插件模板配置：
 
 ![插件模板定义](https://gitee.com/gonghs/image/raw/master/img/20200706165349.png)
 
