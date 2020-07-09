@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ubuntu,">
 
 
 
@@ -79,16 +79,32 @@
 
 
 
-<meta name="description" content="但见泪痕湿,不知心恨谁">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Maples Blog">
-<meta property="og:url" content="http://www.ice-maple.com/archives/2019/08/index.html">
+<meta name="description" content="WSL是微软为了方便开发者编程，在Windows10中内嵌的Linux子系统，最近WSL2作为标准组件成为Windows10 2004版本的一部分，比起一代提升了文件系统的I/O性能和与Linux的兼容性。">
+<meta name="keywords" content="ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows10基于WSL2的Ubuntu子系统安装">
+<meta property="og:url" content="http://www.ice-maple.com/2020/07/09/WSL Ubuntu/index.html">
 <meta property="og:site_name" content="Maples Blog">
-<meta property="og:description" content="但见泪痕湿,不知心恨谁">
+<meta property="og:description" content="WSL是微软为了方便开发者编程，在Windows10中内嵌的Linux子系统，最近WSL2作为标准组件成为Windows10 2004版本的一部分，比起一代提升了文件系统的I/O性能和与Linux的兼容性。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628103732.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628104633.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628105140.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628110225.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628110352.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628114535.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628115058.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200707181605.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200707181745.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200707235154.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200707143949.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200708000602.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709145140.png">
+<meta property="og:updated_time" content="2020-07-09T10:36:54.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maples Blog">
-<meta name="twitter:description" content="但见泪痕湿,不知心恨谁">
+<meta name="twitter:title" content="Windows10基于WSL2的Ubuntu子系统安装">
+<meta name="twitter:description" content="WSL是微软为了方便开发者编程，在Windows10中内嵌的Linux子系统，最近WSL2作为标准组件成为Windows10 2004版本的一部分，比起一代提升了文件系统的I/O性能和与Linux的兼容性。">
+<meta name="twitter:image" content="https://gitee.com/gonghs/image/raw/master/img/20200628103732.png">
 
 
 
@@ -118,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/archives/2019/08/">
+  <link rel="canonical" href="http://www.ice-maple.com/2020/07/09/WSL Ubuntu/">
 
 
 
 
 
-  <title>归档 | Maples Blog</title>
+  <title>Windows10基于WSL2的Ubuntu子系统安装 | Maples Blog</title>
   
 
 
@@ -143,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,72 +315,306 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 16 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/07/09/WSL Ubuntu/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="maple">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maples Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/08/20/springboot用户上下文注入/" itemprop="url">
-              
-                <span itemprop="name">springboot用户上下文注入</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Windows10基于WSL2的Ubuntu子系统安装</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-20T14:54:32+08:00" content="2019-08-20">
-          08-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-09T18:35:22+08:00">
+                2020-07-09
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-09T18:36:54+08:00">
+                2020-07-09
+              </time>
+            
+          </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index">
+                    <span itemprop="name">windows</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/09/WSL Ubuntu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/09/WSL Ubuntu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/07/09/WSL Ubuntu/" class="leancloud_visitors" data-flag-title="Windows10基于WSL2的Ubuntu子系统安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  458
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  WSL是微软为了方便开发者编程，在Windows10中内嵌的Linux子系统，最近WSL2作为标准组件成为Windows10 2004版本的一部分，比起一代提升了文件系统的I/O性能和与Linux的兼容性。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h2 id="启用windows功能"><a href="#启用windows功能" class="headerlink" title="启用windows功能"></a>启用windows功能</h2><p>控制面板 -&gt; 程序 -&gt; 程序和功能 -&gt; 启用或关闭Windows功能或Win + R运行control appwiz.cpl指令</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628103732.png" alt="启用或关闭windows功能"></p>
+<p>在功能列表中找到<strong>适用于Linux的Windows子系统</strong>和<strong>虚拟机平台</strong>两项启用。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628104633.png" alt="启用功能"></p>
+<h2 id="安装WSL1"><a href="#安装WSL1" class="headerlink" title="安装WSL1"></a>安装WSL1</h2><p>WSL1依赖于上步骤<strong>适用于Linux的Windows子系统</strong>功能。</p>
+<p><strong>使用管理员身份</strong>运行Powershell并执行指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628105140.png" alt="安装WSL1"></p>
+<p>如果只安装WSL1此时应该重启，否则更新至WSL2再重启。</p>
+<h2 id="更新WSL2"><a href="#更新WSL2" class="headerlink" title="更新WSL2"></a>更新WSL2</h2><p>更新WSL2需要<strong>Windows10版本2004且内部版本高于19041</strong>。</p>
+<p>版本信息可以通过Win+R运行winver确认（下图版本不可用，需要更新）。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628110225.png" alt="版本信息"></p>
+<p>或在Cmd中使用ver命令确认。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628110352.png" alt="ver指令"></p>
+<p>版本或内部版本不满足需求使用Win+R搜索<strong>更新设置</strong>进行系统更新。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628114535.png" alt="20200628110818"></p>
+<p>如果版本非2004版本可能需要访问下载<a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank" rel="noopener">Windows更新助手</a>升级至2004版本。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200628115058.png" alt="更新工具"></p>
+<p>WSL2依赖于<strong>虚拟机平台</strong>功能。</p>
+<p>使用管理员身份运行Powershell并执行指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200707181605.png" alt="更新WSL2"></p>
+<p>此时重启再进行后续操作。</p>
+<h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><p>安装新的 Ubuntu时，先将 WSL 2 设置为默认：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
+
+<p>若提示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200707181745.png" alt="需要更新内核"></p>
+<p>则需要进行<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi" target="_blank" rel="noopener">linux内核升级</a>（若下载太慢可在公众号后台回复wsl网盘链接下载）。</p>
+<p>升级完毕后执行指令将提示：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200707235154.png" alt="image-20200707235147861"></p>
+<p>若需要修改已有系统的wsl版本，可以执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 查运行系统名称</span><br><span class="line">wsl -l -v</span><br><span class="line">-- 设置指定名称系统版本</span><br><span class="line">wsl --set-version Ubuntu-20.04 2</span><br></pre></td></tr></table></figure>
+
+<p>在微软商店搜索Ubuntu（如果使用的是WSL1，<a href="https://discourse.ubuntu.com/t/ubuntu-20-04-and-wsl-1/15291" target="_blank" rel="noopener">建议安装18.04版本</a>）</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200707143949.png" alt="image-20200707143948800"></p>
+<p>安装完毕直接启动并设置初始用户名密码便可以进入子系统：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200708000602.png" alt="安装完毕"></p>
+<h2 id="附：可以使用Windows-Terminal打开系统"><a href="#附：可以使用Windows-Terminal打开系统" class="headerlink" title="附：可以使用Windows Terminal打开系统"></a>附：可以使用Windows Terminal打开系统</h2><p>在Windows Terminal中选择Ubuntu打开：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709145140.png" alt="使用Windows Terminal打开"></p>
+
+      
     </div>
+    
+    
+    
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    
+    
+      <div>
+        
+
+    <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;">
+        <div>欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。</div>
+    </div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    maple
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.ice-maple.com/2020/07/09/WSL Ubuntu/" title="Windows10基于WSL2的Ubuntu子系统安装">http://www.ice-maple.com/2020/07/09/WSL Ubuntu/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/06/Idea Plugin Custom Postfix Template/" rel="next" title="Idea插件Custom Postfix Template，代码补全的一大利器">
+                <i class="fa fa-chevron-left"></i> Idea插件Custom Postfix Template，代码补全的一大利器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -372,6 +622,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -392,8 +649,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -487,6 +753,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用windows功能"><span class="nav-number">1.</span> <span class="nav-text">启用windows功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装WSL1"><span class="nav-number">2.</span> <span class="nav-text">安装WSL1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新WSL2"><span class="nav-number">3.</span> <span class="nav-text">更新WSL2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Ubuntu"><span class="nav-number">4.</span> <span class="nav-text">安装Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附：可以使用Windows-Terminal打开系统"><span class="nav-number">5.</span> <span class="nav-text">附：可以使用Windows Terminal打开系统</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -651,6 +933,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1041,38 +1327,37 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
           }
         })
         .fail(function ({ responseJSON }) {
@@ -1097,9 +1382,9 @@
             });
           };
           
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
           
         });
     });
