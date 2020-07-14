@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ubuntu,docker,">
 
 
 
@@ -79,16 +79,33 @@
 
 
 
-<meta name="description" content="但见泪痕湿,不知心恨谁">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Maples Blog">
-<meta property="og:url" content="http://www.ice-maple.com/tags/gradle/index.html">
+<meta name="description" content="使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。">
+<meta name="keywords" content="ubuntu,docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSL2 Ubuntu2020.04子系统Docker安装">
+<meta property="og:url" content="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/index.html">
 <meta property="og:site_name" content="Maples Blog">
-<meta property="og:description" content="但见泪痕湿,不知心恨谁">
+<meta property="og:description" content="使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709155621.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200713145648.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200713150016.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714163959.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200713171043.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200713171142.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200713171312.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714164651.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714165909.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181005.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181132.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181315.png">
+<meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181609.png">
+<meta property="og:updated_time" content="2020-07-14T10:48:58.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maples Blog">
-<meta name="twitter:description" content="但见泪痕湿,不知心恨谁">
+<meta name="twitter:title" content="WSL2 Ubuntu2020.04子系统Docker安装">
+<meta name="twitter:description" content="使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。">
+<meta name="twitter:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png">
 
 
 
@@ -118,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/tags/gradle/">
+  <link rel="canonical" href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/">
 
 
 
 
 
-  <title>标签: gradle | Maples Blog</title>
+  <title>WSL2 Ubuntu2020.04子系统Docker安装 | Maples Blog</title>
   
 
 
@@ -143,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,78 +316,356 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>gradle<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="maple">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maples Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/08/20/springboot用户上下文注入/" itemprop="url">
-              
-                <span itemprop="name">springboot用户上下文注入</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">WSL2 Ubuntu2020.04子系统Docker安装</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-20T14:54:32+08:00" content="2019-08-20">
-          08-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T18:24:22+08:00">
+                2020-07-14
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-14T18:48:58+08:00">
+                2020-07-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index">
+                    <span itemprop="name">windows</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">ubuntu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/14/WSL Ubuntu docker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/14/WSL Ubuntu docker/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/07/14/WSL Ubuntu docker/" class="leancloud_visitors" data-flag-title="WSL2 Ubuntu2020.04子系统Docker安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  799
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>由于默认非root账号登录，大部分指令都需要加上 sudo，若权限不足加入sudo执行即可。</p>
+<p>如果嫌麻烦可以启用并切换至root用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 设置root用户密码</span><br><span class="line">sudo passwd root</span><br><span class="line"># 切换root用户</span><br><span class="line">su root</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/25/springboot处理集合类型校验/" itemprop="url">
-              
-                <span itemprop="name">springboot处理集合类型校验</span>
-              
-            </a>
-        
-      </h2>
+<h2 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h2><p>备份默认源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-25T14:54:32+08:00" content="2019-07-25">
-          07-25
-        </time>
-      </div>
+<p>编辑文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<p>删除原有内容并替换为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 
+<p>更新源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="Doker安装"><a href="#Doker安装" class="headerlink" title="Doker安装"></a>Doker安装</h2><p>卸载旧版本（如果有）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+
+<p>设置存储库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 安装软件包以允许 apt 通过 HTTPS 使用存储库</span><br><span class="line">apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line"># 添加 Docker 的官方 GPG 密钥</span><br><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 设置稳定的存储库</span><br><span class="line">add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br><span class="line"># 更新 apt 包索引</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>若秘钥未配置更新索引时可能会出现异常：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png" alt="秘钥未配置"></p>
+<p>安装最新版本的 Docker Engine-Community 和 containerd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+<p>查看是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br><span class="line"># 启动docker</span><br><span class="line">service docker start</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709155621.png" alt="版本号"></p>
+<p>配置镜像源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 创建文件夹 不先创建保存文件可能提示权限不足(root用户忽略)</span><br><span class="line">mkdir /etc/docker </span><br><span class="line"># 编辑文件</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 文件内容</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启docker：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="在Idea中访问"><a href="#在Idea中访问" class="headerlink" title="在Idea中访问"></a>在Idea中访问</h2><p>开启远程访问端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 编辑配置</span><br><span class="line">vim /etc/default/docker</span><br><span class="line"># 配置内容</span><br><span class="line">DOCKER_OPTS=&quot;-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713145648.png" alt="image-20200713145647547"></p>
+<p>重启服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+<p>确认端口状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713150016.png" alt="端口运行状态"></p>
+<p>由于目前外部程序连接无法直接通过localhost访问（浏览器似乎可以<a href="http://localhost:2375/info" target="_blank" rel="noopener">localhost:2375/info</a>），需要使用子系统ip访问。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714163959.png" alt="localhost访问"></p>
+<p>查询子系统ip：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171043.png" alt="查询ip"></p>
+<p>Idea setting -&gt; Build,Execution,Deployment -&gt; Docker新增配置</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171142.png" alt="Idea docker配置"></p>
+<p>配置完成可以在管理窗口看到容器与镜像信息。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171312.png" alt="docker管理窗口"></p>
+<h2 id="处理IP变化问题"><a href="#处理IP变化问题" class="headerlink" title="处理IP变化问题"></a>处理IP变化问题</h2><p>由于子系统IP总是变化，外部访问时如果用IP就会很麻烦，可以借助<a href="https://github.com/shayne/go-wsl2-host/releases" target="_blank" rel="noopener">wsl2host</a>配置host改善。</p>
+<p>下载：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714164651.png" alt="下载"></p>
+<p>下载完毕后使用Cmd或PowerShell运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\wsl2host.exe install</span><br></pre></td></tr></table></figure>
+
+<p>输入系统用户名密码，无异常则安装成功。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714165909.png" alt="wsl2host安装"></p>
+<p>安装成功到计算机-&gt;管理-&gt;服务和应用程序-&gt;服务 在服务列表中找到WSL2 Host并启动。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181005.png" alt="WSL2 Host服务"></p>
+<p>若启动失败并提示登录失败，右键点击服务-&gt;属性 在登录页签变更用户密码。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181132.png" alt="登录失败"></p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181315.png" alt="修改密码"></p>
+<p>服务正常启动，将在host文件写入一行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WSL2 ip] ubuntu2004.wsl</span><br></pre></td></tr></table></figure>
+
+<p>之后我们都使用ubuntu2004.wsl访问服务即可。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181609.png" alt="访问服务"></p>
+<hr>
+<p>参考资料:</p>
+<p><a href="https://blog.csdn.net/kfeng632/article/details/105979109/" target="_blank" rel="noopener">解决Win10 WSL2 IP地址经常变动导致docker容器无法正常访问</a></p>
 
       
     </div>
+    
+    
+    
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    
+    
+      <div>
+        
 
+    <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;">
+        <div>欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。</div>
+    </div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    maple
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/" title="WSL2 Ubuntu2020.04子系统Docker安装">http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+          
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/09/WSL Ubuntu/" rel="next" title="Windows10基于WSL2的Ubuntu子系统安装">
+                <i class="fa fa-chevron-left"></i> Windows10基于WSL2的Ubuntu子系统安装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -378,6 +673,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -398,8 +700,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -493,6 +804,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换镜像源"><span class="nav-number">1.</span> <span class="nav-text">更换镜像源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Doker安装"><span class="nav-number">2.</span> <span class="nav-text">Doker安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Idea中访问"><span class="nav-number">3.</span> <span class="nav-text">在Idea中访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理IP变化问题"><span class="nav-number">4.</span> <span class="nav-text">处理IP变化问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -657,6 +984,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1047,38 +1378,37 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
           }
         })
         .fail(function ({ responseJSON }) {
@@ -1103,9 +1433,9 @@
             });
           };
           
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
           
         });
     });

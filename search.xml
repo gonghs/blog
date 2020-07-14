@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>WSL2 Ubuntu2020.04子系统Docker安装</title>
+    <url>/2020/07/14/WSL%20Ubuntu%20docker/</url>
+    <content><![CDATA[<p>由于默认非root账号登录，大部分指令都需要加上 sudo，若权限不足加入sudo执行即可。</p>
+<p>如果嫌麻烦可以启用并切换至root用户：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 设置root用户密码</span><br><span class="line">sudo passwd root</span><br><span class="line"># 切换root用户</span><br><span class="line">su root</span><br></pre></td></tr></table></figure>
+
+<h2 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h2><p>备份默认源：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
+
+<p>编辑文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>删除原有内容并替换为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<p>更新源：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="Doker安装"><a href="#Doker安装" class="headerlink" title="Doker安装"></a>Doker安装</h2><p>卸载旧版本（如果有）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+
+<p>设置存储库：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 安装软件包以允许 apt 通过 HTTPS 使用存储库</span><br><span class="line">apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line"># 添加 Docker 的官方 GPG 密钥</span><br><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 设置稳定的存储库</span><br><span class="line">add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br><span class="line"># 更新 apt 包索引</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>若秘钥未配置更新索引时可能会出现异常：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png" alt="秘钥未配置"></p>
+<p>安装最新版本的 Docker Engine-Community 和 containerd</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+<p>查看是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker --version</span><br><span class="line"># 启动docker</span><br><span class="line">service docker start</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709155621.png" alt="版本号"></p>
+<p>配置镜像源：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 创建文件夹 不先创建保存文件可能提示权限不足(root用户忽略)</span><br><span class="line">mkdir /etc/docker </span><br><span class="line"># 编辑文件</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 文件内容</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启docker：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="在Idea中访问"><a href="#在Idea中访问" class="headerlink" title="在Idea中访问"></a>在Idea中访问</h2><p>开启远程访问端口：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 编辑配置</span><br><span class="line">vim /etc/default/docker</span><br><span class="line"># 配置内容</span><br><span class="line">DOCKER_OPTS=&quot;-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713145648.png" alt="image-20200713145647547"></p>
+<p>重启服务：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+
+<p>确认端口状态：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713150016.png" alt="端口运行状态"></p>
+<p>由于目前外部程序连接无法直接通过localhost访问（浏览器似乎可以<a href="http://localhost:2375/info" target="_blank" rel="noopener">localhost:2375/info</a>），需要使用子系统ip访问。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714163959.png" alt="localhost访问"></p>
+<p>查询子系统ip：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171043.png" alt="查询ip"></p>
+<p>Idea setting -&gt; Build,Execution,Deployment -&gt; Docker新增配置</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171142.png" alt="Idea docker配置"></p>
+<p>配置完成可以在管理窗口看到容器与镜像信息。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171312.png" alt="docker管理窗口"></p>
+<h2 id="处理IP变化问题"><a href="#处理IP变化问题" class="headerlink" title="处理IP变化问题"></a>处理IP变化问题</h2><p>由于子系统IP总是变化，外部访问时如果用IP就会很麻烦，可以借助<a href="https://github.com/shayne/go-wsl2-host/releases" target="_blank" rel="noopener">wsl2host</a>配置host改善。</p>
+<p>下载：</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714164651.png" alt="下载"></p>
+<p>下载完毕后使用Cmd或PowerShell运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.\wsl2host.exe install</span><br></pre></td></tr></table></figure>
+
+<p>输入系统用户名密码，无异常则安装成功。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714165909.png" alt="wsl2host安装"></p>
+<p>安装成功到计算机-&gt;管理-&gt;服务和应用程序-&gt;服务 在服务列表中找到WSL2 Host并启动。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181005.png" alt="WSL2 Host服务"></p>
+<p>若启动失败并提示登录失败，右键点击服务-&gt;属性 在登录页签变更用户密码。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181132.png" alt="登录失败"></p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181315.png" alt="修改密码"></p>
+<p>服务正常启动，将在host文件写入一行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[WSL2 ip] ubuntu2004.wsl</span><br></pre></td></tr></table></figure>
+
+<p>之后我们都使用ubuntu2004.wsl访问服务即可。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181609.png" alt="访问服务"></p>
+<hr>
+<p>参考资料:</p>
+<p><a href="https://blog.csdn.net/kfeng632/article/details/105979109/" target="_blank" rel="noopener">解决Win10 WSL2 IP地址经常变动导致docker容器无法正常访问</a></p>
+]]></content>
+      <categories>
+        <category>windows</category>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows10基于WSL2的Ubuntu子系统安装</title>
     <url>/2020/07/09/WSL%20Ubuntu/</url>
     <content><![CDATA[<h2 id="启用windows功能"><a href="#启用windows功能" class="headerlink" title="启用windows功能"></a>启用windows功能</h2><p>控制面板 -&gt; 程序 -&gt; 程序和功能 -&gt; 启用或关闭Windows功能或Win + R运行control appwiz.cpl指令</p>
