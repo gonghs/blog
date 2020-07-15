@@ -43,7 +43,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 ![ver指令](https://gitee.com/gonghs/image/raw/master/img/20200628110352.png)
 
-版本或内部版本不满足需求使用Win+R搜索**更新设置**进行系统更新。
+版本或内部版本不满足需求使用Win+S搜索**更新设置**进行系统更新。
 
 ![20200628110818](https://gitee.com/gonghs/image/raw/master/img/20200628114535.png)
 
