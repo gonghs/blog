@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="springboot,kotlin,web,">
+  <meta name="keywords" content="springboot,kotlin,web," />
 
 
 
@@ -80,13 +80,11 @@
 
 
 <meta name="description" content="此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作">
-<meta name="keywords" content="springboot,kotlin,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用gradle构建springboot项目">
-<meta property="og:url" content="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/index.html">
+<meta property="og:url" content="http://www.ice-maple.com/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="Maples Blog">
 <meta property="og:description" content="此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/Gi1Rs6D9ILOaTon.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/LETbvJpMadqXxOe.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/zZRoTUX36k4GOtV.png">
@@ -97,10 +95,13 @@
 <meta property="og:image" content="https://i.loli.net/2019/09/28/yWQzl7G5ikmPTfF.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/fTC3hg4ajxNXQqr.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/28/FLZB4ayjwv2t8cE.png">
-<meta property="og:updated_time" content="2020-03-14T08:49:14.336Z">
+<meta property="article:published_time" content="2019-03-03T08:17:47.000Z">
+<meta property="article:modified_time" content="2020-03-14T08:49:14.336Z">
+<meta property="article:author" content="maple">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="kotlin">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用gradle构建springboot项目">
-<meta name="twitter:description" content="此篇讲述使用idea构建kotlin gradle springboot项目,和基本的部署操作">
 <meta name="twitter:image" content="https://i.loli.net/2019/09/28/Gi1Rs6D9ILOaTon.png">
 
 
@@ -131,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/">
+  <link rel="canonical" href="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/"/>
 
 
 
@@ -147,7 +148,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -165,7 +166,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Maples Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -195,7 +196,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -205,7 +206,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -215,7 +216,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -225,7 +226,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -235,7 +236,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -245,7 +246,7 @@
         <li class="menu-item menu-item-schedule">
           <a href="/schedule/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             日程表
           </a>
@@ -255,7 +256,7 @@
         <li class="menu-item menu-item-love">
           <a href="/love/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             心跳
           </a>
@@ -268,7 +269,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -289,7 +290,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -326,11 +329,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maple">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -378,7 +381,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -408,8 +411,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/03/使用gradle构建springboot项目/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/03/使用gradle构建springboot项目/" itemprop="commentCount"></span>
+                <a href="/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,7 +420,7 @@
 
           
           
-             <span id="/2019/03/03/使用gradle构建springboot项目/" class="leancloud_visitors" data-flag-title="使用gradle构建springboot项目">
+             <span id="/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/" class="leancloud_visitors" data-flag-title="使用gradle构建springboot项目">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,7 +435,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -447,7 +450,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  496
+                  503
                 </span>
               
 
@@ -488,78 +491,44 @@
 <li>选择项目路径 点击finish等待项目构建完成</li>
 </ul>
 <h1 id="引入springboot"><a href="#引入springboot" class="headerlink" title="引入springboot"></a>引入springboot</h1><ul>
-<li><p>修改maven依赖访问地址,使用国内镜像</p>
-<ul>
-<li>在build.gradle中加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven&#123;</span><br><span class="line">        url &apos;http://maven.aliyun.com/nexus/content/groups/public/&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>修改maven依赖访问地址,使用国内镜像<ul>
+<li>在build.gradle中加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    maven&#123;</span><br><span class="line">        url &#39;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>引入springboot</p>
-<ul>
-<li><p>在plugins节点中加入</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id &apos;org.springframework.boot&apos; version &apos;2.1.3.RELEASE&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>加入根节点 使用spingboot插件(即最顶层)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;io.spring.dependency-management&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引入springboot web和test依赖 在dependencies节点加入</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.springframework.boot:spring-boot-starter-web&apos;</span><br><span class="line">testImplementation &apos;org.springframework.boot:spring-boot-starter-test&apos;</span><br></pre></td></tr></table></figure>
-</li>
+<li>引入springboot<ul>
+<li>在plugins节点中加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id &#39;org.springframework.boot&#39; version &#39;2.1.3.RELEASE&#39;</span><br></pre></td></tr></table></figure></li>
+<li>加入根节点 使用spingboot插件(即最顶层)  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#39;io.spring.dependency-management&#39;</span><br></pre></td></tr></table></figure></li>
+<li>引入springboot web和test依赖 在dependencies节点加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;org.springframework.boot:spring-boot-starter-web&#39;</span><br><span class="line">testImplementation &#39;org.springframework.boot:spring-boot-starter-test&#39;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>新建启动类并测试</p>
-<ul>
-<li><p>在java文件夹或kotlin文件夹下创建springboot启动类</p>
-  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runApplication&lt;SpringbootRun&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击右侧bootRun尝试启动(注意这里bootRun会自动扫描main方法,如果存在多个main方法只会选择其中一个),或者使用传统方式启动<br>  <img src="https://i.loli.net/2019/09/28/zZRoTUX36k4GOtV.png" alt="image.png"></p>
-</li>
-<li><p>访问localhost:8080查看结果<br>  <img src="https://i.loli.net/2019/09/28/CjK4qsF6AI93bdW.png" alt="image.png"></p>
-</li>
+<li>新建启动类并测试<ul>
+<li>在java文件夹或kotlin文件夹下创建springboot启动类  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runApplication&lt;SpringbootRun&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>点击右侧bootRun尝试启动(注意这里bootRun会自动扫描main方法,如果存在多个main方法只会选择其中一个),或者使用传统方式启动<br>  <img src="https://i.loli.net/2019/09/28/zZRoTUX36k4GOtV.png" alt="image.png"></li>
+<li>访问localhost:8080查看结果<br>  <img src="https://i.loli.net/2019/09/28/CjK4qsF6AI93bdW.png" alt="image.png"></li>
 </ul>
 </li>
-<li><p>打成jar包并运行</p>
-<ul>
+<li>打成jar包并运行<ul>
 <li>点击右侧build下bootJar<br>  <img src="https://i.loli.net/2019/09/28/ihwdZ64DHVLtAO1.png" alt="image.png"></li>
 <li>项目下build/libs/将会生成一个jar包<br>  <img src="https://i.loli.net/2019/09/28/ZceH7LAsOfXpiNj.png" alt="image.png"></li>
 <li>使用命令行运行,并访问<br>  <img src="https://i.loli.net/2019/09/28/IKtVEFskcBrZLou.png" alt="image.png"></li>
 </ul>
 </li>
-<li><p>打成war包并运行</p>
-<ul>
-<li><p>修改build.gradle 加入根节点</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;war&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改启动类使其继承SpringBootServletInitializer</p>
-  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span> : <span class="type">SpringBootServletInitializer</span></span>()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击右侧bootWar</p>
-</li>
-<li><p>拷贝war包至tomcat安装路径webapps下</p>
-</li>
-<li><p>运行bin/startup.bat 启动tomcat并尝试访问</p>
-</li>
-<li><p>访问结果<br>  <img src="https://i.loli.net/2019/09/28/yWQzl7G5ikmPTfF.png" alt="image.png"></p>
-</li>
+<li>打成war包并运行<ul>
+<li>修改build.gradle 加入根节点  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#39;war&#39;</span><br></pre></td></tr></table></figure></li>
+<li>修改启动类使其继承SpringBootServletInitializer  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span> : <span class="type">SpringBootServletInitializer</span></span>()</span><br></pre></td></tr></table></figure></li>
+<li>点击右侧bootWar</li>
+<li>拷贝war包至tomcat安装路径webapps下</li>
+<li>运行bin/startup.bat 启动tomcat并尝试访问</li>
+<li>访问结果<br>  <img src="https://i.loli.net/2019/09/28/yWQzl7G5ikmPTfF.png" alt="image.png"></li>
 </ul>
 </li>
-<li><p>打成war包使用jetty运行</p>
-<ul>
-<li><p>修改build.gradle 加入根节点</p>
-  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    compile.exclude module: <span class="string">"spring-boot-starter-tomcat"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>加入依赖</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.springframework.boot:spring-boot-starter-jetty&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击右侧bootWar</p>
-</li>
-<li><p>拷贝war包至jetty安装路径webapps下</p>
-</li>
-<li><p>运行,并访问</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar start.jar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问结果:<br>  <img src="https://i.loli.net/2019/09/28/fTC3hg4ajxNXQqr.png" alt="image.png"><br>  <img src="https://i.loli.net/2019/09/28/FLZB4ayjwv2t8cE.png" alt="image.png"></p>
-</li>
+<li>打成war包使用jetty运行<ul>
+<li>修改build.gradle 加入根节点  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    compile.exclude module: <span class="string">"spring-boot-starter-tomcat"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>加入依赖  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;org.springframework.boot:spring-boot-starter-jetty&#39;</span><br></pre></td></tr></table></figure></li>
+<li>点击右侧bootWar</li>
+<li>拷贝war包至jetty安装路径webapps下</li>
+<li>运行,并访问  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar start.jar</span><br></pre></td></tr></table></figure></li>
+<li>访问结果:<br>  <img src="https://i.loli.net/2019/09/28/fTC3hg4ajxNXQqr.png" alt="image.png"><br>  <img src="https://i.loli.net/2019/09/28/FLZB4ayjwv2t8cE.png" alt="image.png"></li>
 </ul>
 </li>
 </ul>
@@ -582,7 +551,7 @@
         
 
     <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;">
+        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;"/>
         <div>欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。</div>
     </div>
 
@@ -600,7 +569,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/" title="使用gradle构建springboot项目">http://www.ice-maple.com/2019/03/03/使用gradle构建springboot项目/</a>
+    <a href="http://www.ice-maple.com/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/" title="使用gradle构建springboot项目">http://www.ice-maple.com/2019/03/03/%E4%BD%BF%E7%94%A8gradle%E6%9E%84%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -632,7 +601,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/20/redis和redisson分布式锁集成/" rel="next" title="redis和redisson分布式锁集成">
+              <a href="/2019/01/20/redis%E5%92%8Credisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E9%9B%86%E6%88%90/" rel="next" title="redis和redisson分布式锁集成">
                 <i class="fa fa-chevron-left"></i> redis和redisson分布式锁集成
               </a>
             
@@ -642,7 +611,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/25/springboot处理集合类型校验/" rel="prev" title="springboot处理集合类型校验">
+              <a href="/2019/07/25/springboot%E5%A4%84%E7%90%86%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E6%A0%A1%E9%AA%8C/" rel="prev" title="springboot处理集合类型校验">
                 springboot处理集合类型校验 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -722,7 +691,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7C%20archive">
               
                   <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>

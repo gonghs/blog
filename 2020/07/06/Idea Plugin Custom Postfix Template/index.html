@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="idea,">
+  <meta name="keywords" content="idea," />
 
 
 
@@ -80,13 +80,11 @@
 
 
 <meta name="description" content="之前介绍过Idea后缀补全（Postfix Completion）和环绕模板（Live Templates），后缀补全相对而言调用比较顺手，只需要用.符号就可以触发，但由于官方目前并未告知如配置多任务光标的补全模板，自带的有类似功能的模板也无法编辑模仿，因此功能上来说还是环绕模板更加全面，使用插件Custom Postfix Templates可以补全这个缺憾，功能上完全可以取代环绕模板，也增强了">
-<meta name="keywords" content="idea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Idea插件Custom Postfix Template，代码补全的一大利器">
-<meta property="og:url" content="http://www.ice-maple.com/2020/07/06/Idea Plugin Custom Postfix Template/index.html">
+<meta property="og:url" content="http://www.ice-maple.com/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/index.html">
 <meta property="og:site_name" content="Maples Blog">
 <meta property="og:description" content="之前介绍过Idea后缀补全（Postfix Completion）和环绕模板（Live Templates），后缀补全相对而言调用比较顺手，只需要用.符号就可以触发，但由于官方目前并未告知如配置多任务光标的补全模板，自带的有类似功能的模板也无法编辑模仿，因此功能上来说还是环绕模板更加全面，使用插件Custom Postfix Templates可以补全这个缺憾，功能上完全可以取代环绕模板，也增强了">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706150646.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706150912.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706151339.png">
@@ -98,10 +96,11 @@
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706162122.gif">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706171117.gif">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706180633.gif">
-<meta property="og:updated_time" content="2020-07-07T02:04:58.005Z">
+<meta property="article:published_time" content="2020-07-06T10:16:22.000Z">
+<meta property="article:modified_time" content="2020-07-07T02:04:58.005Z">
+<meta property="article:author" content="maple">
+<meta property="article:tag" content="idea">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Idea插件Custom Postfix Template，代码补全的一大利器">
-<meta name="twitter:description" content="之前介绍过Idea后缀补全（Postfix Completion）和环绕模板（Live Templates），后缀补全相对而言调用比较顺手，只需要用.符号就可以触发，但由于官方目前并未告知如配置多任务光标的补全模板，自带的有类似功能的模板也无法编辑模仿，因此功能上来说还是环绕模板更加全面，使用插件Custom Postfix Templates可以补全这个缺憾，功能上完全可以取代环绕模板，也增强了">
 <meta name="twitter:image" content="https://gitee.com/gonghs/image/raw/master/img/20200706150646.png">
 
 
@@ -132,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/2020/07/06/Idea Plugin Custom Postfix Template/">
+  <link rel="canonical" href="http://www.ice-maple.com/2020/07/06/Idea Plugin Custom Postfix Template/"/>
 
 
 
@@ -148,7 +147,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -166,7 +165,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Maples Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -196,7 +195,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -206,7 +205,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -216,7 +215,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -226,7 +225,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -236,7 +235,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -246,7 +245,7 @@
         <li class="menu-item menu-item-schedule">
           <a href="/schedule/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             日程表
           </a>
@@ -256,7 +255,7 @@
         <li class="menu-item menu-item-love">
           <a href="/love/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             心跳
           </a>
@@ -269,7 +268,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -290,7 +289,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -327,11 +328,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/07/06/Idea Plugin Custom Postfix Template/">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maple">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -379,7 +380,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -409,8 +410,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/06/Idea Plugin Custom Postfix Template/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/06/Idea Plugin Custom Postfix Template/" itemprop="commentCount"></span>
+                <a href="/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,7 +419,7 @@
 
           
           
-             <span id="/2020/07/06/Idea Plugin Custom Postfix Template/" class="leancloud_visitors" data-flag-title="Idea插件Custom Postfix Template，代码补全的一大利器">
+             <span id="/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/" class="leancloud_visitors" data-flag-title="Idea插件Custom Postfix Template，代码补全的一大利器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +434,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -484,13 +485,13 @@
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200706150912.png" alt="image-20200706150912746"></p>
 <p>如果在配置中找不到任何模板文件，可能是因为raw.githubusercontent.com地址无法访问，需要自行在hosts文件增加DNS解析，插件自带的由各个作者提供的模板文件地址维护在官方插件github地址下的templates文件夹下，在这里可以看到，所有的模板文件都在这个域名下。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200706151339.png" alt="image-20200706151339417"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>插件自身已经加载了上步骤中的文件配置，直接使用<strong>.</strong>符号即可触发选择，也可以使用Ctrl + Space或Ctrl + Alt + Space主动触发选择，使用Tab或Enter键确定选择。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>插件自身已经加载了上步骤中的文件配置，直接使用**.**符号即可触发选择，也可以使用Ctrl + Space或Ctrl + Alt + Space主动触发选择，使用Tab或Enter键确定选择。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200706152538.gif" alt="使用"></p>
 <p>在选择时按Alt + Enter可以进入当前模板的配置文件。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200706154304.gif" alt="进入配置文件"></p>
 <p>快捷键Alt + Shift + P可以编辑用户设置，或查看插件配置。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200706154638.gif" alt="编辑用户或查看插件配置"></p>
-<h2 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h2><h3 id="配置综述"><a href="#配置综述" class="headerlink" title="配置综述"></a>配置综述</h3><p>插件模板的自定义基本和<a href="/2020/06/07/Idea Live Templates/" title="Live Templates">Live Templates</a>是一致的，并且支持所有Live Templates支持的变量表达式。</p>
+<h2 id="模板配置"><a href="#模板配置" class="headerlink" title="模板配置"></a>模板配置</h2><h3 id="配置综述"><a href="#配置综述" class="headerlink" title="配置综述"></a>配置综述</h3><p>插件模板的自定义基本和<a href="/2020/06/07/Idea%20Live%20Templates/" title="Live Templates">Live Templates</a>是一致的，并且支持所有Live Templates支持的变量表达式。</p>
 <p>Live Templates配置：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200605101246.png" alt="配置图解"></p>
 <p>插件模板配置：</p>
@@ -643,7 +644,7 @@
         
 
     <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;">
+        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;"/>
         <div>欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。</div>
     </div>
 
@@ -661,7 +662,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.ice-maple.com/2020/07/06/Idea Plugin Custom Postfix Template/" title="Idea插件Custom Postfix Template，代码补全的一大利器">http://www.ice-maple.com/2020/07/06/Idea Plugin Custom Postfix Template/</a>
+    <a href="http://www.ice-maple.com/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/" title="Idea插件Custom Postfix Template，代码补全的一大利器">http://www.ice-maple.com/2020/07/06/Idea%20Plugin%20Custom%20Postfix%20Template/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -689,7 +690,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/23/Springboot Enum/" rel="next" title="如何在springboot优雅的使用枚举">
+              <a href="/2020/06/23/Springboot%20Enum/" rel="next" title="如何在springboot优雅的使用枚举">
                 <i class="fa fa-chevron-left"></i> 如何在springboot优雅的使用枚举
               </a>
             
@@ -699,7 +700,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/09/WSL Ubuntu/" rel="prev" title="Windows10基于WSL2的Ubuntu子系统安装">
+              <a href="/2020/07/09/WSL%20Ubuntu/" rel="prev" title="Windows10基于WSL2的Ubuntu子系统安装">
                 Windows10基于WSL2的Ubuntu子系统安装 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -779,7 +780,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7C%20archive">
               
                   <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>

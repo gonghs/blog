@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="springboot,java,shiro,aop,">
+  <meta name="keywords" content="springboot,java,shiro,aop," />
 
 
 
@@ -80,13 +80,11 @@
 
 
 <meta name="description" content="DefaultAdvisorAutoProxyCreator代理构建器与Aop代理二次代理冲突缘起探究">
-<meta name="keywords" content="springboot,java,shiro,aop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shiro权限注解与Aop冲突的前世今生">
-<meta property="og:url" content="http://www.ice-maple.com/2020/05/23/Shiro权限注解与Aop冲突的前世今生/index.html">
+<meta property="og:url" content="http://www.ice-maple.com/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/index.html">
 <meta property="og:site_name" content="Maples Blog">
 <meta property="og:description" content="DefaultAdvisorAutoProxyCreator代理构建器与Aop代理二次代理冲突缘起探究">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200516234106.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200517001822.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200517004213.png">
@@ -113,10 +111,14 @@
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200523143346.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200523144139.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200523144605.png">
-<meta property="og:updated_time" content="2020-05-23T13:55:04.437Z">
+<meta property="article:published_time" content="2020-05-23T13:46:32.000Z">
+<meta property="article:modified_time" content="2020-05-23T13:55:04.437Z">
+<meta property="article:author" content="maple">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="shiro">
+<meta property="article:tag" content="aop">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shiro权限注解与Aop冲突的前世今生">
-<meta name="twitter:description" content="DefaultAdvisorAutoProxyCreator代理构建器与Aop代理二次代理冲突缘起探究">
 <meta name="twitter:image" content="https://gitee.com/gonghs/image/raw/master/img/20200516234106.png">
 
 
@@ -147,7 +149,7 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/2020/05/23/Shiro权限注解与Aop冲突的前世今生/">
+  <link rel="canonical" href="http://www.ice-maple.com/2020/05/23/Shiro权限注解与Aop冲突的前世今生/"/>
 
 
 
@@ -163,7 +165,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -181,7 +183,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Maples Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -211,7 +213,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -221,7 +223,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -231,7 +233,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -241,7 +243,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -251,7 +253,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -261,7 +263,7 @@
         <li class="menu-item menu-item-schedule">
           <a href="/schedule/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             日程表
           </a>
@@ -271,7 +273,7 @@
         <li class="menu-item menu-item-love">
           <a href="/love/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             心跳
           </a>
@@ -284,7 +286,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -305,7 +307,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -342,11 +346,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/05/23/Shiro权限注解与Aop冲突的前世今生/">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maple">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -394,7 +398,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -424,8 +428,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/05/23/Shiro权限注解与Aop冲突的前世今生/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/23/Shiro权限注解与Aop冲突的前世今生/" itemprop="commentCount"></span>
+                <a href="/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -433,7 +437,7 @@
 
           
           
-             <span id="/2020/05/23/Shiro权限注解与Aop冲突的前世今生/" class="leancloud_visitors" data-flag-title="Shiro权限注解与Aop冲突的前世今生">
+             <span id="/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" class="leancloud_visitors" data-flag-title="Shiro权限注解与Aop冲突的前世今生">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +452,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -505,7 +509,7 @@
 </ul>
 <p>猜测不一定是正确的，并且由于二者都可以解决这个问题，还需要探求二者之间的关联。</p>
 <h2 id="由请求开始"><a href="#由请求开始" class="headerlink" title="由请求开始"></a>由请求开始</h2><p>当aop与权限注解共存时，不对<strong>DefaultAdvisorAutoProxyCreator</strong>进行任何配置并跟踪请求，部分执行链如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// &#123;&#125;表示同上</span><br><span class="line">.</span><br><span class="line">├── DispatcherServlet.doService</span><br><span class="line">│   ├── DispatcherServlet.doDispatch</span><br><span class="line">│   	├── DispatcherServlet.getHandler</span><br><span class="line">│   		├── AbstractHandlerMapping.getHandler</span><br><span class="line">│   			├── RequestMappingInfoHandlerMapping.getHandlerInternal</span><br><span class="line">│   				└── AbstractHandlerMethodMapping.lookupHandlerMethod</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &#123;&#125;表示同上</span><br><span class="line">.</span><br><span class="line">├── DispatcherServlet.doService</span><br><span class="line">│   ├── DispatcherServlet.doDispatch</span><br><span class="line">│   	├── DispatcherServlet.getHandler</span><br><span class="line">│   		├── AbstractHandlerMapping.getHandler</span><br><span class="line">│   			├── RequestMappingInfoHandlerMapping.getHandlerInternal</span><br><span class="line">│   				└── AbstractHandlerMethodMapping.lookupHandlerMethod</span><br></pre></td></tr></table></figure>
 
 <p>之所以跟踪这个请求，是由于在<em>doDispatch</em>方法中的<strong>HandlerExecutionChain</strong>类型变量是spring由容器中取得的实际处理请求的对象。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200517004213.png" alt="image-20200517004212046"></p>
@@ -699,7 +703,7 @@
         
 
     <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;">
+        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;"/>
         <div>欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。</div>
     </div>
 
@@ -717,7 +721,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.ice-maple.com/2020/05/23/Shiro权限注解与Aop冲突的前世今生/" title="Shiro权限注解与Aop冲突的前世今生">http://www.ice-maple.com/2020/05/23/Shiro权限注解与Aop冲突的前世今生/</a>
+    <a href="http://www.ice-maple.com/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/" title="Shiro权限注解与Aop冲突的前世今生">http://www.ice-maple.com/2020/05/23/Shiro%E6%9D%83%E9%99%90%E6%B3%A8%E8%A7%A3%E4%B8%8EAop%E5%86%B2%E7%AA%81%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -751,7 +755,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/05/Typora绑定PicGo图床+Gitee快速上传文件/" rel="next" title="Typora绑定PicGo图床+Gitee快速上传文件">
+              <a href="/2020/05/05/Typora%E7%BB%91%E5%AE%9APicGo%E5%9B%BE%E5%BA%8A+Gitee%E5%BF%AB%E9%80%9F%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/" rel="next" title="Typora绑定PicGo图床+Gitee快速上传文件">
                 <i class="fa fa-chevron-left"></i> Typora绑定PicGo图床+Gitee快速上传文件
               </a>
             
@@ -761,7 +765,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/25/我和杰瑞的恩怨情仇/" rel="prev" title="我和杰瑞的恩怨情仇">
+              <a href="/2020/05/25/%E6%88%91%E5%92%8C%E6%9D%B0%E7%91%9E%E7%9A%84%E6%81%A9%E6%80%A8%E6%83%85%E4%BB%87/" rel="prev" title="我和杰瑞的恩怨情仇">
                 我和杰瑞的恩怨情仇 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -841,7 +845,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7C%20archive">
               
                   <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>

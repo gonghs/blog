@@ -6,10 +6,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ubuntu,docker,">
+  <meta name="keywords" content="ubuntu,docker," />
 
 
 
@@ -80,13 +80,11 @@
 
 
 <meta name="description" content="使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。">
-<meta name="keywords" content="ubuntu,docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WSL2 Ubuntu2020.04子系统Docker安装">
-<meta property="og:url" content="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/index.html">
+<meta property="og:url" content="http://www.ice-maple.com/2020/07/14/WSL%20Ubuntu%20docker/index.html">
 <meta property="og:site_name" content="Maples Blog">
 <meta property="og:description" content="使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709155621.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200713145648.png">
@@ -101,10 +99,12 @@
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181132.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181315.png">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200714181609.png">
-<meta property="og:updated_time" content="2020-07-14T10:50:29.108Z">
+<meta property="article:published_time" content="2020-07-14T10:24:22.000Z">
+<meta property="article:modified_time" content="2020-07-14T10:50:29.108Z">
+<meta property="article:author" content="maple">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WSL2 Ubuntu2020.04子系统Docker安装">
-<meta name="twitter:description" content="使用Windows10 Ubuntu子系统后，筹划将原有的部分工具移动到子系统使用docker管理，顺便踩踩坑积累经验。">
 <meta name="twitter:image" content="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png">
 
 
@@ -135,7 +135,7 @@
 
 
 
-  <link rel="canonical" href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/">
+  <link rel="canonical" href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/"/>
 
 
 
@@ -151,7 +151,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -169,7 +169,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Maples Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -199,7 +199,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -209,7 +209,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -219,7 +219,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -229,7 +229,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -239,7 +239,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -249,7 +249,7 @@
         <li class="menu-item menu-item-schedule">
           <a href="/schedule/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
             日程表
           </a>
@@ -259,7 +259,7 @@
         <li class="menu-item menu-item-love">
           <a href="/love/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
             心跳
           </a>
@@ -272,7 +272,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -293,7 +293,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -330,11 +332,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/">
+    <link itemprop="mainEntityOfPage" href="http://www.ice-maple.com/2020/07/14/WSL%20Ubuntu%20docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="maple">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -382,7 +384,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -423,8 +425,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/14/WSL Ubuntu docker/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/14/WSL Ubuntu docker/" itemprop="commentCount"></span>
+                <a href="/2020/07/14/WSL%20Ubuntu%20docker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/14/WSL%20Ubuntu%20docker/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -432,7 +434,7 @@
 
           
           
-             <span id="/2020/07/14/WSL Ubuntu docker/" class="leancloud_visitors" data-flag-title="WSL2 Ubuntu2020.04子系统Docker安装">
+             <span id="/2020/07/14/WSL%20Ubuntu%20docker/" class="leancloud_visitors" data-flag-title="WSL2 Ubuntu2020.04子系统Docker安装">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -447,7 +449,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -462,7 +464,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  799
+                  876
                 </span>
               
 
@@ -496,13 +498,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 设置root用户密码</span><br><span class="line">sudo passwd root</span><br><span class="line"># 切换root用户</span><br><span class="line">su root</span><br></pre></td></tr></table></figure>
 
 <h2 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h2><p>备份默认源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/apt/sources.list /etc/apt/sourses.list.bak</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;etc&#x2F;apt&#x2F;sourses.list.bak</span><br></pre></td></tr></table></figure>
 
 <p>编辑文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
 
 <p>删除原有内容并替换为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 
 <p>更新源：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
@@ -511,7 +513,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
 
 <p>设置存储库：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 安装软件包以允许 apt 通过 HTTPS 使用存储库</span><br><span class="line">apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line"># 添加 Docker 的官方 GPG 密钥</span><br><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 设置稳定的存储库</span><br><span class="line">add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br><span class="line"># 更新 apt 包索引</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 安装软件包以允许 apt 通过 HTTPS 使用存储库</span><br><span class="line">apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line"># 添加 Docker 的官方 GPG 密钥</span><br><span class="line">$ curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu&#x2F;gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 设置稳定的存储库</span><br><span class="line">add-apt-repository \</span><br><span class="line">   &quot;deb [arch&#x3D;amd64] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br><span class="line"># 更新 apt 包索引</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
 
 <p>若秘钥未配置更新索引时可能会出现异常：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709154912.png" alt="秘钥未配置"></p>
@@ -523,13 +525,13 @@
 
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200709155621.png" alt="版本号"></p>
 <p>配置镜像源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 创建文件夹 不先创建保存文件可能提示权限不足(root用户忽略)</span><br><span class="line">mkdir /etc/docker </span><br><span class="line"># 编辑文件</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line"># 文件内容</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 创建文件夹 不先创建保存文件可能提示权限不足(root用户忽略)</span><br><span class="line">mkdir &#x2F;etc&#x2F;docker </span><br><span class="line"># 编辑文件</span><br><span class="line">vim &#x2F;etc&#x2F;docker&#x2F;daemon.json</span><br><span class="line"># 文件内容</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>重启docker：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
 
 <h2 id="在Idea中访问"><a href="#在Idea中访问" class="headerlink" title="在Idea中访问"></a>在Idea中访问</h2><p>开启远程访问端口：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 编辑配置</span><br><span class="line">vim /etc/default/docker</span><br><span class="line"># 配置内容</span><br><span class="line">DOCKER_OPTS=&quot;-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 编辑配置</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;docker</span><br><span class="line"># 配置内容</span><br><span class="line">DOCKER_OPTS&#x3D;&quot;-H tcp:&#x2F;&#x2F;0.0.0.0:2375 -H unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock&quot;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713145648.png" alt="image-20200713145647547"></p>
 <p>重启服务：</p>
@@ -589,7 +591,7 @@
         
 
     <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;">
+        <img id="wechat_subscriber_qcode" src="/uploads/WechatIMG.jpg" alt="maple wechat" style="width: 200px; max-width: 100%;"/>
         <div>欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。</div>
     </div>
 
@@ -607,7 +609,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/" title="WSL2 Ubuntu2020.04子系统Docker安装">http://www.ice-maple.com/2020/07/14/WSL Ubuntu docker/</a>
+    <a href="http://www.ice-maple.com/2020/07/14/WSL%20Ubuntu%20docker/" title="WSL2 Ubuntu2020.04子系统Docker安装">http://www.ice-maple.com/2020/07/14/WSL%20Ubuntu%20docker/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -637,7 +639,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/09/WSL Ubuntu/" rel="next" title="Windows10基于WSL2的Ubuntu子系统安装">
+              <a href="/2020/07/09/WSL%20Ubuntu/" rel="next" title="Windows10基于WSL2的Ubuntu子系统安装">
                 <i class="fa fa-chevron-left"></i> Windows10基于WSL2的Ubuntu子系统安装
               </a>
             
@@ -723,7 +725,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7C%20archive">
               
                   <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
