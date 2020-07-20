@@ -8,7 +8,7 @@ subtitle: 时光静好，与君语；细水流年，与君同。
 description: 但见泪痕湿,不知心恨谁
 keywords:
 author: maple
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: next7.8.0
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

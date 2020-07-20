@@ -14,6 +14,19 @@
 # Useful if you don't want to inherit the theme _config.yml configurations.
 override: false
 
+# Define custom file paths.
+# Create your custom files in site directory `source/_data` and uncomment needed files below.
+custom_file_path:
+  #head: source/_data/head.swig
+  #header: source/_data/header.swig
+  #sidebar: source/_data/sidebar.swig
+  #postMeta: source/_data/post-meta.swig
+  #postBodyEnd: source/_data/post-body-end.swig
+  footer: source/_data/footer.swig
+  #bodyEnd: source/_data/body-end.swig
+  #variable: source/_data/variables.styl
+  #mixin: source/_data/mixins.styl
+  #style: source/_data/styles.styl
 # ---------------------------------------------------------------
 # Site Information Settings
 # ---------------------------------------------------------------
@@ -48,7 +61,13 @@ footer:
   #since: 2015
 
   # Icon between year and copyright info.
-  icon: user
+  icon: 
+      # Icon name in Font Awesome. See: https://fontawesome.com/icons
+    name: fa fa-heart
+    # If you want to animate the icon, set it to true.
+    animated: false
+    # Change the color of icon, using Hex Code.
+    color: "#ff0000"
 
   # If not defined, will be used `author` from Hexo main config.
   copyright:
@@ -56,8 +75,19 @@ footer:
   # Hexo link (Powered by Hexo).
   powered: true
   # 网址备案
-  record: true
+  record: false
 
+  # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
+  beian:
+    enable: true
+    icp: 闽ICP备19020199号
+    # The digit in the num of gongan beian.
+    gongan_id: 
+    # The full num of gongan beian.
+    gongan_num: 
+    # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
+    gongan_icon_url: 
+  
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
     enable: false
@@ -66,6 +96,17 @@ footer:
   # -------------------------------------------------------------
   # Any custom text can be defined here.
   #custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
+
+# Creative Commons 4.0 International License.
+# See: https://creativecommons.org/share-your-work/licensing-types-examples
+# Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+# You can set a language value if you prefer a translated version of CC license, e.g. deed.zh
+# CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
+creative_commons:
+  license: by-nc-sa
+  sidebar: true
+  post: true
+  language: zh-cn
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -94,13 +135,13 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: /|| home
-  about: /about/|| user
-  tags: /tags/|| tags
-  categories: /categories/|| th
-  archives: /archives/|| archive
-  schedule: /schedule/|| calendar
-  love: /love/|| heartbeat
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  schedule: /schedule/ || fa fa-calendar
+  love: /love/|| fa fa-heartbeat
   # sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
 
@@ -229,8 +270,13 @@ auto_excerpt:
 post_meta:
   item_text: true
   created_at: true
-  updated_at: true
+  updated_at:
+    enable: true
+    another_day: true
   categories: true
+
+# Use icon instead of the symbol # to indicate the tag at the bottom of the post
+tag_icon: true
 
 # Post wordcount display settings
 # Dependencies: https://github.com/willin/hexo-wordcount
@@ -240,21 +286,20 @@ post_wordcount:
   min2read: false
   totalcount: false
   separated_meta: true
-
-# Wechat Subscriber
-wechat_subscriber:
-  enabled: true
-  qcode: /uploads/WechatIMG.jpg
-  description: 欢迎关注猿枫小店公众号，逗比程序员的代码宅基地。
-  life:
-    qcode: /uploads/WechatIMG.jpg
-    description: 欢迎关注猿枫杂货店公众号，逗比程序员的生活宅基地。
   
 # Reward
 #reward_comment: Donate comment here
 #wechatpay: /images/wechatpay.jpg
 #alipay: /images/alipay.jpg
 #bitcoin: /images/bitcoin.png
+
+# Subscribe through Telegram Channel, Twitter, etc.
+# Usage: `Key: permalink || icon` (Font Awesome)
+follow_me:
+  #Twitter: https://twitter.com/username || fab fa-twitter
+  #Telegram: https://t.me/channel_name || fab fa-telegram
+  WeChat: /images/WechatIMG.jpg || fab fa-weixin
+  RSS: /atom.xml || fa fa-rss
 
 # Declare license on posts
 post_copyright:
@@ -278,9 +323,7 @@ android_chrome_color: "#222"
 # Options:
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
-custom_logo:
-  enabled: false
-  image:
+custom_logo: #/uploads/custom-logo.jpg
 
 # Code Highlight theme
 # Available value:
@@ -288,6 +331,11 @@ custom_logo:
 # https://github.com/chriskempson/tomorrow-theme
 highlight_theme: normal
 
+# `Follow me on GitHub` banner in the top-right corner.
+github_banner:
+  enable: true
+  permalink: https://github.com/gonghs
+  title: Follow me on GitHub
 
 # ---------------------------------------------------------------
 # Font Settings
@@ -316,7 +364,7 @@ font:
   global:
     external: true
     family: Lato
-    size:
+    size: 
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
   # Fallback to `global` font settings.
@@ -330,7 +378,8 @@ font:
   posts:
     external: true
     family:
-
+    size: 14px
+    
   # Font settings for Logo.
   # Fallback to `global` font settings.
   logo:
@@ -392,11 +441,16 @@ valine:
   appkey: MvuLM5jy3uL4pUoWVsBhIDdL # your leancloud application appkey
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
-  placeholder: Just go go # comment box placeholder
+  placeholder: '>-<' # comment box placeholder
   avatar: mm # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
-
+  language: zh-cn # Language, available values: en, zh-cn
+  visitor: true # Article reading statistic
+  comment_count: true # If false, comment count will only be displayed in post page, not in home page
+  recordIP: false # Whether to record the commenter IP
+  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  #post_meta_order: 0
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
@@ -560,6 +614,12 @@ busuanzi_count:
   # count values only if the other configs are false
   enable: true
   # custom uv span for the whole site
+  total_visitors: true
+  total_visitors_icon: fa fa-user
+  total_views: true
+  total_views_icon: fa fa-eye
+  post_views: true
+  post_views_icon: fa fa-eye
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
   site_uv_footer:
@@ -638,7 +698,7 @@ note:
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
   style: simple
-  icons: false
+  icons: true
   border_radius: 3
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
@@ -817,6 +877,3 @@ vendors:
 css: css
 js: js
 images: images
-
-# Theme version
-version: 5.1.4
