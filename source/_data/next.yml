@@ -274,6 +274,14 @@ post_meta:
     enable: true
     another_day: true
   categories: true
+  
+# Post wordcount display settings
+# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: false
+
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: true
@@ -594,7 +602,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: S2GzrQhCSkAMrzyRSelaF7Dg-gzGzoHsz
   app_key: MvuLM5jy3uL4pUoWVsBhIDdL
 
