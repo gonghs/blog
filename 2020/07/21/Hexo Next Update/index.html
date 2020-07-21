@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200720232518.gif">
 <meta property="og:image" content="https://gitee.com/gonghs/image/raw/master/img/20200720233329.png">
 <meta property="article:published_time" content="2020-07-20T16:57:16.000Z">
-<meta property="article:modified_time" content="2020-07-20T17:10:15.458Z">
+<meta property="article:modified_time" content="2020-07-21T09:45:58.139Z">
 <meta property="article:author" content="maple">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="next">
@@ -245,7 +245,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-21 00:57:16 / 修改时间：01:10:15" itemprop="dateCreated datePublished" datetime="2020-07-21T00:57:16+08:00">2020-07-21</time>
+              <time title="创建时间：2020-07-21 00:57:16 / 修改时间：17:45:58" itemprop="dateCreated datePublished" datetime="2020-07-21T00:57:16+08:00">2020-07-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,14 +291,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span></span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>NaN:aN</span>
+              <span>3 分钟</span>
             </span>
             <div class="post-description">之前搭建博客的时候为了上传到github，简单粗暴地将Next主题克隆并删除了.git文件夹，因此不方便对主题进行更新，如今Next主题已经更新迭代了很多版本，由于希望得到一些新功能的更新，决定将主题进行升级。</div>
 
@@ -330,7 +330,7 @@
 <p>便于后续更新，将Next主题仓库代码fork一份到自己的仓库，并克隆至hexo主题文件夹下。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/gonghs/hexo-theme-next themes\next7.8.0</span><br></pre></td></tr></table></figure>
 
-<p>利用Hexo3的<a href="https://hexo.io/docs/data-files" target="_blank" rel="noopener">Data Files特性</a>，在source文件夹下_data文件夹新建next.yml并拷贝旧版本next/_config.yml配置所有内容，以保留自定义主题配置且防止更新时与官方冲突，但需要注意主题配置与_data下next.yml中的override配置都必须为false（默认false，因此修改或者删除此配置项也都可以），建议<strong>将新版本的配置修改至此处，而旧版本配置放在原文件夹下保留一份可用的</strong>。</p>
+<p>利用Hexo3的<a href="https://hexo.io/docs/data-files" target="_blank" rel="noopener">Data Files特性</a>，在source文件夹下_data文件夹新建next.yml并拷贝旧版本next/_config.yml配置所有内容，以保留自定义主题配置且防止更新时与官方冲突，但需要注意主题配置与_data下next.yml中的override配置都必须为false（默认false，因此删除此配置项也都可以），建议<strong>将新版本的配置修改至此处，而旧版本配置放在原文件夹下保留一份可用的</strong>。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200716164030.png" alt="override配置"></p>
 <p>原有next文件夹可以不删除，以便出了问题可以切换回旧版本。</p>
 <h2 id="旧版本问题处理"><a href="#旧版本问题处理" class="headerlink" title="旧版本问题处理"></a>旧版本问题处理</h2><h3 id="首页菜单栏404"><a href="#首页菜单栏404" class="headerlink" title="首页菜单栏404"></a>首页菜单栏404</h3><p>更新所有依赖后菜单栏点击可能会报错404：</p>
@@ -388,6 +388,20 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 旧配置</span></span><br><span class="line"><span class="attr">post_copyright:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">CC</span> <span class="string">BY-NC-SA</span> <span class="number">3.0</span></span><br><span class="line">  <span class="attr">license_url:</span> <span class="string">https://creativecommons.org/licenses/by-nc-sa/3.0/</span></span><br><span class="line"><span class="comment"># 新配置</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="comment"># 侧边栏说明</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 文章底部说明</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zh-cn</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200720233329.png" alt="侧边栏版权说明"></p>
+<h3 id="统计异常"><a href="#统计异常" class="headerlink" title="统计异常"></a>统计异常</h3><p>在旧版本中的post_wordcount配置似乎已经不可用，因此需要使用symbols_count_time替代。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载原有依赖 不卸载对新插件有影响</span></span><br><span class="line">npm uninstall hexo-wordcount</span><br><span class="line"><span class="comment"># 安装新依赖</span></span><br><span class="line">npm i hexo-symbols-count-time</span><br></pre></td></tr></table></figure>
+
+<p>新的配置在symbols_count_time下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="comment"># 换行显示字数统计和阅读市场</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 文章底部显示</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 博客底部显示 默认为false</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>在hexo配置（非主题配置）下可以设置显示哪些内容和一些统计维度：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="comment"># 文章字数</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 阅读时长</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 总文章字数</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 阅读总时长</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 是否排除代码统计</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 平均字长 即将多少个字符统计为1个字数</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="comment"># 每分钟的字数 阅读速度</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="comment"># 统计单位 这里是分钟</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">"mins."</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h3><p>更新至新版以后字体默认大小比原先大了些，需要调整可以在font配置下进行变更。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 字体地址</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">  <span class="comment"># 正文字体将根据这个配置生效</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">  	<span class="comment"># 拓展字体库 设置为true将从host加载字体</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># 字体族</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lato</span></span><br><span class="line">    <span class="comment"># 大小  size=1为默认大小 0.8将缩小为80%</span></span><br><span class="line">    <span class="attr">size:</span> <span class="number">0.8</span></span><br><span class="line">  <span class="comment"># 正文标题字体大小  </span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">  	<span class="comment"># 拓展字体库 设置为true将从host加载字体</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># 字体族</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lato</span></span><br><span class="line">    <span class="comment"># 大小</span></span><br><span class="line">    <span class="attr">size:</span> <span class="number">0.8</span></span><br><span class="line">  <span class="comment"># 注意这里没有size配置</span></span><br><span class="line">  <span class="attr">posts:</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+
+
 <hr>
 <p>以上将此次升级中原自带配置的部分进行了修正，大致拥有了旧版的功能，之后将单独开文记录其他特别的功能在新版本的修改。</p>
 <p>参考文档：</p>
@@ -521,7 +535,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#版本更新"><span class="nav-number">1.</span> <span class="nav-text">版本更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旧版本问题处理"><span class="nav-number">2.</span> <span class="nav-text">旧版本问题处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首页菜单栏404"><span class="nav-number">2.1.</span> <span class="nav-text">首页菜单栏404</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新版本问题处理"><span class="nav-number">3.</span> <span class="nav-text">新版本问题处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言问题"><span class="nav-number">3.1.</span> <span class="nav-text">语言问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图标显示异常"><span class="nav-number">3.2.</span> <span class="nav-text">图标显示异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页自定义logo异常"><span class="nav-number">3.3.</span> <span class="nav-text">首页自定义logo异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读次数和评论展示异常"><span class="nav-number">3.4.</span> <span class="nav-text">文章阅读次数和评论展示异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面特效"><span class="nav-number">3.5.</span> <span class="nav-text">页面特效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信二维码"><span class="nav-number">3.6.</span> <span class="nav-text">微信二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版权文字"><span class="nav-number">3.7.</span> <span class="nav-text">版权文字</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#版本更新"><span class="nav-number">1.</span> <span class="nav-text">版本更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旧版本问题处理"><span class="nav-number">2.</span> <span class="nav-text">旧版本问题处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首页菜单栏404"><span class="nav-number">2.1.</span> <span class="nav-text">首页菜单栏404</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新版本问题处理"><span class="nav-number">3.</span> <span class="nav-text">新版本问题处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言问题"><span class="nav-number">3.1.</span> <span class="nav-text">语言问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图标显示异常"><span class="nav-number">3.2.</span> <span class="nav-text">图标显示异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页自定义logo异常"><span class="nav-number">3.3.</span> <span class="nav-text">首页自定义logo异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章阅读次数和评论展示异常"><span class="nav-number">3.4.</span> <span class="nav-text">文章阅读次数和评论展示异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面特效"><span class="nav-number">3.5.</span> <span class="nav-text">页面特效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信二维码"><span class="nav-number">3.6.</span> <span class="nav-text">微信二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版权文字"><span class="nav-number">3.7.</span> <span class="nav-text">版权文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计异常"><span class="nav-number">3.8.</span> <span class="nav-text">统计异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体大小"><span class="nav-number">3.9.</span> <span class="nav-text">字体大小</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -608,12 +622,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">NaNm</span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">87k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">NaN:aN</span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:19</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div><script type="text/javascript" src="/js/love.js"></script>
