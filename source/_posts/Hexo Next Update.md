@@ -54,7 +54,7 @@ npm i
 git clone https://github.com/gonghs/hexo-theme-next themes\next7.8.0
 ```
 
-利用Hexo3的[Data Files特性](https://hexo.io/docs/data-files)，在source文件夹下\_data文件夹新建next.yml并拷贝旧版本next/\_config.yml配置所有内容，以保留自定义主题配置且防止更新时与官方冲突，但需要注意主题配置与\_data下next.yml中的override配置都必须为false（默认false，因此修改或者删除此配置项也都可以），建议**将新版本的配置修改至此处，而旧版本配置放在原文件夹下保留一份可用的**。
+利用Hexo3的[Data Files特性](https://hexo.io/docs/data-files)，在source文件夹下\_data文件夹新建next.yml并拷贝旧版本next/\_config.yml配置所有内容，以保留自定义主题配置且防止更新时与官方冲突，但需要注意主题配置与\_data下next.yml中的override配置都必须为false（默认false，因此删除此配置项也都可以），建议**将新版本的配置修改至此处，而旧版本配置放在原文件夹下保留一份可用的**。
 
 ![override配置](https://gitee.com/gonghs/image/raw/master/img/20200716164030.png)
 
@@ -239,6 +239,81 @@ creative_commons:
 ```
 
 ![侧边栏版权说明](https://gitee.com/gonghs/image/raw/master/img/20200720233329.png)
+
+### 统计异常
+
+在旧版本中的post_wordcount配置似乎已经不可用，因此需要使用symbols_count_time替代。
+
+```bash
+# 卸载原有依赖 不卸载对新插件有影响
+npm uninstall hexo-wordcount
+# 安装新依赖
+npm i hexo-symbols-count-time
+```
+
+新的配置在symbols_count_time下：
+
+```yaml
+symbols_count_time:
+  # 换行显示字数统计和阅读市场
+  separated_meta: true
+  # 文章底部显示
+  item_text_post: true
+  # 博客底部显示 默认为false
+  item_text_total: true
+```
+
+在hexo配置（非主题配置）下可以设置显示哪些内容和一些统计维度：
+
+```yaml
+symbols_count_time:
+  # 文章字数
+  symbols: true
+  # 阅读时长
+  time: true
+  # 总文章字数
+  total_symbols: true
+  # 阅读总时长
+  total_time: true
+  # 是否排除代码统计
+  exclude_codeblock: false
+  # 平均字长 即将多少个字符统计为1个字数
+  awl: 4
+  # 每分钟的字数 阅读速度
+  wpm: 275
+  # 统计单位 这里是分钟
+  suffix: "mins."
+```
+
+### 字体大小
+
+更新至新版以后字体默认大小比原先大了些，需要调整可以在font配置下进行变更。
+
+```yaml
+font:
+  enable: true
+  # 字体地址
+  host:
+  # 正文字体将根据这个配置生效
+  global:
+  	# 拓展字体库 设置为true将从host加载字体
+    external: true
+    # 字体族
+    family: Lato
+    # 大小  size=1为默认大小 0.8将缩小为80%
+    size: 0.8
+  # 正文标题字体大小  
+  headings:
+  	# 拓展字体库 设置为true将从host加载字体
+    external: true
+    # 字体族
+    family: Lato
+    # 大小
+    size: 0.8
+  # 注意这里没有size配置
+  posts:
+  ...
+```
 
 
 
