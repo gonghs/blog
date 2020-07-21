@@ -280,7 +280,7 @@ post_meta:
 symbols_count_time:
   separated_meta: true
   item_text_post: true
-  item_text_total: false
+  item_text_total: true
 
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
@@ -358,7 +358,7 @@ github_banner:
 # Arial | Tahoma | Helvetica | Times New Roman | Courier New | Verdana | Georgia | Palatino | Garamond | Comic Sans MS | Trebuchet MS
 # ---------------------------------------------------------------
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default).
   host:
@@ -372,7 +372,7 @@ font:
   global:
     external: true
     family: Lato
-    size: 
+    size: 0.8
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
   # Fallback to `global` font settings.
@@ -386,7 +386,6 @@ font:
   posts:
     external: true
     family:
-    size: 14px
     
   # Font settings for Logo.
   # Fallback to `global` font settings.
