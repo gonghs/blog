@@ -19,9 +19,9 @@ description: 在开发过程总是不可避免的遇到字段值个数有限，�
 
 ### 使用Mybatis-Plus读取
 
-借助***MyBatis-Plus***可以很容易的实现这一点。
+借助 ***MyBatis-Plus*** 可以很容易的实现这一点。
 
-首先需要在配置文件中加入type-enums-package指定枚举的扫描包，***MyBatis-Plus***将为包内(包含子包)所有枚举进行适配，可以使用逗号或封号分隔多个包名。
+首先需要在配置文件中加入type-enums-package指定枚举的扫描包，***MyBatis-Plus*** 将为包内(包含子包)所有枚举进行适配，可以使用逗号或封号分隔多个包名。
 
 ```yaml
 mybatis-plus:
@@ -30,7 +30,7 @@ mybatis-plus:
 
 接着在枚举类中指定数据库值所对应的属性。这里可以采用两种方式。
 
-- 实现官方提供的*IEnum\<T\>*接口，接口中的getValue方法与数据库值对应的属性。
+- 实现官方提供的 *IEnum\<T\>* 接口，接口中的getValue方法与数据库值对应的属性。
 
   ```java
   @Getter//实现getValue
@@ -48,7 +48,7 @@ mybatis-plus:
   }
   ```
 
-- 将属性使用**@EnumValue**注解标记数据库值对应的属性。
+- 将属性使用 **@EnumValue** 注解标记数据库值对应的属性。
 
   ```java
   @Getter//实现getValue
@@ -91,17 +91,17 @@ public class TestDO {
 
 ### MyBatis-Plus的实现
 
-从***MyBatis-Plus*** **com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean**中可以找到它是如何实现的。
+从 ***MyBatis-Plus*** **com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean** 中可以找到它是如何实现的。
 
-在*buildSqlSessionFactory*方法中可以看到，在配置了type-enums-package的情况下，***MyBatis-Plus***将为该包下满足处理条件的枚举注册**MybatisEnumTypeHandler**类型转换处理器
+在*buildSqlSessionFactory*方法中可以看到，在配置了type-enums-package的情况下， ***MyBatis-Plus*** 将为该包下满足处理条件的枚举注册**MybatisEnumTypeHandler**类型转换处理器
 
 ![枚举处理器注册](https://gitee.com/gonghs/image/raw/master/img/20200621212145.png)
 
-在**MybatisEnumTypeHandler**中将取出实现**IEnum**接口的枚举的*getValue*方法或使用**@EnumValue**标记的字段的*getter*方法进行数据库值处理。
+在**MybatisEnumTypeHandler**中将取出实现**IEnum**接口的枚举的*getValue*方法或使用 **@EnumValue** 标记的字段的*getter*方法进行数据库值处理。
 
 ### 使用Mybatis实现
 
-***Mybatis***提供了default-enum-type-handler配置用于改写默认的枚举处理器，这里简单粗暴的直接替换了默认处理器（***MyBatis-Plus***是满足条件的类才注册为该处理器处理，实际情况也应该如此）。
+***Mybatis***提供了default-enum-type-handler配置用于改写默认的枚举处理器，这里简单粗暴的直接替换了默认处理器（ ***MyBatis-Plus*** 是满足条件的类才注册为该处理器处理，实际情况也应该如此）。
 
 ```yaml
 mybatis:
@@ -113,7 +113,7 @@ mybatis:
 
 ![测试](https://gitee.com/gonghs/image/raw/master/img/20200621221102.png)
 
-或者在原有的***Mybatis***配置下追加类似的处理器注册操作。
+或者在原有的 ***Mybatis*** 配置下追加类似的处理器注册操作。
 
 ```java
 @Configuration
@@ -251,11 +251,11 @@ public class TestController{
 
 #### Jackson
 
-json请求使用**@RequestBody**注解标记接收，处理器为项目中指定的消息转换器。在***Springboot***中默认为***Jackson***。
+json请求使用 **@RequestBody** 注解标记接收，处理器为项目中指定的消息转换器。在 ***Springboot*** 中默认为 ***Jackson*** 。
 
 ***Jackson***对枚举的默认行为为按枚举名或其所在的位置（从0开始计算），例如当传入0时获取的是枚举类中的第一个对象。
 
-这显然不是我们要的，使用**@JsonCreator**注解可以自定义枚举创建的方式。
+这显然不是我们要的，使用 **@JsonCreator** 注解可以自定义枚举创建的方式。
 
 增加枚举类方法：
 
@@ -340,7 +340,7 @@ public class JacksonEnumDeserializer extends JsonDeserializer<Enum<?>> implement
     @Override
     public JsonDeserializer<Enum<?>> createContextual(DeserializationContext ctx, BeanProperty property) throws JsonMappingException {
         Class<?> rawCls = ctx.getContextualType().getRawClass();
-        JacksonEnumConverter converter = new JacksonEnumConverter();
+        JacksonEnumDeserializer converter = new JacksonEnumDeserializer();
         converter.setClazz(rawCls);
         return converter;
     }
@@ -429,11 +429,11 @@ public class FastJsonEnumDeserializer implements ObjectDeserializer
 
 反序列化器同样可以借助**@JSONField**注解使其仅在实体字段生效。
 
-```
+```java
 @JSONField(deserializeUsing = FastJsonEnumDeserializer.class)
 ```
 
-通过修改**ParserConfig**配置可以修改指定类的反序列化器，但由于***FastJson***获取序列化器时是直接从*deserializers*链表中直接按类型读取，并未做根类型的特殊处理，这意味着我们无法通过**Enum**类的配置覆盖所有枚举类，需要自行扫描所有枚举并加入配置，示例中借助hutool扫描指定包下的类。
+通过修改**ParserConfig**配置可以修改指定类的反序列化器，但由于 ***FastJson*** 获取序列化器时是直接从*deserializers*链表中直接按类型读取，并未做根类型的特殊处理，这意味着我们无法通过**Enum**类的配置覆盖所有枚举类，需要自行扫描所有枚举并加入配置，示例中借助hutool扫描指定包下的类。
 
 ```xml
 <dependency>
@@ -503,14 +503,14 @@ public class JacksonConfig {
 }
 ```
 
-若配置不满足需求，还可以使用**@JsonValue**注解标记需要序列化返回的值（同一个类中不允许多个标记，标记字段则取字段实际值，标记方法则取方法返回值）。
+若配置不满足需求，还可以使用 **@JsonValue** 注解标记需要序列化返回的值（同一个类中不允许多个标记，标记字段则取字段实际值，标记方法则取方法返回值）。
 
 ```java
 @JsonValue
 private final String desc;
 ```
 
-使用**@JsonFormat(shape = JsonFormat.Shape.OBJECT)**标记枚举类可以使枚举被序列化为对象形式。
+使用 **@JsonFormat(shape = JsonFormat.Shape.OBJECT)** 标记枚举类可以使枚举被序列化为对象形式。
 
 ![响应](https://gitee.com/gonghs/image/raw/master/img/20200623145206.png)
 
@@ -568,7 +568,7 @@ public class JacksonConfig {
 }
 ```
 
-我们也可以将**@JsonFormat(shape = JsonFormat.Shape.OBJECT)**全局化，但此方式只支持到具体类，因此如果有需要也只能通过包扫描的形式进行进行全局定义。
+我们也可以将 **@JsonFormat(shape = JsonFormat.Shape.OBJECT)** 全局化，但此方式只支持到具体类，因此如果有需要也只能通过包扫描的形式进行进行全局定义。
 
 ```java
 @Configuration
@@ -586,7 +586,7 @@ public class JacksonConfig {
 
 附：各种场景的序列化优先级：
 
-实体字段上的**@JsonSerialize**配置 > 枚举上的**@JsonSerialize**配置 > 全局**JsonSerializer**注册 > 枚举上的**@JsonValue**配置 > 实体字段的**@JsonFormat**配置> 全局的configOverride配置覆盖 > 枚举上的**@JsonFormat**配置
+实体字段上的 **@JsonSerialize**配置 > 枚举上的 **@JsonSerialize**配置 > 全局**JsonSerializer**注册 > 枚举上的 **@JsonValue**配置 > 实体字段的 **@JsonFormat**配置> 全局的**configOverride**配置覆盖 > 枚举上的 **@JsonFormat**配置
 
 ### FastJson
 
@@ -630,7 +630,7 @@ public class FastJsonEnumSerializer implements ObjectSerializer {
 }
 ```
 
-可以在类上使用**@JSONType**注解标记或在类字段用**@JSONField**标记。
+可以在类上使用 **@JSONType**注解标记或在类字段用 **@JSONField**标记。
 
 ```java
 @JSONField(serializeUsing = FastJsonEnumSerializer.class)
@@ -655,4 +655,4 @@ public HttpMessageConverter<?> httpMessageConverter() {
 
 附：各种场景的序列化优先级：
 
-实体字段上的**@JSONField**配置 > 全局**SerializeConfig**配置 > 枚举上的**@JSONType**配置
+实体字段上的 **@JSONField**配置 > 全局**SerializeConfig**配置 > 枚举上的 **@JSONType**配置
