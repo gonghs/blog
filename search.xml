@@ -1885,6 +1885,9 @@
 
 <p>启动完成查看页面：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200807154432.png" alt="默认页面"></p>
+<p>简历主要目录及描述如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── src (资源文件内容)</span><br><span class="line">│   ├── zh-cn 中文简历目录</span><br><span class="line">		└── index.md 中文简历文件 诸如名称，标题，联系方式，下载文件等简历配置包含在头部</span><br><span class="line">│   └── index.md 英文简历文件 诸如名称，标题，联系方式，下载文件等简历配置包含在头部</span><br><span class="line">├── themes(主题目录)</span><br><span class="line">└── _config.yml(hexo配置文件 主要包含推送配置等)</span><br></pre></td></tr></table></figure>
+
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="Gitee部署"><a href="#Gitee部署" class="headerlink" title="Gitee部署"></a>Gitee部署</h3><p>GithubPage国内访问过于勉强，可以使用Gitee部署。</p>
 <p>修改主题配置文件部署目录和推送配置，将推送目录设置在名为仓库名的子文件夹下（因为Gitee部署时的访问网址为<a href="https://gonghs.gitee.io/resume-docs/" target="_blank" rel="noopener">https://gonghs.gitee.io/[仓库名]</a>）</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://gonghs.gitee.io/[仓库名]</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">[仓库名]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以直接推送到Gitee上 Gitee检测到更新将自动部署</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/[你的用户名]/resume-docs.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">deploy_gitee</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">update</span> <span class="string">pages</span></span><br></pre></td></tr></table></figure>
@@ -1954,11 +1957,12 @@
 <p>因此导出前需要在头部加入样式。</p>
 <p>开启开发者工具点选网页找到head部分任意编辑一处style块，并加入以下代码。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200815090631.png" alt="编辑样式"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@media print &#123;</span><br><span class="line">  a[href]:after &#123;</span><br><span class="line">    content: none !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> print &#123;</span><br><span class="line">  <span class="selector-tag">a</span><span class="selector-attr">[href]</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: none <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>加入后在打印预览处就不会再看到多出来的a标签部分。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200815090523.png" alt="去除A标签"></p>
-]]></content>
+<p>导出后可以上传至服务器或Gitee上，并修改至简历下载配置中。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PDF下载链接</span></span><br><span class="line"><span class="attr">download:</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">PDF下载</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">fas</span> <span class="string">fa-download</span> <span class="string">fa-fw</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">http://www.ice-maple.com/uploads/Maple's</span> <span class="string">Resume.pdf</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>blog</category>
       </categories>
