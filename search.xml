@@ -1947,6 +1947,17 @@
 <p>再次执行重启指令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
 
+<h2 id="附3：网页导出为PDF"><a href="#附3：网页导出为PDF" class="headerlink" title="附3：网页导出为PDF"></a>附3：网页导出为PDF</h2><p>在谷歌浏览器中右键选择打印，目标打印机选择PDF</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200815090113.png" alt="打印为PDF"></p>
+<p>在更多设置里可以选择是否导出背景和页眉页脚。</p>
+<p>但无法配置a标签的导出，导致显示会有重复的部分。</p>
+<p>因此导出前需要在头部加入样式。</p>
+<p>开启开发者工具点选网页找到head部分任意编辑一处style块，并加入以下代码。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200815090631.png" alt="编辑样式"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@media print &#123;</span><br><span class="line">  a[href]:after &#123;</span><br><span class="line">    content: none !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入后在打印预览处就不会再看到多出来的a标签部分。</p>
+<p><img src="https://gitee.com/gonghs/image/raw/master/img/20200815090523.png" alt="去除A标签"></p>
 ]]></content>
       <categories>
         <category>blog</category>
