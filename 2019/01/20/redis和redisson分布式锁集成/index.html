@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.ice-maple.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"padding":18},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.ice-maple.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="此篇讲述使用springboot集成redis和redisson分布式锁">
@@ -130,6 +130,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
@@ -143,11 +148,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -481,7 +481,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#版本概要"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新建项目请参考"><span class="nav-number">2.</span> <span class="nav-text">新建项目请参考springboot初探和配置文件映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis集成"><span class="nav-number">3.</span> <span class="nav-text">redis集成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方式1-使用hessian帮助我们进行序列化"><span class="nav-number">3.1.</span> <span class="nav-text">方式1:使用hessian帮助我们进行序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式2-使用java-对象输入输出流实现-对象需要实现序列化-比较慢-不推荐"><span class="nav-number">3.2.</span> <span class="nav-text">方式2,使用java 对象输入输出流实现(对象需要实现序列化) 比较慢 不推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方式3-使用fastjson-对象可以不用实现序列化"><span class="nav-number">3.3.</span> <span class="nav-text">方式3,使用fastjson,对象可以不用实现序列化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redisson集成"><span class="nav-number">4.</span> <span class="nav-text">redisson集成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注解获取缓存对象"><span class="nav-number">5.</span> <span class="nav-text">注解获取缓存对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码链接"><span class="nav-number">6.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%A6%82%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%AF%B7%E5%8F%82%E8%80%83"><span class="nav-number">2.</span> <span class="nav-text">新建项目请参考springboot初探和配置文件映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redis%E9%9B%86%E6%88%90"><span class="nav-number">3.</span> <span class="nav-text">redis集成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F1-%E4%BD%BF%E7%94%A8hessian%E5%B8%AE%E5%8A%A9%E6%88%91%E4%BB%AC%E8%BF%9B%E8%A1%8C%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">方式1:使用hessian帮助我们进行序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F2-%E4%BD%BF%E7%94%A8java-%E5%AF%B9%E8%B1%A1%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81%E5%AE%9E%E7%8E%B0-%E5%AF%B9%E8%B1%A1%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96-%E6%AF%94%E8%BE%83%E6%85%A2-%E4%B8%8D%E6%8E%A8%E8%8D%90"><span class="nav-number">3.2.</span> <span class="nav-text">方式2,使用java 对象输入输出流实现(对象需要实现序列化) 比较慢 不推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F3-%E4%BD%BF%E7%94%A8fastjson-%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%94%A8%E5%AE%9E%E7%8E%B0%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">3.3.</span> <span class="nav-text">方式3,使用fastjson,对象可以不用实现序列化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redisson%E9%9B%86%E6%88%90"><span class="nav-number">4.</span> <span class="nav-text">redisson集成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3%E8%8E%B7%E5%8F%96%E7%BC%93%E5%AD%98%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">注解获取缓存对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

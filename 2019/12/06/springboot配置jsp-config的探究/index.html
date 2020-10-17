@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.ice-maple.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"padding":18},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.ice-maple.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="探究在springboot中寻找jsp-config的替代方案">
@@ -130,6 +130,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
@@ -143,11 +148,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -489,7 +489,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#版本概要"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目准备"><span class="nav-number">2.</span> <span class="nav-text">项目准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-xml中的jsp-config标签"><span class="nav-number">3.</span> <span class="nav-text">web.xml中的jsp-config标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在springboot中配置jsp-config"><span class="nav-number">4.</span> <span class="nav-text">在springboot中配置jsp-config</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#外部tomcat启动配置"><span class="nav-number">4.1.</span> <span class="nav-text">外部tomcat启动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在idea中配置嵌入式容器启动"><span class="nav-number">4.1.1.</span> <span class="nav-text">在idea中配置嵌入式容器启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入式容器配置-java-config配置"><span class="nav-number">4.2.</span> <span class="nav-text">嵌入式容器配置(java config配置)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能的其他方式"><span class="nav-number">4.3.</span> <span class="nav-text">可能的其他方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码链接"><span class="nav-number">5.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%A6%82%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">版本概要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">项目准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-xml%E4%B8%AD%E7%9A%84jsp-config%E6%A0%87%E7%AD%BE"><span class="nav-number">3.</span> <span class="nav-text">web.xml中的jsp-config标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8springboot%E4%B8%AD%E9%85%8D%E7%BD%AEjsp-config"><span class="nav-number">4.</span> <span class="nav-text">在springboot中配置jsp-config</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8tomcat%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">外部tomcat启动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8idea%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8"><span class="nav-number">4.1.1.</span> <span class="nav-text">在idea中配置嵌入式容器启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE-java-config%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">嵌入式容器配置(java config配置)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">可能的其他方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">代码链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

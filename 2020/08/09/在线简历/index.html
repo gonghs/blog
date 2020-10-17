@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.ice-maple.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"padding":18},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.ice-maple.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="好看的在线简历，求职必备">
@@ -133,6 +133,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
@@ -146,11 +151,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -540,7 +540,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitee部署"><span class="nav-number">2.1.</span> <span class="nav-text">Gitee部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos服务器部署"><span class="nav-number">2.2.</span> <span class="nav-text">Centos服务器部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附1：点击邮箱打开发送邮件页面"><span class="nav-number">3.</span> <span class="nav-text">附1：点击邮箱打开发送邮件页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附2：Nginx注册为Centos服务"><span class="nav-number">4.</span> <span class="nav-text">附2：Nginx注册为Centos服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附3：网页导出为PDF"><span class="nav-number">5.</span> <span class="nav-text">附3：网页导出为PDF</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitee%E9%83%A8%E7%BD%B2"><span class="nav-number">2.1.</span> <span class="nav-text">Gitee部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Centos%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">2.2.</span> <span class="nav-text">Centos服务器部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%841%EF%BC%9A%E7%82%B9%E5%87%BB%E9%82%AE%E7%AE%B1%E6%89%93%E5%BC%80%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">附1：点击邮箱打开发送邮件页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%842%EF%BC%9ANginx%E6%B3%A8%E5%86%8C%E4%B8%BACentos%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">附2：Nginx注册为Centos服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%843%EF%BC%9A%E7%BD%91%E9%A1%B5%E5%AF%BC%E5%87%BA%E4%B8%BAPDF"><span class="nav-number">5.</span> <span class="nav-text">附3：网页导出为PDF</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
