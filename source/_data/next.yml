@@ -161,6 +161,9 @@ scheme: Muse
 # scheme: Gemini
 
 
+# Dark Mode
+darkmode: false
+
 # ---------------------------------------------------------------
 # Sidebar Settings
 # ---------------------------------------------------------------
@@ -258,6 +261,7 @@ scroll_to_more: true
 save_scroll: false
 
 # Automatically excerpt description in homepage as preamble text.
+# 显示文章预览页面
 excerpt_description: true
 
 # Automatically Excerpt. Not recommend.
@@ -868,6 +872,7 @@ vendors:
   # https://github.com/revir/need-more-share2
   needMoreShare2:
 
+read_more_btn: true
 
 # Assets
 css: css
