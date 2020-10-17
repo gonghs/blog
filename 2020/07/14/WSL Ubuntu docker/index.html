@@ -360,20 +360,20 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 创建文件夹 不先创建保存文件可能提示权限不足(root用户忽略)</span><br><span class="line">mkdir &#x2F;etc&#x2F;docker </span><br><span class="line"># 编辑文件</span><br><span class="line">vim &#x2F;etc&#x2F;docker&#x2F;daemon.json</span><br><span class="line"># 文件内容</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;hub-mirror.c.163.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>重启docker：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart </span><br></pre></td></tr></table></figure>
 
 <h2 id="在Idea中访问"><a href="#在Idea中访问" class="headerlink" title="在Idea中访问"></a>在Idea中访问</h2><p>开启远程访问端口：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 编辑配置</span><br><span class="line">vim &#x2F;etc&#x2F;default&#x2F;docker</span><br><span class="line"># 配置内容</span><br><span class="line">DOCKER_OPTS&#x3D;&quot;-H tcp:&#x2F;&#x2F;0.0.0.0:2375 -H unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock&quot;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713145648.png" alt="image-20200713145647547"></p>
 <p>重启服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart </span><br></pre></td></tr></table></figure>
 
 <p>确认端口状态：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713150016.png" alt="端口运行状态"></p>
-<p>由于目前外部程序连接无法直接通过localhost访问（浏览器似乎可以<a href="http://localhost:2375/info" target="_blank" rel="noopener">localhost:2375/info</a>），需要使用子系统ip访问。</p>
+<p>由于目前外部程序连接无法直接通过localhost访问（浏览器似乎可以<a href="http://localhost:2375/info">localhost:2375/info</a>），需要使用子系统ip访问。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714163959.png" alt="localhost访问"></p>
 <p>查询子系统ip：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
@@ -383,7 +383,7 @@
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171142.png" alt="Idea docker配置"></p>
 <p>配置完成可以在管理窗口看到容器与镜像信息。</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200713171312.png" alt="docker管理窗口"></p>
-<h2 id="处理IP变化问题"><a href="#处理IP变化问题" class="headerlink" title="处理IP变化问题"></a>处理IP变化问题</h2><p>由于子系统IP总是变化，外部访问时如果用IP就会很麻烦，可以借助<a href="https://github.com/shayne/go-wsl2-host/releases" target="_blank" rel="noopener">wsl2host</a>配置host改善。</p>
+<h2 id="处理IP变化问题"><a href="#处理IP变化问题" class="headerlink" title="处理IP变化问题"></a>处理IP变化问题</h2><p>由于子系统IP总是变化，外部访问时如果用IP就会很麻烦，可以借助<a href="https://github.com/shayne/go-wsl2-host/releases">wsl2host</a>配置host改善。</p>
 <p>下载：</p>
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714164651.png" alt="下载"></p>
 <p>下载完毕后使用Cmd或PowerShell运行：</p>
@@ -403,7 +403,7 @@
 <p><img src="https://gitee.com/gonghs/image/raw/master/img/20200714181609.png" alt="访问服务"></p>
 <hr>
 <p>参考资料:</p>
-<p><a href="https://blog.csdn.net/kfeng632/article/details/105979109/" target="_blank" rel="noopener">解决Win10 WSL2 IP地址经常变动导致docker容器无法正常访问</a></p>
+<p><a href="https://blog.csdn.net/kfeng632/article/details/105979109/">解决Win10 WSL2 IP地址经常变动导致docker容器无法正常访问</a></p>
 
     </div>
 
@@ -624,13 +624,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">94k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:23</span>
+    <span title="站点阅读时长">1:25</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div><script type="text/javascript" src="/js/love.js"></script>

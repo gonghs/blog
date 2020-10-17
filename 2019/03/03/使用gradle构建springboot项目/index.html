@@ -336,12 +336,12 @@
 </li>
 <li>引入springboot<ul>
 <li>在plugins节点中加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id &#39;org.springframework.boot&#39; version &#39;2.1.3.RELEASE&#39;</span><br></pre></td></tr></table></figure></li>
-<li>加入根节点 使用spingboot插件(即最顶层)  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#39;io.spring.dependency-management&#39;</span><br></pre></td></tr></table></figure></li>
+<li>加入根节点 使用spingboot插件(即最顶层)  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#39;io.spring.dependency-management&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li>引入springboot web和test依赖 在dependencies节点加入  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;org.springframework.boot:spring-boot-starter-web&#39;</span><br><span class="line">testImplementation &#39;org.springframework.boot:spring-boot-starter-test&#39;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li>新建启动类并测试<ul>
-<li>在java文件夹或kotlin文件夹下创建springboot启动类  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runApplication&lt;SpringbootRun&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在java文件夹或kotlin文件夹下创建springboot启动类  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootRun</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    runApplication&lt;SpringbootRun&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>点击右侧bootRun尝试启动(注意这里bootRun会自动扫描main方法,如果存在多个main方法只会选择其中一个),或者使用传统方式启动<br>  <img src="https://i.loli.net/2019/09/28/zZRoTUX36k4GOtV.png" alt="image.png"></li>
 <li>访问localhost:8080查看结果<br>  <img src="https://i.loli.net/2019/09/28/CjK4qsF6AI93bdW.png" alt="image.png"></li>
 </ul>
@@ -362,7 +362,7 @@
 </ul>
 </li>
 <li>打成war包使用jetty运行<ul>
-<li>修改build.gradle 加入根节点  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    compile.exclude module: <span class="string">"spring-boot-starter-tomcat"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>修改build.gradle 加入根节点  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    compile.exclude module: <span class="string">&quot;spring-boot-starter-tomcat&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>加入依赖  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;org.springframework.boot:spring-boot-starter-jetty&#39;</span><br></pre></td></tr></table></figure></li>
 <li>点击右侧bootWar</li>
 <li>拷贝war包至jetty安装路径webapps下</li>
@@ -371,7 +371,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a><a href="https://github.com/gonghs/kotlin-web/tree/master/springboot-gradle" target="_blank" rel="noopener">代码链接</a></h1>
+<h1 id="代码链接"><a href="#代码链接" class="headerlink" title="代码链接"></a><a href="https://github.com/gonghs/kotlin-web/tree/master/springboot-gradle">代码链接</a></h1>
     </div>
 
     
@@ -592,13 +592,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">92k</span>
+    <span title="站点总字数">94k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:23</span>
+    <span title="站点阅读时长">1:25</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div><script type="text/javascript" src="/js/love.js"></script>
