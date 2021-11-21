@@ -65,7 +65,7 @@ public void testSql() {
  */
 ```
 
-上面的测试类我们使用访问器访问语树并存储了访问所得是所有表名，Druid为我们提供了很多visit方法的相关重载方法，利用这些方法我们可以访问到上节图示中除了SQLBinaryOperator之外的所有节点。
+上面的测试类我们使用访问器访问节点树并存储了访问所得的所有表名，Druid为我们提供了很多visit方法的相关重载方法，利用这些方法我们可以访问到上节图示中除了SQLBinaryOperator之外的所有节点。
 
 ```java
 @Getter
