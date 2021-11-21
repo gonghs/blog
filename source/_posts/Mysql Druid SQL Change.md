@@ -572,7 +572,7 @@ insert into test(name) select name from test where name = 'maple';
 
 以上的节点解析结果可以看出，当不存在子查询时，访问器需要做的处理包含columns与valueList两部分，分别需要加上我们需要添加的字段名与字段值。
 
-存在子查询是，需要处理columns与query两部分，其中columns加上我们需要添加的字段名，query块中的selectList部分需要加上我们需要添加的字段名，并且如果需要的话子查询部分可以继承查询部分的处理。
+存在子查询时，需要处理columns与query两部分，其中columns加上我们需要添加的字段名，query块中的selectList部分需要加上我们需要添加的字段名，并且如果需要的话子查询部分可以继承查询部分的处理。
 
 代码实现：
 
